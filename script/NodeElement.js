@@ -16,7 +16,6 @@ class Node extends PIXI.Graphics {
         // cercle
         this.drawCircle(0,0, radius);
 
-
         // crée notre object enfant texte
         this.label = new PIXI.Text(this.text,  new PIXI.TextStyle({ fontFamily: 'Roboto Light', fontSize: 25 }));
 
@@ -27,11 +26,8 @@ class Node extends PIXI.Graphics {
         this.label.anchor.set(0.5);
         this.addChild(this.label);
 
-
-
     }
 
-    
 }
 
 

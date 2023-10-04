@@ -2,6 +2,7 @@ import * as PIXI from 'pixi.js';
 import { Viewport } from 'pixi-viewport';
 import { Node } from './NodeElement.js';
 import { BezierCurve } from './BezierCurveElement.js';
+import data from "../public/categorized-subset.json";
 
 let app, viewport;
 
@@ -31,7 +32,7 @@ function createViewport(){
         worldWidth: 1920,
         worldHeight: 1080,
         
-        events: app.renderer.events,
+        events: app.renderer.events
     });
     
     // ajout du viewport dans le stage de l'app
@@ -47,12 +48,31 @@ function createObjects(){
     PIXI.Assets.loadBundle('fonts').then(() => {
         // création des objets
 
-        let object = new Node(10, '0x000000', 0, 0, "wesh");
-        let object2 = new Node(10, '0x000000', 250, 250, "ehehe");
-        objects.push(object, object2);
+        let music = new Node(40, '0x000000', (viewport.screenWidth / 2), (viewport.screenHeight / 1.5), "Music");
+        objects.push(music);
 
-        viewport.addChild(object);
-        viewport.addChild(object2);
+
+        let spacing = 650;
+        Object.keys(data).forEach((key, i) => {
+            let value = data[key];
+            let length = Object.keys(data).length;
+
+            let x = music.x;
+            x -= (spacing * (length-1)) / 2;
+            x += i * spacing;
+            let y = music.y - 500;
+
+            objects.push(new Node(20, '0x000000', x, y, key));
+
+            let curve = new BezierCurve(music, objects[i], {x: 0, y: 0}, {x: 0, y: 0});
+            viewport.addChild(curve);
+        });
+
+
+        objects.forEach((el) =>{
+            viewport.addChild(el);
+        });
+
     });
 
 
@@ -61,6 +81,7 @@ function createObjects(){
         objects.forEach((element) => {
             element.label.y = -element.radius - 15 / event.viewport.scale.y;
             element.label.scale.set(1 / event.viewport.scale.x, 1 / event.viewport.scale.y);
+            console.log(event.viewport.scale.x);
         });
     });
 }
@@ -78,6 +99,8 @@ function createBezierCurve(){
 createApp();
 createViewport();
 createObjects();
-createBezierCurve();
+// createBezierCurve();
+
+
 
 
