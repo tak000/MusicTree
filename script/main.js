@@ -59,7 +59,7 @@ function createObjects(){
     //autoscaling du texte (et de son espacement par rapport au point)
     viewport.on('zoomed', (event) => {
         objects.forEach((element) => {
-            element.label.y = -element.radius - 20 / event.viewport.scale.y;
+            element.label.y = -element.radius - 15 / event.viewport.scale.y;
             element.label.scale.set(1 / event.viewport.scale.x, 1 / event.viewport.scale.y);
         });
     });

@@ -21,7 +21,7 @@ class Node extends PIXI.Graphics {
         this.label = new PIXI.Text(this.text,  new PIXI.TextStyle({ fontFamily: 'Roboto Light', fontSize: 25 }));
 
         // position du texte par rapport au parent
-        this.label.y = -this.radius - 20;
+        this.label.y = -this.radius - 15;
 
         // centre le texte
         this.label.anchor.set(0.5);
