@@ -57,8 +57,8 @@
 }
 
 #modalImage {
-    width: 100px;
-    height: 100px;
+    width: 300px;
+    height: 300px;
     border: 1px solid #888;
 }
 
@@ -67,5 +67,17 @@
 }
 
 #modalDescription {
-    font-size: 16px;
+    font-size: 20px;
+}
+
+.modal {
+    cursor: move;
+}
+
+.modal.draggable {
+    cursor: grab;
+}
+
+.modal.dragging {
+    cursor: grabbing;
 }
