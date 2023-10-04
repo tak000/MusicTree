@@ -1,16 +1,41 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doom Metal Timeline</title>
     <link rel="stylesheet" href="style/music.css">
-    <script src="script/courbehistoire.js" defer></script>
+    <script src="script/courbepixi.js" defer></script>
 </head>
 <body>
     <div class="timeline-container">
         <h1>Music Timeline</h1>
         <div id="timeline"></div>
     </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixiJS Timeline</title>
+    <link rel="stylesheet" href="style/music.css">
+    <script src="script/courbepixi.js"  type="module"></script>
+</head>
+<body>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2 id="modalTitle">Genre Title</h2>
+            <div id="modalImageContainer">
+                <img id="modalImage" src="" alt="Genre Image" width="100" height="100">
+            </div>
+            <p id="modalDescription">Genre Description</p>
+        </div>
+    </div>
+    
+    <div id="support"></div>
 </body>
 </html>
