@@ -1,0 +1,105 @@
+{
+    "War songs" : {
+        "main-artist": ["Dmitri Shostakovich", "Samuel Barber", "Vera Lynn", "John Williams", "Hans Zimmer"],
+        "description": "La musique de guerre englobe un large éventail de compositions associées aux thèmes de la guerre, des conflits, du patriotisme et de l'héroïsme. Ces compositions peuvent être instrumentales ou comporter des éléments vocaux, et visent souvent à transmettre les aspects émotionnels et dramatiques des expériences de guerre. La musique de guerre a été utilisée historiquement pour inspirer les troupes, commémorer les soldats tombés au combat ou refléter les sentiments sociaux et politiques d'une période particulière. Son style et son ton peuvent varier considérablement, du martial et triomphant au sombre et réfléchi",
+        "extrait": "https://www.youtube.com/watch?v=sfuLrny00t4",
+        "extrait-id": "sfuLrny00t4",
+        "extrait-nom": "The Battle Hymn of the Republic",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/7/7c/OkinawaSprintingMarine.jpg",
+        "date": "1950"
+      },
+      "Punk" : {
+        "subgenre" : {
+          "Anarcho Punk": {
+            "main-artist": ["Crass", "Dead Kennedys", "Discharge", "Conflict", "Subhumans"],
+            "description": "Anarcho Punk est un sous-genre du punk rock qui promeut l'anarchisme et les idées politiques radicales. Il est caractérisé par ses paroles engagées, son attitude DIY (do it yourself) et son rejet des structures autoritaires.",
+            "extrait": "https://www.youtube.com/watch?v=-KTsXHXMkJA",
+            "extrait-id": "-KTsXHXMkJA",
+            "extrait-nom": "'Holiday in Cambodia' by Dead Kennedys",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/3/3d/2019_Dead_Kennedys_-_by_2eight_-_ZSC5095.jpg",
+            "date": "1953"
+          },
+          "Gothic Punk": {
+            "main-artist": ["Bauhaus", "Siouxsie and the Banshees", "The Sisters of Mercy", "The Damned", "The Cure"],
+            "description": "Gothic Punk est un sous-genre qui combine des éléments du punk rock avec une esthétique sombre et gothique. Il est caractérisé par ses mélodies mélancoliques et ses paroles introspectives.",
+            "extrait": "https://www.youtube.com/watch?v=OKRJfIPiJGY",
+            "extrait-id": "OKRJfIPiJGY",
+            "extrait-nom": "'Bela Lugosi's Dead' by Bauhaus",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/7/79/Bauhaus_2006.jpg",
+            "date": "1860"
+          },
+          "Melodic Hardcore": {
+            "main-artist": ["Bad Religion", "Pennywise", "Rise Against", "NOFX", "Millencolin"],
+            "description": "Le Melodic Hardcore est un sous-genre du punk rock qui combine l'intensité du hardcore punk avec des mélodies et des harmonies vocales. Il est caractérisé par ses paroles engagées et sa musique énergique.",
+            "extrait": "https://www.youtube.com/watch?v=rAX_RHxncMo",
+            "extrait-id": "rAX_RHxncMo",
+            "extrait-nom": "'21st Century (Digital Boy)' by Bad Religion",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/2/28/Bad_Religion_-_Southside_Festival_2022_-_IMG_5384.jpg",
+            "date": "1966"
+          },
+          "Ska Punk": {
+            "main-artist": ["Less Than Jake", "The Mighty Mighty Bosstones", "Rancid", "Reel Big Fish", "Operation Ivy"],
+            "description": "Le Ska Punk fusionne le ska jamaïcain avec l'énergie du punk rock. Il est caractérisé par ses rythmes entraînants, ses cuivres et ses paroles souvent festives. Il incite à la danse et à la fête.",
+            "extrait": "https://www.youtube.com/watch?v=EZpcUK6Kxo8",
+            "extrait-id": "EZpcUK6Kxo8",
+            "extrait-nom": "'The Impression That I Get' by The Mighty Mighty Bosstones",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/b/be/Mighty_Mighty_Bosstones_fenway01_%286131838436%29.jpg",
+            "date": "2000"
+          }                        
+        },
+        "main-artist": ["The Ramones", "Sex Pistols", "The Clash", "Dead Kennedys", "The Misfits"],
+        "description": "La musique punk est un genre caractérisé par sa philosophie brute et DIY (do-it-yourself). Il est apparu au milieu des années 1970 en réaction aux excès et aux complexités perçus de la musique rock traditionnelle. Le punk est connu pour ses chansons courtes et rapides avec des structures simples et souvent à trois accords. Les paroles véhiculent souvent des thèmes de rébellion, de sentiment anti-establishment et de critique sociale. La mode punk, notamment les vestes en cuir, les vêtements déchirés et les coiffures distinctives, fait également partie intégrante de la sous-culture. La musique punk a eu une influence sur divers sous-genres, notamment le punk hardcore, le pop punk et le punk rock",
+        "extrait": "https://www.youtube.com/watch?v=YJRnwaEUNkM",
+        "extrait-id": "YJRnwaEUNkM",
+        "extrait-nom": "'Anarchy in the U.K.' by the Sex Pistols",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/7/72/The_Sex_Pistols_Experience_%E2%80%93_Hafen_Rock_2016_02.jpg",
+        "date": "1978"
+      },
+      "Metal" : {
+        "subgenre" : {
+          "Alternative Metal": {
+            "main-artist": ["Tool", "Deftones", "System of a Down", "Alice in Chains", "Korn"],
+            "description": "Alternative Metal est un genre qui fusionne le metal avec d'autres styles musicaux, comme le rock alternatif et le grunge. Il est caractérisé par une diversité musicale et des paroles souvent introspectives.",
+            "extrait": "https://www.youtube.com/watch?v=DhMv5WVOli4",
+            "extrait-id": "DhMv5WVOli4",
+            "extrait-nom": "'Sober' by Tool",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/b/b5/SOADJONESBEACH.jpg",
+            "date": "1899"
+          },
+          "Doom Metal": {
+            "main-artist": ["Black Sabbath", "Candlemass", "Electric Wizard", "My Dying Bride", "Pentagram"],
+            "description": "Le Doom Metal est un genre qui se caractérise par ses tempos lents, ses riffs lourds et sa tonalité sombre. Il explore des thèmes tels que le désespoir, la mort et la mélancolie.",
+            "extrait": "https://www.youtube.com/watch?v=b_EcPEuHvag",
+            "extrait-id": "b_EcPEuHvag",
+            "extrait-nom": "'Black Sabbath' by Black Sabbath",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Black_Sabbath_farewell_collage_%28Cropped%29.jpg",
+            "date": "1933"
+          },
+          "Symphonic Metal": {
+            "main-artist": ["Nightwish", "Within Temptation", "Epica", "Xandria", "Kamelot"],
+            "description": "Le Symphonic Metal combine des éléments du metal avec des orchestrations symphoniques. Il est caractérisé par des arrangements grandioses, des voix féminines puissantes et des thèmes fantastiques.",
+            "extrait": "https://www.youtube.com/watch?v=kIBdpFJyFkc",
+            "extrait-id": "kIBdpFJyFkc",
+            "extrait-nom": "'Nemo' by Nightwish",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Nightwish-_palais.jpg",
+            "date": "1853"
+          },
+          "Thrash Metal": {
+            "main-artist": ["Metallica", "Megadeth", "Slayer", "Anthrax", "Testament"],
+            "description": "Le Thrash Metal est un genre qui se distingue par ses tempos rapides, ses riffs agressifs et ses paroles souvent politiques ou sociales. Il est associé à l'énergie et à l'agressivité.",
+            "extrait": "https://www.youtube.com/watch?v=zbSjDVcZA2o",
+            "extrait-id": "zbSjDVcZA2o",
+            "extrait-nom": "'Master of Puppets' by Metallica",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Megadeth_Live_at_The_O2_2018-06-16.jpg",
+            "date": "1878"
+          }                        
+        },
+        "main-artist": ["Black Sabbath", "Metallica", "Iron Maiden", "Slayer", "Judas Priest"],
+        "description": "La musique métal est un genre caractérisé par son son puissant et agressif, ses riffs de guitare lourds, ses solos complexes et ses thèmes souvent intenses et dramatiques. Il comprend divers sous-genres, tels que le heavy metal, le thrash metal, le death metal et le power metal, chacun avec ses caractéristiques distinctes. Le métal explore souvent des sujets sombres et complexes, et il est connu pour sa musicalité virtuose et ses styles vocaux qui vont du chant mélodique au grognement dur. Le genre a une base de fans passionnés et dévoués et a influencé d'innombrables autres styles de musique",
+        "extrait": "https://www.youtube.com/watch?v=CHIWNDAwTqQ",
+        "extrait-id": "CHIWNDAwTqQ",
+        "extrait-nom": "'Enter Sandman' by Metallica",
+        "image": "https://commons.wikimedia.org/wiki/File:Metallica_-_The_O2_-_Sunday_22nd_October_2017_MetallicaO2221017-7_(37187900564).jpg",
+        "date": "1344"
+      }
+}
