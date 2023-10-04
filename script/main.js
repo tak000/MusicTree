@@ -41,22 +41,28 @@ function createViewport(){
     viewport.drag().pinch().wheel().decelerate();
 }
 
-
+let objects = [];
 function createObjects(){
     // loading du font (roboto)
     PIXI.Assets.loadBundle('fonts').then(() => {
         // création des objets
 
-
-
         let object = new Node(10, '0x000000', 0, 0, "wesh");
         let object2 = new Node(10, '0x000000', 250, 250, "ehehe");
+        objects.push(object, object2);
 
         viewport.addChild(object);
         viewport.addChild(object2);
     });
 
 
+    //autoscaling du texte (et de son espacement par rapport au point)
+    viewport.on('zoomed', (event) => {
+        objects.forEach((element) => {
+            element.label.y = -element.radius - 20 / event.viewport.scale.y;
+            element.label.scale.set(1 / event.viewport.scale.x, 1 / event.viewport.scale.y);
+        });
+    });
 }
 
 
@@ -67,12 +73,11 @@ function createBezierCurve(){
 
 }
 
-document.body.addEventListener("click", () => {
-    console.log(viewport.scale);
-})
 
 // Execution des processus
 createApp();
 createViewport();
 createObjects();
 createBezierCurve();
+
+
