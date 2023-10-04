@@ -34,10 +34,10 @@ app.stage.addChild(viewport);
 viewport.drag().pinch().wheel().decelerate();
 
 
-let object = new Node(10, '0x000000', 0, 0, "wesh");
+// let object = new Node(10, '0x000000', 0, 0, "wesh");
 let object2 = new Node(10, '0x000000', 250, 250, "ehehe");
 
-viewport.addChild(object);
+// viewport.addChild(object);
 viewport.addChild(object2);
 
 
