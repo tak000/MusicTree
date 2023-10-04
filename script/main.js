@@ -49,8 +49,6 @@ function createObjects(){
         // création des objets
 
         let music = new Node(40, '0x000000', (viewport.screenWidth / 2), (viewport.screenHeight / 1.5), "Music");
-        objects.push(music);
-
 
         let spacing = 650;
         Object.keys(data).forEach((key, i) => {
@@ -64,14 +62,14 @@ function createObjects(){
 
             objects.push(new Node(20, '0x000000', x, y, key));
 
-            let curve = new BezierCurve(music, objects[i], {x: 0, y: 0}, {x: 0, y: 0});
+            let curve = new BezierCurve(music, objects[i], {x: 0.4, y: 0.99}, {x: 0.8, y: 0.45});
             viewport.addChild(curve);
         });
-
 
         objects.forEach((el) =>{
             viewport.addChild(el);
         });
+        viewport.addChild(music);
 
     });
 
@@ -80,26 +78,20 @@ function createObjects(){
     viewport.on('zoomed', (event) => {
         objects.forEach((element) => {
             element.label.y = -element.radius - 15 / event.viewport.scale.y;
-            element.label.scale.set(1 / event.viewport.scale.x, 1 / event.viewport.scale.y);
-            console.log(event.viewport.scale.x);
+            let newScale = Math.min((1 / event.viewport.scale.x), 3.6);
+            element.label.scale.set(newScale);
         });
     });
 }
 
 
-function createBezierCurve(){
 
-    let testbez = new BezierCurve({x:0, y:0}, {x: 100, y:250}, {x: 0, y: 1}, {x: 1, y: 0});
-    viewport.addChild(testbez);
-
-}
 
 
 // Execution des processus
 createApp();
 createViewport();
 createObjects();
-// createBezierCurve();
 
 
 
