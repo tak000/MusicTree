@@ -5,6 +5,8 @@ import { BezierCurve } from './BezierCurveElement.js';
 import data from "../public/categorized-subset.json";
 
 let app, viewport;
+const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1))
+
 
 function createApp(){
     // creation de l'app
@@ -17,15 +19,10 @@ function createApp(){
 
     // implementation du canva sur la div
     document.querySelector('div').appendChild(app.view);
-}
 
-// loading du font
-PIXI.Assets.addBundle('fonts', {
-    'Roboto Light': '../public/font/Roboto-Light.ttf',
-});
 
-function createViewport(){
-    // creation du viewport
+    // creation du viewport 
+    // qui sera le contenu déplacable de l'app
     viewport = new Viewport({ 
         screenWidth: window.innerWidth,
         screenHeight: window.innerHeight,
@@ -39,8 +36,22 @@ function createViewport(){
     app.stage.addChild(viewport);
     
     // active les plugins du viewport (zoom, mouvement etc...)
-    viewport.drag().pinch().wheel().decelerate();
+    viewport.drag()
+    .pinch()
+    .wheel()
+    .decelerate()
+    .clampZoom({ maxWidth: 12500, maxHeight: 12500 });
+
 }
+
+// loading du font
+PIXI.Assets.addBundle('fonts', {
+    'Roboto Light': '../public/font/Roboto-Light.ttf',
+});
+
+
+
+
 
 let objects = [];
 function createObjects(){
@@ -48,23 +59,31 @@ function createObjects(){
     PIXI.Assets.loadBundle('fonts').then(() => {
         // création des objets
 
-        let music = new Node(40, '0x000000', (viewport.screenWidth / 2), (viewport.screenHeight / 1.5), "Music");
 
+
+        //TODO faire une récursive
+        let music = new Node(40, '0x000000', (viewport.screenWidth / 2), (viewport.screenHeight / 1.5), "Music");
         let spacing = 650;
         Object.keys(data).forEach((key, i) => {
-            let value = data[key];
+            // value = data[key]
             let length = Object.keys(data).length;
 
             let x = music.x;
             x -= (spacing * (length-1)) / 2;
             x += i * spacing;
-            let y = music.y - 500;
+            let y = music.y - randomBetween(550, 1500);
 
             objects.push(new Node(20, '0x000000', x, y, key));
 
-            let curve = new BezierCurve(music, objects[i], {x: 0.4, y: 0.99}, {x: 0.8, y: 0.45});
+            let curve = new BezierCurve(music, objects[i], {x: 0.73, y: 0.73}, {x: 1, y: 0.55});
             viewport.addChild(curve);
+
         });
+
+
+
+
+
 
         objects.forEach((el) =>{
             viewport.addChild(el);
@@ -74,6 +93,15 @@ function createObjects(){
     });
 
 
+
+}
+
+
+
+
+
+
+function textScaling(){
     //autoscaling du texte (et de son espacement par rapport au point)
     viewport.on('zoomed', (event) => {
         objects.forEach((element) => {
@@ -88,11 +116,20 @@ function createObjects(){
 
 
 
+
+
+
+
+
+
+
+
+
+
 // Execution des processus
 createApp();
-createViewport();
 createObjects();
-
+textScaling();
 
 
 

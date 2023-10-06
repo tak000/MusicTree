@@ -7,9 +7,13 @@ class BezierCurve extends PIXI.Graphics {
         this.origin = origin;
         this.destination = destination;
         
+        // this.firstPoint = {
+        //     x: this.origin.x + (this.destination.x - this.origin.x) * firstPoint.x,
+        //     y: this.origin.y + (this.destination.y - this.origin.y) * firstPoint.y
+        // };
         this.firstPoint = {
-            x: this.origin.x + (this.destination.x - this.origin.x) * firstPoint.x,
-            y: this.origin.y + (this.destination.y - this.origin.y) * firstPoint.y
+            x: this.origin.x ,
+            y: this.origin.y - 400
         };
 
         this.secondPoint = {
