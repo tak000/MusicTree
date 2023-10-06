@@ -2,8 +2,9 @@ import * as PIXI from 'pixi.js';
 import { Viewport } from 'pixi-viewport';
 import { Node } from './NodeElement.js';
 import { BezierCurve } from './BezierCurveElement.js';
-import data from "../public/categorized-subset.json";
+// import data from "";
 
+let data;
 let app, viewport;
 const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1))
 
@@ -51,39 +52,17 @@ PIXI.Assets.addBundle('fonts', {
 
 
 
-
-
+// point d'origine de l'arbre
+let music;
 let objects = [];
 function createObjects(){
     // loading du font (roboto)
     PIXI.Assets.loadBundle('fonts').then(() => {
         // création des objets
+        music = new Node(40, '0x000000', (viewport.screenWidth / 2), (viewport.screenHeight / 1.5), "Music");
+        
 
-
-
-        //TODO faire une récursive
-        let music = new Node(40, '0x000000', (viewport.screenWidth / 2), (viewport.screenHeight / 1.5), "Music");
-        let spacing = 650;
-        Object.keys(data).forEach((key, i) => {
-            // value = data[key]
-            let length = Object.keys(data).length;
-
-            let x = music.x;
-            x -= (spacing * (length-1)) / 2;
-            x += i * spacing;
-            let y = music.y - randomBetween(550, 1500);
-
-            objects.push(new Node(20, '0x000000', x, y, key));
-
-            let curve = new BezierCurve(music, objects[i], {x: 0.73, y: 0.73}, {x: 1, y: 0.55});
-            viewport.addChild(curve);
-
-        });
-
-
-
-
-
+        createChilds(data, music, 650, 1);
 
         objects.forEach((el) =>{
             viewport.addChild(el);
@@ -92,10 +71,36 @@ function createObjects(){
 
     });
 
-
-
 }
 
+
+//TODO récursive
+async function createChilds(info, parent, spacing, depth){
+    Object.keys(info).forEach((key, i) => {
+        // value: info[key]
+        let length = Object.keys(info).length;
+
+        
+        let x = parent.x;
+        x -= (spacing * (length-1)) / 2;
+        x += i * spacing;
+        let y = parent.y - randomBetween(550, 1500);
+
+        let myNewParent = new Node(20, '0x000000', x, y, `${key} ${depth}`);
+        objects.push(myNewParent);
+
+        let curve = new BezierCurve(parent, myNewParent, {x: 0.73, y: 0.73}, {x: 1, y: 0.55});
+        viewport.addChild(curve);
+
+
+        if(info[key].subgenre != undefined){
+            createChilds(info[key].subgenre, myNewParent, 650, depth+1)
+        }
+
+        
+
+    });
+}
 
 
 
@@ -104,7 +109,7 @@ function createObjects(){
 function textScaling(){
     //autoscaling du texte (et de son espacement par rapport au point)
     viewport.on('zoomed', (event) => {
-        objects.forEach((element) => {
+        [...objects, music].forEach((element) => {
             element.label.y = -element.radius - 15 / event.viewport.scale.y;
             let newScale = Math.min((1 / event.viewport.scale.x), 3.6);
             element.label.scale.set(newScale);
@@ -123,13 +128,22 @@ function textScaling(){
 
 
 
+fetch("../public/categorized-subset.json")
+  .then((response) => {
+    return response.json();
+  })
+  .then((json) => {
+    data = json;
+
+    createApp();
+    createObjects();
+    textScaling();
+  })
+  .catch((error) => {
+    console.error('Error fetching JSON:', error);
+});
 
 
-
-// Execution des processus
-createApp();
-createObjects();
-textScaling();
 
 
 
