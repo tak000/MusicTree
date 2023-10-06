@@ -25,8 +25,10 @@ const viewport = new Viewport({
 app.stage.addChild(viewport);
 viewport.drag().pinch().wheel().decelerate();
 
+//I need to display each genre and their subgenre on different Yaxis, 
 let infoText = null; // Variable to hold info text
 let infoImage = null;
+let fixedX = 1000;
 fetch('Json/music.json')
     .then(response => response.json())
     .then(timelineData => {
@@ -41,99 +43,76 @@ fetch('Json/music.json')
         timelineContainer.width = totalWidth;
         timelineContainer.height = totalHeight;
 
-        let xPosition = -1000;
+        // let xPosition = -7250;
+        let yPosition = 0;
 
-        let myGraph = new PIXI.Graphics();
-        timelineContainer.addChild(myGraph);
-        
-        const lineWidth = 2000; // Adjust as needed for the line's width
-        const centerX = (timelineContainer.width - lineWidth) / 2; // Calculate the center X position
-        
-        myGraph.lineStyle(3, 0x000000);
-        myGraph.moveTo(centerX, 0);
-        myGraph.lineTo(centerX + lineWidth, 0);
-
-        for (const entry of allEntries) {
-            if (entry.subgenre) {
-                for (const subgenre in entry.subgenre) {
-                    const subgenreData = entry.subgenre[subgenre];
+        let date = 1;
+        // Start from 0, go up to 10, increment by 2
+        for (let i = 1000; i <= 2050; i += 10) {
+            
+        }
+  
+        for (let index = 0; index < allEntries.length; index++) {
+            let subgenreEntries = []
+            subgenreEntries.push(allEntries[index])
+            console.log()
+            let xPosition = 0;
+            if (allEntries[index].subgenre) {
+                for (const subgenre in allEntries[index].subgenre) {
+                    const subgenreData = allEntries[index].subgenre[subgenre];
                     const subgenreEntry = { genre: subgenre, ...subgenreData };
-                    allEntries.push(subgenreEntry);
+                    subgenreEntries.push(subgenreEntry);
                 }
             }
-        }
-        allEntries.sort((a, b) => a.date - b.date);
+            subgenreEntries.sort((a, b) => a.date - b.date);
+            console.log(subgenreEntries)
+    
+            yPosition += 200;
 
-        for (const entry of allEntries) {
-            const x = parseInt(entry.date);
+            let myGraph = new PIXI.Graphics();
+            timelineContainer.addChild(myGraph);
+            const lineLength = 4300; 
 
-            const point = new PIXI.Graphics();
-            point.beginFill(0xFF0000);
-            point.drawCircle(0, 0, 5);
-
-            point.interactive = true;
-            point.buttonMode = true;
-
-            point.on("click", () => {
-
-                timelineContainer.removeChild(infoText);
-                timelineContainer.removeChild(infoImage);
-                // Create new info text and add it to the timeline container
-                infoText = new PIXI.Text(entry.description, {
-                    fontFamily: 'Arial',
-                    fontSize: 16,
-                    fill: 0x000000,
-                    wordWrap: true,         // Enable word wrapping
-                    wordWrapWidth: 300,     // Set the maximum width in pixels
-                    lineHeight: 24,         // Adjust line height as needed
-                });
-                infoText.anchor.set(0.5, 0);
-                infoText.x = point.x;
-                infoText.y = 60; // Adjust vertical position as needed
-
-                const texture = PIXI.Texture.from(entry.image);
-                infoImage = new PIXI.Sprite(texture);
-                const targetWidth = 20;
-                const targetHeight = 20;
-                const scale = Math.min(targetWidth, targetHeight);
-
-                // Apply the calculated scale to the image
-               
-                // Create a PIXI.Sprite using the texture
-                
-                infoImage.scale.set(0.5, 0.5);
-                infoImage.anchor.set(0.5, 0);
-                infoImage.x = point.x;
-                infoImage.y = 30;
-
-                timelineContainer.addChild(infoImage);
-                timelineContainer.addChild(infoText);
-            });
+            if(subgenreEntries[0] != undefined){
+                fixedX = (subgenreEntries[0].date - 1000) * 4;
+            }
             
-            const dateText = new PIXI.Text(entry.date, { fontSize: 12, fill: 0x000000 });
-            dateText.anchor.set(0.5, 0);
-            dateText.x = 0;
-            dateText.y = -30;
+            myGraph.lineStyle(5, 0x000000);
+            myGraph.moveTo(fixedX, yPosition);
+            myGraph.lineTo(50 + lineLength, yPosition);
 
-            point.addChild(dateText);
-            const dateTitreText = new PIXI.Text(entry.genre, { fontSize: 16, fill: 0x000000 });
-            dateTitreText.anchor.set(0.5, 0);
-            dateTitreText.x = 0;
-            dateTitreText.y = -60;
-            point.addChild(dateTitreText);
+            for (const entry of subgenreEntries) {
+                const x = parseInt(entry.date);
 
-            point.x = xPosition;
-            xPosition += 200;
+                const point = new PIXI.Graphics();
+                point.beginFill(0x000000);
+                point.drawCircle(0, 0, 10);
+                point.interactive = true;
+                point.buttonMode = true;
 
-            timelineContainer.addChild(point);
+                const dateText = new PIXI.Text(entry.date, { fontSize: 12, fill: 0x000000 });
+                dateText.anchor.set(0.5, 0);
+                dateText.x = 0;
+                dateText.y =  -30;
+                point.addChild(dateText);
+
+                const dateTitreText = new PIXI.Text(entry.genre, { fontSize: 16, fill: 0x000000 });
+                dateTitreText.anchor.set(0.5, 0);
+                dateTitreText.x = 0;
+                dateTitreText.y = -60;
+                point.addChild(dateTitreText);
+                point.x = (entry.date - 1000) * 4;
+                point.y = yPosition
+                xPosition += 200;
+
+                timelineContainer.addChild(point);
+            }
+            viewport.addChild(timelineContainer);
+            timelineContainer.y = (viewport.worldHeight - totalHeight) / 2;
+            timelineContainer.x = (viewport.worldWidth - totalWidth) / 2;
         }
 
-        // Add the timeline container to the viewport and center it horizontally
-        viewport.addChild(timelineContainer);
-        timelineContainer.y = (viewport.worldHeight - totalHeight) / 2;
-        timelineContainer.x = (viewport.worldWidth - totalWidth) / 2;
-
-        // Center the timeline
+        
     })
     .catch(error => {
         console.error('Error fetching JSON data:', error);
