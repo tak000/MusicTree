@@ -2,28 +2,26 @@ import * as PIXI from 'pixi.js';
 import { Viewport } from 'pixi-viewport';
 import { Node } from './NodeElement.js';
 import { BezierCurve } from './BezierCurveElement.js';
-// import data from "";
+const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
+PIXI.Assets.addBundle('fonts', {
+    'Roboto Light': '../public/font/Roboto-Light.ttf',
+});
+
 
 let data;
 let app, viewport;
-const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1))
+let objects;
 
 
 function createApp(){
-    // creation de l'app
     app = new PIXI.Application({
         backgroundColor:0xDDDDDD,
         antialias:true,
         width: window.innerWidth,
         height: window.innerHeight
     });
-
-    // implementation du canva sur la div
     document.querySelector('div').appendChild(app.view);
 
-
-    // creation du viewport 
-    // qui sera le contenu déplacable de l'app
     viewport = new Viewport({ 
         screenWidth: window.innerWidth,
         screenHeight: window.innerHeight,
@@ -33,10 +31,7 @@ function createApp(){
         events: app.renderer.events
     });
     
-    // ajout du viewport dans le stage de l'app
     app.stage.addChild(viewport);
-    
-    // active les plugins du viewport (zoom, mouvement etc...)
     viewport.drag()
     .pinch()
     .wheel()
@@ -45,29 +40,11 @@ function createApp(){
 
 }
 
-// loading du font
-PIXI.Assets.addBundle('fonts', {
-    'Roboto Light': '../public/font/Roboto-Light.ttf',
-});
 
 
-
-// point d'origine de l'arbre
-let music;
-let objects = [];
 function createObjects(){
-    // loading du font (roboto)
     PIXI.Assets.loadBundle('fonts').then(() => {
-        // création des objets
-        music = new Node(40, '0x000000', (viewport.screenWidth / 2), (viewport.screenHeight / 1.5), "Music");
-        
-        createChilds(data, music, 650, 1);
-
-        objects.forEach((el) =>{
-            viewport.addChild(el);
-        });
-        viewport.addChild(music);
-
+        createChilds(data, objects.music.object, 650, 1, objects.music.childs);
     });
 }
 
@@ -77,15 +54,7 @@ function createObjects(){
 
 
 
-
-
-
-
-
-
-
-
-function createChilds(info, parent, spacing, depth){
+function createChilds(info, parent, spacing, depth, storageLocation){
     Object.keys(info).forEach((key, i) => {
         // value: info[key]
         let length = Object.keys(info).length;
@@ -96,19 +65,17 @@ function createChilds(info, parent, spacing, depth){
         let y = parent.y - randomBetween(550, 1500);
 
         let myNewParent = new Node(20, '0x000000', x, y, key);
-        objects.push(myNewParent);
 
-        let curve = new BezierCurve(parent, myNewParent, {x: 0.73, y: 0.73}, {x: 1, y: 0.55});
-        viewport.addChild(curve);
+        storageLocation[key] = {object : myNewParent, childs: {}}
 
 
-        
+
+        // let curve = new BezierCurve(parent, myNewParent, {x: 0.73, y: 0.73}, {x: 1, y: 0.55});
+        // viewport.addChild(curve);
+
         if(info[key].subgenre != undefined){
-            createChilds(info[key].subgenre, myNewParent, 650, depth+1);
+            createChilds(info[key].subgenre, myNewParent, 650, depth+1, storageLocation[key].childs);
         }
-
-        
-
     });
 }
 
@@ -117,7 +84,6 @@ function createChilds(info, parent, spacing, depth){
 
 
 function textScaling(){
-    //autoscaling du texte (et de son espacement par rapport au point)
     viewport.on('zoomed', (event) => {
         [...objects, music].forEach((element) => {
             element.label.y = -element.radius - 15 / event.viewport.scale.y;
@@ -130,10 +96,15 @@ function textScaling(){
 try {
     const response = await fetch("../public/categorized-subset.json");
     const json = await response.json();
-    
     data = json;
   
     createApp();
+
+    objects = {music : {
+        object: new Node(40, '0x000000', (viewport.screenWidth / 2), (viewport.screenHeight / 1.5), "Music"),
+        childs: {}
+    }};
+
     createObjects();
     textScaling();
 
