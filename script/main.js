@@ -61,7 +61,6 @@ function createObjects(){
         // création des objets
         music = new Node(40, '0x000000', (viewport.screenWidth / 2), (viewport.screenHeight / 1.5), "Music");
         
-
         createChilds(data, music, 650, 1);
 
         objects.forEach((el) =>{
@@ -70,31 +69,43 @@ function createObjects(){
         viewport.addChild(music);
 
     });
-
 }
 
 
-//TODO récursive
-async function createChilds(info, parent, spacing, depth){
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function createChilds(info, parent, spacing, depth){
     Object.keys(info).forEach((key, i) => {
         // value: info[key]
         let length = Object.keys(info).length;
 
-        
         let x = parent.x;
         x -= (spacing * (length-1)) / 2;
         x += i * spacing;
         let y = parent.y - randomBetween(550, 1500);
 
-        let myNewParent = new Node(20, '0x000000', x, y, `${key} ${depth}`);
+        let myNewParent = new Node(20, '0x000000', x, y, key);
         objects.push(myNewParent);
 
         let curve = new BezierCurve(parent, myNewParent, {x: 0.73, y: 0.73}, {x: 1, y: 0.55});
         viewport.addChild(curve);
 
-
+        
         if(info[key].subgenre != undefined){
-            createChilds(info[key].subgenre, myNewParent, 650, depth+1)
+            createChilds(info[key].subgenre, myNewParent, 650, depth+1);
         }
 
         
@@ -116,16 +127,6 @@ function textScaling(){
         });
     });
 }
-
-
-
-
-
-
-
-
-
-
 
 
 fetch("../public/categorized-subset.json")
