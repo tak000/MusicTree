@@ -84,10 +84,15 @@ function createObjects(){
 
 
 
-
-
+let depthCoordinates = {};
 
 function createChilds(info, parent, spacing, depth){
+    
+    //! Initialize an array for the current depth
+    if (!depthCoordinates[depth]) {
+        depthCoordinates[depth] = []; 
+    }
+
     Object.keys(info).forEach((key, i) => {
         // value: info[key]
         let length = Object.keys(info).length;
@@ -102,6 +107,9 @@ function createChilds(info, parent, spacing, depth){
 
         let curve = new BezierCurve(parent, myNewParent, {x: 0.73, y: 0.73}, {x: 1, y: 0.55});
         viewport.addChild(curve);
+
+        //! Store the coordinates for the current node in the depthCoordinates object
+        depthCoordinates[depth].push({ x, y });
 
         
         if(info[key].subgenre != undefined){
