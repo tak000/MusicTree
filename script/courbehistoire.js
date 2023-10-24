@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Fetch the JSON data from an external file
-    fetch('Json/music.json')
+    fetch('./Json/music.json')
         .then(response => response.json())
         .then(timelineData => {
             const timelineContainer = document.getElementById("timeline");

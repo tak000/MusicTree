@@ -1,12 +1,14 @@
 import * as PIXI from 'pixi.js';
-import { Viewport } from 'pixi-viewport';
+import {
+    Viewport
+} from 'pixi-viewport';
 
 const support = document.getElementById('support');
 let theheight = window.innerHeight;
 let thewidth = window.innerWidth;
 
 let app = new PIXI.Application({
-    backgroundColor: 0xDDDDDD,
+    backgroundColor: 0xEEEEEE,
     antialias: true,
     width: thewidth,
     height: theheight
@@ -14,18 +16,61 @@ let app = new PIXI.Application({
 
 support.appendChild(app.view);
 
+
 const viewport = new Viewport({
     screenWidth: window.innerWidth,
     screenHeight: window.innerHeight,
-    worldWidth: 1920,
-    worldHeight: 1080,
-    events: app.renderer.events,
+    worldWidth: 5900, // Change this to your desired world width
+    worldHeight: 3000, // Change this to your desired world height
+    // events: app.renderer.plugins.interaction, // Use the interaction plugin
+    events: app.renderer.events, // Use the interaction plugin
 });
 
 app.stage.addChild(viewport);
-viewport.drag().pinch().wheel().decelerate();
 
-//I need to display each genre and their subgenre on different Yaxis, 
+viewport.drag({
+    clampWheel: true, // Prevent over-zooming with the wheel
+    wheel: true,
+});
+
+viewport.clampZoom({
+    minWidth: 800, // Minimum zoom width
+    minHeight: 800, // Minimum zoom height
+    maxWidth: 5900, // Maximum zoom width
+    maxHeight: 3000, // Maximum zoom height
+    minScale: 0.2, // Minimum scale
+    maxScale: 3, // Maximum scale
+});
+
+viewport.clamp({
+    left: true, // clamp to the left
+    right: true, // clamp to the right
+    top: viewport.worldHeight - 1750, // clamp to 1200 pixels above the center
+    bottom: viewport.worldHeight + 1150, // clamp to 1200 pixels below the center
+    underflow: 'center', // where to place the world if too small for the screen (centered)
+});
+
+
+viewport.wheel({
+    percent: 0.1, // Smooth the zooming
+});
+
+const genreColors = {
+    "War songs": 0x6C853E,
+    "Punk": 0xF39C12,
+    "Metal": 0x34495E,
+    "Pop": 0xD35400,
+    "Jazz": 0x1E8449,
+    "Hip Hop": 0x3498DB,
+    "Folk": 0xc47a95,
+    "Electronique": 0x9B59B6,
+    "Blues": 0x154360,
+    "Classique": 0xded55f,
+    "Country": 0x96754b,
+    "Rock": 0xC0392B,
+};
+//
+let infoVideo = null
 let infoText = null; // Variable to hold info text
 let infoImage = null;
 let fixedX = 1000;
@@ -34,9 +79,12 @@ fetch('Json/music.json')
     .then(timelineData => {
         console.log(timelineData);
 
-        const allEntries = Object.entries(timelineData).map(([genre, data]) => ({ genre, ...data }));
+        const allEntries = Object.entries(timelineData).map(([genre, data]) => ({
+            genre,
+            ...data
+        }));
 
-        const totalHeight = 100; 
+        const totalHeight = 100;
         const totalWidth = allEntries.length * 100;
 
         const timelineContainer = new PIXI.Container();
@@ -47,62 +95,104 @@ fetch('Json/music.json')
         let yPosition = 0;
 
         let date = 1;
-        // Start from 0, go up to 10, increment by 2
-        for (let i = 1000; i <= 2050; i += 10) {
-            
-        }
-  
+
         for (let index = 0; index < allEntries.length; index++) {
+
+
             let subgenreEntries = []
+
+
             subgenreEntries.push(allEntries[index])
             console.log()
             let xPosition = 0;
             if (allEntries[index].subgenre) {
                 for (const subgenre in allEntries[index].subgenre) {
                     const subgenreData = allEntries[index].subgenre[subgenre];
-                    const subgenreEntry = { genre: subgenre, ...subgenreData };
+                    const subgenreEntry = {
+                        genre: subgenre,
+                        ...subgenreData
+                    };
+
                     subgenreEntries.push(subgenreEntry);
                 }
+
             }
             subgenreEntries.sort((a, b) => a.date - b.date);
             console.log(subgenreEntries)
-    
+
             yPosition += 200;
 
             let myGraph = new PIXI.Graphics();
             timelineContainer.addChild(myGraph);
-            const lineLength = 4300; 
+            const lineLength = 4300;
 
-            if(subgenreEntries[0] != undefined){
-                fixedX = (subgenreEntries[0].date - 1000) * 4;
+            if (subgenreEntries[0] != undefined) {
+                fixedX = (subgenreEntries[0].date - 1950) * 50;
+                // if(subgenreEntries[0].date<1920) {
+                //     subgenreEntries[0].date = 1915;
+                // }  -> 
             }
-            
-            myGraph.lineStyle(5, 0x000000);
+
+            myGraph.lineStyle(2, 0x000000);
             myGraph.moveTo(fixedX, yPosition);
             myGraph.lineTo(50 + lineLength, yPosition);
 
+            const genreColor = genreColors[allEntries[index].genre] || 0x000000;
+
+            let pointSize = 20;
+
+
             for (const entry of subgenreEntries) {
+
                 const x = parseInt(entry.date);
 
                 const point = new PIXI.Graphics();
-                point.beginFill(0x000000);
-                point.drawCircle(0, 0, 10);
-                point.interactive = true;
+                point.beginFill(genreColor);
+                point.drawCircle(0, 0, pointSize);
+                // point.interactive = true;
+                point.eventMode = 'static';
                 point.buttonMode = true;
 
-                const dateText = new PIXI.Text(entry.date, { fontSize: 12, fill: 0x000000 });
-                dateText.anchor.set(0.5, 0);
-                dateText.x = 0;
-                dateText.y =  -30;
-                point.addChild(dateText);
+                // Open and close modal code
+                point.on("pointertap", () => {
+                    openModal(entry);
+                });
 
-                const dateTitreText = new PIXI.Text(entry.genre, { fontSize: 16, fill: 0x000000 });
+                const dateTitreText = new PIXI.Text(entry.genre, {
+                    fontSize: 16,
+                    fill: 0x000000
+                });
                 dateTitreText.anchor.set(0.5, 0);
                 dateTitreText.x = 0;
-                dateTitreText.y = -60;
+                dateTitreText.y = -70;
                 point.addChild(dateTitreText);
-                point.x = (entry.date - 1000) * 4;
+
+                if (entry.date < 1720) {
+                    entry.date = 1730
+                    point.x = (entry.date - 1950) * 10;
+                } else if (entry.date == 1730) {
+                    entry.date = 1750
+                    point.x = (entry.date - 2000) * 8;
+                } else if (entry.date < 1920 && entry.date > 1740) {
+                    point.x = (entry.date - 2000) * 8;
+                } else {
+                    point.x = (entry.date - 1950) * 50;
+                }
                 point.y = yPosition
+
+                if (entry.date < 1760) {
+                    entry.date = "Antérieur à 1700"
+                }
+
+                const dateText = new PIXI.Text(entry.date, {
+                    fontSize: 12,
+                    fill: 0x000000
+                });
+                dateText.anchor.set(0.5, 0);
+                dateText.x = 0;
+                dateText.y = -50;
+                point.addChild(dateText);
+
                 xPosition += 200;
 
                 timelineContainer.addChild(point);
@@ -112,8 +202,82 @@ fetch('Json/music.json')
             timelineContainer.x = (viewport.worldWidth - totalWidth) / 2;
         }
 
-        
+
     })
     .catch(error => {
         console.error('Error fetching JSON data:', error);
     });
+
+
+    let isDragging = false;
+let modalOffsetX, modalOffsetY;
+
+const modal = document.getElementById('modal');
+
+modal.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  const rect = modal.getBoundingClientRect();
+  modalOffsetX = e.clientX - rect.left;
+  modalOffsetY = e.clientY - rect.top;
+});
+
+document.addEventListener('mousemove', (e) => {
+  if (isDragging) {
+    var newX = e.clientX - modalOffsetX;
+    var newY = e.clientY - modalOffsetY;
+    if (newY<1) {
+        newY = 0;
+    }
+    if(newX<1){
+        newX = 0;
+    }
+    if(newX>thewidth/2) {
+        newX=thewidth/2;
+    }
+    if(newY>theheight/2) {
+        newY=theheight/2;
+    }
+    modal.style.left = newX + 'px';
+    modal.style.top = newY + 'px';
+    console.log(thewidth)
+  }
+});
+
+document.addEventListener('mouseup', () => {
+  isDragging = false;
+});
+
+modal.addEventListener('mouseup', () => {
+  isDragging = false;
+});
+
+function openModal(entry) {
+    const modal = document.getElementById("modal");
+    modal.style.display = "block";
+
+    const genreName = document.getElementById("genre-name");
+    const genreExtraitNom = document.getElementById("genre-extrait-nom");
+    const genreDesc = document.getElementById("genre-description");
+    const music = document.getElementById("music-video");
+    const audio = document.getElementById("audio");
+
+    genreName.textContent = entry.genre;
+    genreExtraitNom.textContent = entry["extrait-nom"];
+    genreDesc.textContent = entry.description;
+    music.src = `/music/${entry["extrait"]}.mp3`;
+    audio.load();
+
+    
+}
+
+const closeButton = document.getElementById("close-modal");
+
+closeButton.addEventListener("click", () => {
+    const modal = document.getElementById("modal");
+    modal.style.display = "none";
+
+    const music = document.getElementById("music-video");
+    const audio = document.getElementById("audio");
+    music.src = "";
+    audio.load();
+});
