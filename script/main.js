@@ -4,7 +4,7 @@ import { Node } from './NodeElement.js';
 import { BezierCurve } from './BezierCurveElement.js';
 const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
 PIXI.Assets.addBundle('fonts', {
-    'Roboto Light': '../public/font/Roboto-Light.ttf',
+    'Roboto Light': '/font/Roboto-Light.ttf',
 });
 
 
@@ -37,19 +37,51 @@ function createApp(){
     .wheel()
     .decelerate()
     .clampZoom({ maxWidth: 12500, maxHeight: 12500 });
-
 }
 
 
 
-function createObjects(){
-    PIXI.Assets.loadBundle('fonts').then(() => {
-        createChilds(data, objects.music.object, 650, 1, objects.music.childs);
-    });
+
+//? ------------------------------------------------------------------------
+//? ------------------------------------------------------------------------
+//? ------------------------------------------------------------------------
+//? ------------------------------------------------------------------------
+
+
+
+
+
+function render(list){
+    for (let key in list) {
+        const value = list[key];
+
+        viewport.addChild(value.object);
+
+        if(value.childs != undefined){
+            render(value.childs);
+        }
+    }
 }
 
 
 
+async function createObjects(){
+    await PIXI.Assets.loadBundle('fonts');
+
+    createChilds(data, objects.music.object, 650, 1, objects.music.childs);
+    render(objects);
+}
+
+
+
+
+
+
+
+//? ------------------------------------------------------------------------
+//? ------------------------------------------------------------------------
+//? ------------------------------------------------------------------------
+//? ------------------------------------------------------------------------
 
 
 
@@ -66,8 +98,7 @@ function createChilds(info, parent, spacing, depth, storageLocation){
 
         let myNewParent = new Node(20, '0x000000', x, y, key);
 
-        storageLocation[key] = {object : myNewParent, childs: {}}
-
+        storageLocation[key] = {object: myNewParent, childs: {}}
 
 
         // let curve = new BezierCurve(parent, myNewParent, {x: 0.73, y: 0.73}, {x: 1, y: 0.55});
@@ -84,17 +115,17 @@ function createChilds(info, parent, spacing, depth, storageLocation){
 
 
 function textScaling(){
-    viewport.on('zoomed', (event) => {
-        [...objects, music].forEach((element) => {
-            element.label.y = -element.radius - 15 / event.viewport.scale.y;
-            let newScale = Math.min((1 / event.viewport.scale.x), 3.6);
-            element.label.scale.set(newScale);
-        });
-    });
+    // viewport.on('zoomed', (event) => {
+    //     [...objects, music].forEach((element) => {
+    //         element.label.y = -element.radius - 15 / event.viewport.scale.y;
+    //         let newScale = Math.min((1 / event.viewport.scale.x), 3.6);
+    //         element.label.scale.set(newScale);
+    //     });
+    // });
 }
 
 try {
-    const response = await fetch("../public/categorized-subset.json");
+    const response = await fetch("/categorized-subset.json");
     const json = await response.json();
     data = json;
   
@@ -107,6 +138,8 @@ try {
 
     createObjects();
     textScaling();
+
+    console.log(objects);
 
   } catch (error) {
     console.error('Error fetching JSON:', error);

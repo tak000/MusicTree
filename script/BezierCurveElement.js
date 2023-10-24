@@ -21,20 +21,13 @@ class BezierCurve extends PIXI.Graphics {
             y:  this.origin.y + (this.destination.y - this.origin.y) * secondPoint.y
         };
 
-
         this.moveTo(this.origin.x, this.origin.y);
         this.lineStyle(3, 0xAAAAAA, 1);
         this.bezierCurveTo(this.firstPoint.x, this.firstPoint.y, this.secondPoint.x, this.secondPoint.y, this.destination.x, this.destination.y);
 
     }
 
-
-
-    
-
-
 }
-
 
 export {
     BezierCurve

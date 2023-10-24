@@ -27,9 +27,7 @@ class Node extends PIXI.Graphics {
         this.addChild(this.label);
 
     }
-
 }
-
 
 export {
     Node
