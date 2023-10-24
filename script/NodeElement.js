@@ -24,7 +24,7 @@ class Node extends PIXI.Graphics {
 
         // centre le texte
         this.label.anchor.set(0.5);
-        this.addChild(this.label);
+        // this.addChild(this.label);
 
     }
 }

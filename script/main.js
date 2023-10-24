@@ -36,12 +36,18 @@ function createApp(){
     .pinch()
     .wheel()
     .decelerate()
-    .clampZoom({ maxWidth: 12500, maxHeight: 12500 });
 }
 
+async function createObjects(){
+    await PIXI.Assets.loadBundle('fonts');
 
+    //* original recursive call and render
+    createChilds(data, objects.music.object, 1, objects.music.childs);
+    render(objects);
+}
 
 function render(list){
+    //*rendering
     for (let key in list) {
         const value = list[key];
 
@@ -51,40 +57,65 @@ function render(list){
             render(value.childs);
         }
     }
+
+    //* scaling
+    viewport.on('zoomed', (event) => {
+        for (let key in list) {
+            const value = list[key].object;
+    
+            value.label.y = -value.radius - 15 / event.viewport.scale.y;
+            let newScale = Math.min((1 / event.viewport.scale.x), 3.6);
+            value.label.scale.set(newScale);
+        }
+    });
 }
 
 
+let width = [];
 
-async function createObjects(){
-    await PIXI.Assets.loadBundle('fonts');
-
-    createChilds(data, objects.music.object, 650, 1, objects.music.childs);
-    render(objects);
-}
-
-
-
-
-function createChilds(info, parent, spacing, depth, storageLocation){
+function createChilds(info, parent, depth, storageLocation){
+    //* coordinates management
     Object.keys(info).forEach((key, i) => {
-        // value: info[key]
+        let xSpacing, ySpacing;
         let length = Object.keys(info).length;
 
+        //* depth 1 specific case
+        if(depth == 1){
+            xSpacing = 1300;
+            ySpacing = 1000;
+        }else{
+            xSpacing = 250;
+            ySpacing = 650;
+        }
+
+        //* coordinates
         let x = parent.x;
-        x -= (spacing * (length-1)) / 2;
-        x += i * spacing;
-        let y = parent.y - randomBetween(550, 1500);
+        x -= (xSpacing * (length-1)) / 2;
+        x += i * xSpacing;
+        let y = parent.y - randomBetween(ySpacing, ySpacing*2);
 
-        let myNewParent = new Node(20, '0x000000', x, y, key);
+        //* first depth specific case (^from)
+        if(depth == 1){
+            const maxElements = 11;
+            // Quadratic function
+            const heightModifier = (1 - Math.pow(((i - maxElements / 2) / maxElements * 0.5), 2) * 20) * ySpacing;
+            console.log(heightModifier);
+            y -= heightModifier;
+        }
 
+        //* node creation
+        let myNewParent = new Node(20, '0x000000', x, y, key+" "+depth);
+
+        //* structure orgenisation
         storageLocation[key] = {object: myNewParent, childs: {}}
 
+        //* lines between parent and child
+        let curve = new BezierCurve(parent, myNewParent, {x: 0.73, y: 0.73}, {x: 1, y: 0.55});
+        viewport.addChild(curve);
 
-        // let curve = new BezierCurve(parent, myNewParent, {x: 0.73, y: 0.73}, {x: 1, y: 0.55});
-        // viewport.addChild(curve);
-
+        //* recursive call
         if(info[key].subgenre != undefined){
-            createChilds(info[key].subgenre, myNewParent, 650, depth+1, storageLocation[key].childs);
+            createChilds(info[key].subgenre, myNewParent, depth+1, storageLocation[key].childs);
         }
     });
 }
@@ -93,32 +124,19 @@ function createChilds(info, parent, spacing, depth, storageLocation){
 
 
 
-function textScaling(){
-    // viewport.on('zoomed', (event) => {
-    //     [...objects, music].forEach((element) => {
-    //         element.label.y = -element.radius - 15 / event.viewport.scale.y;
-    //         let newScale = Math.min((1 / event.viewport.scale.x), 3.6);
-    //         element.label.scale.set(newScale);
-    //     });
-    // });
-}
 
 try {
     const response = await fetch("/categorized-subset.json");
     const json = await response.json();
     data = json;
-  
-    createApp();
 
+    createApp();
     objects = {music : {
         object: new Node(40, '0x000000', (viewport.screenWidth / 2), (viewport.screenHeight / 1.5), "Music"),
         childs: {}
     }};
-
     createObjects();
-    textScaling();
 
-    console.log(objects);
 
   } catch (error) {
     console.error('Error fetching JSON:', error);
