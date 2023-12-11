@@ -1,20 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doom Metal Timeline</title>
-    <link rel="stylesheet" href="style/music.css">
-    <script src="script/courbepixi.js" defer></script>
-</head>
-<body>
-    <div class="timeline-container">
-        <h1>Music Timeline</h1>
-        <div id="timeline"></div>
-    </div>
-</body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,15 +6,22 @@
     <title>PixiJS Timeline</title>
     <link rel="stylesheet" href="style/music.css">
     <script src="script/courbepixi.js"  type="module"></script>
+
 </head>
 <body>
+    <div id="search-bar">
+        <label for="genre-search">Select a Genre: </label>
+        <select id="genre-search-dropdown"></select>
+        <input type="submit" value="Search" id="search" name="search">
+    </div>
     <div id="modal" class="modal draggable">
         <div class="modal-content">
           <span class="close" id="close-modal">&times;</span>
+          <span class="reduce" id="reduce-modal">&Omega;</span>
           <h2 id="genre-name"></h2>
          
           <p id="genre-description"></p>
-          <p>L'extrait de musique : </p>
+          <p id="extrait-into">L'extrait de musique : </p>
           <p id="genre-extrait-nom"></p>
           <audio controls id="audio">
             <source src="" type="audio/mp3" id="music-video">

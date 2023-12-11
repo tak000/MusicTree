@@ -34,8 +34,8 @@ viewport.drag({
 });
 
 viewport.clampZoom({
-    minWidth: 800, // Minimum zoom width
-    minHeight: 800, // Minimum zoom height
+    minWidth: 500, // Minimum zoom width
+    minHeight: 500, // Minimum zoom height
     maxWidth: 5900, // Maximum zoom width
     maxHeight: 3000, // Maximum zoom height
     minScale: 0.2, // Minimum scale
@@ -74,6 +74,14 @@ let infoVideo = null
 let infoText = null; // Variable to hold info text
 let infoImage = null;
 let fixedX = 1000;
+
+PIXI.Assets.addBundle('fonts', {
+    'Next': "/style/Next\ Bro.ttf",
+});
+await PIXI.Assets.loadBundle('fonts');
+
+const availableGenres = [];
+
 fetch('Json/music.json')
     .then(response => response.json())
     .then(timelineData => {
@@ -103,6 +111,8 @@ fetch('Json/music.json')
 
 
             subgenreEntries.push(allEntries[index])
+
+
             console.log()
             let xPosition = 0;
             if (allEntries[index].subgenre) {
@@ -114,6 +124,7 @@ fetch('Json/music.json')
                     };
 
                     subgenreEntries.push(subgenreEntry);
+
                 }
 
             }
@@ -128,9 +139,6 @@ fetch('Json/music.json')
 
             if (subgenreEntries[0] != undefined) {
                 fixedX = (subgenreEntries[0].date - 1950) * 50;
-                // if(subgenreEntries[0].date<1920) {
-                //     subgenreEntries[0].date = 1915;
-                // }  -> 
             }
 
             myGraph.lineStyle(2, 0x000000);
@@ -164,7 +172,7 @@ fetch('Json/music.json')
                 });
                 dateTitreText.anchor.set(0.5, 0);
                 dateTitreText.x = 0;
-                dateTitreText.y = -70;
+                dateTitreText.y = -80;
                 point.addChild(dateTitreText);
 
                 if (entry.date < 1720) {
@@ -185,70 +193,140 @@ fetch('Json/music.json')
                 }
 
                 const dateText = new PIXI.Text(entry.date, {
-                    fontSize: 12,
-                    fill: 0x000000
+                    fontSize: 16,
+                    fill: 0x000000,
+                    fontFamily: 'Next, sans-serif'
                 });
                 dateText.anchor.set(0.5, 0);
                 dateText.x = 0;
                 dateText.y = -50;
                 point.addChild(dateText);
 
+                const entryData = [entry.genre, point.x + timelineContainer.x, point.y + timelineContainer.y];
+                availableGenres.push(entryData);
+
+
                 xPosition += 200;
 
                 timelineContainer.addChild(point);
+
             }
             viewport.addChild(timelineContainer);
             timelineContainer.y = (viewport.worldHeight - totalHeight) / 2;
             timelineContainer.x = (viewport.worldWidth - totalWidth) / 2;
+
         }
+        const searchDropdown = document.getElementById('genre-search-dropdown');
+        availableGenres.sort(); // If availableGenres is an array of arrays, sort it by the genre name.
 
+        for (const entry of availableGenres) {
+            const genreName = entry[0]; // The genre name is the first element in the entry array
 
+            const option = document.createElement('option');
+            option.value = genreName;
+            option.text = genreName;
+            searchDropdown.appendChild(option);
+        }
     })
     .catch(error => {
         console.error('Error fetching JSON data:', error);
     });
+//const searchButton = document.getElementById("search");
 
 
-    let isDragging = false;
+const searchButton = document.getElementById("search");
+
+searchButton.addEventListener("click", () => {
+    searchvalue();
+});
+
+function searchvalue() {
+    const selectedGenre = document.getElementById("genre-search-dropdown").value;
+
+    for (let i = 0; i < availableGenres.length; i++) {
+        const genreEntry = availableGenres[i];
+
+        if (genreEntry[0] === selectedGenre) {
+            const x = genreEntry[1];
+            const y = genreEntry[2];
+
+            // Animation durations
+            const zoomOutDuration = 1500; // Zoom-out duration in milliseconds
+            const zoomInDuration = 1500; // Zoom-in duration in milliseconds
+
+            // Zoom out animation
+            viewport.animate({
+                time: zoomOutDuration,
+                scale: 0.3, // Zoom out to 80% of the original scale
+                ease: "easeOutSine",
+                callbackOnComplete: () => {
+                    // After zoom-out animation completes, perform zoom-in animation
+                    viewport.animate({
+                        time: zoomInDuration,
+                        scale: 1, // Zoom back to the original scale
+                        position: new PIXI.Point(x, y), // Move to the new center
+                        ease: "easeOutSine",
+                        callbackOnComplete: () => {
+                            // Zoom-in animation completed callback
+                        },
+                    });
+                },
+            });
+
+            return;
+        }
+    }
+
+    alert("Genre not found: " + selectedGenre);
+}
+
+
+
+
+
+
+
+
+let isDragging = false;
 let modalOffsetX, modalOffsetY;
 
 const modal = document.getElementById('modal');
 
 modal.addEventListener('mousedown', (e) => {
-  isDragging = true;
-  const rect = modal.getBoundingClientRect();
-  modalOffsetX = e.clientX - rect.left;
-  modalOffsetY = e.clientY - rect.top;
+    isDragging = true;
+    const rect = modal.getBoundingClientRect();
+    modalOffsetX = e.clientX - rect.left;
+    modalOffsetY = e.clientY - rect.top;
 });
 
 document.addEventListener('mousemove', (e) => {
-  if (isDragging) {
-    var newX = e.clientX - modalOffsetX;
-    var newY = e.clientY - modalOffsetY;
-    if (newY<1) {
-        newY = 0;
+    if (isDragging) {
+        var newX = e.clientX - modalOffsetX;
+        var newY = e.clientY - modalOffsetY;
+        if (newY < 1) {
+            newY = 0;
+        }
+        if (newX < 1) {
+            newX = 0;
+        }
+        if (newX > thewidth / 2) {
+            newX = thewidth / 2;
+        }
+        if (newY > theheight / 2) {
+            newY = theheight / 2;
+        }
+        modal.style.left = newX + 'px';
+        modal.style.top = newY + 'px';
+        console.log(thewidth)
     }
-    if(newX<1){
-        newX = 0;
-    }
-    if(newX>thewidth/2) {
-        newX=thewidth/2;
-    }
-    if(newY>theheight/2) {
-        newY=theheight/2;
-    }
-    modal.style.left = newX + 'px';
-    modal.style.top = newY + 'px';
-    console.log(thewidth)
-  }
 });
 
 document.addEventListener('mouseup', () => {
-  isDragging = false;
+    isDragging = false;
 });
 
 modal.addEventListener('mouseup', () => {
-  isDragging = false;
+    isDragging = false;
 });
 
 function openModal(entry) {
@@ -267,7 +345,7 @@ function openModal(entry) {
     music.src = `/music/${entry["extrait"]}.mp3`;
     audio.load();
 
-    
+
 }
 
 const closeButton = document.getElementById("close-modal");
@@ -280,4 +358,17 @@ closeButton.addEventListener("click", () => {
     const audio = document.getElementById("audio");
     music.src = "";
     audio.load();
+});
+
+
+const reduceButton = document.getElementById("reduce-modal");
+
+reduceButton.addEventListener("click", () => {
+    const modal = document.getElementById("modal");
+    modal.classList.toggle('transition');
+    const genreDesc = document.getElementById("genre-description");
+    const extraitInto = document.getElementById("extrait-into");
+    genreDesc.classList.toggle("hide");
+    extraitInto.classList.toggle("hide");
+    modal.classList.toggle("bottomleft");
 });
