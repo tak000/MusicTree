@@ -19,67 +19,8 @@
     transition: transform 0.3s ease;
 }
 
-#genamenre-, #close-modal, #reduce-moda {
+#genre-name, #close-modal, #reduce-moda {
   font-family: 'Oswald', sans-serif;
-}
-
-.active {
-  transform-origin: top-left;
-  transform: translateX(-200px);
-  opacity: 0;
-  z-index: -100;
-  pointer-events:none;
-}
-
-#search-bar {
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  margin: 20px;
-  display: flex;
-}
-#search-content {
-  display: flex;
-  align-items: center;
-  transition: 1s;
-  padding: 10px;
-  overflow: hidden;
-  box-shadow: 0 0 10px #0000002e;
-  background-color: rgba(255, 255, 255);
-}
-#search {
-  border: none;
-  background-color: rgba(255, 255, 255);
-}
-#search-icon {
-  transition: 1s;
-  display: flex;
-  align-items: center;
-  /* justify-content: center; */
-  border: none;
-  z-index: 5;
-  cursor: pointer;
-  padding: 20px;
-  overflow: hidden;
-  box-shadow: 0 0 10px #0000002e;
-  background-color: rgba(255, 255, 255);
-}
-
-#genre-search-dropdown {
-  
-  margin: 10px;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #fff;
-  color: #333;
-  cursor: pointer;
-}
-
-#genre-search-dropdown:focus {
-  outline: none;
 }
 
 .draggable {
