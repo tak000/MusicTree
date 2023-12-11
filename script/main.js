@@ -6,7 +6,7 @@ const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min 
 PIXI.Assets.addBundle('fonts', {
     'Roboto Light': '/font/Roboto-Light.ttf',
 });
-
+//! 3840 2560
 
 let data;
 let app, viewport;
@@ -20,13 +20,13 @@ function createApp(){
         width: window.innerWidth,
         height: window.innerHeight
     });
-    document.querySelector('div').appendChild(app.view);
+    document.getElementById('support').appendChild(app.view);
 
     viewport = new Viewport({ 
         screenWidth: window.innerWidth,
         screenHeight: window.innerHeight,
-        worldWidth: 1920,
-        worldHeight: 1080,
+        worldWidth: 20000,
+        worldHeight: 10000,
         
         events: app.renderer.events
     });
@@ -36,6 +36,13 @@ function createApp(){
     .pinch()
     .wheel()
     .decelerate()
+    .clampZoom({maxWidth: 16000});
+    // .clamp({
+    //     left: true,
+    //     right: true,
+    //     top: true,
+    //     bottom: true
+    // })
 }
 
 async function createObjects(){
@@ -71,7 +78,6 @@ function render(list){
 }
 
 
-let width = [];
 
 function createChilds(info, parent, depth, storageLocation){
     //* coordinates management
@@ -99,12 +105,22 @@ function createChilds(info, parent, depth, storageLocation){
             const maxElements = 11;
             // Quadratic function
             const heightModifier = (1 - Math.pow(((i - maxElements / 2) / maxElements * 0.5), 2) * 20) * ySpacing;
-            console.log(heightModifier);
             y -= heightModifier;
         }
 
         //* node creation
-        let myNewParent = new Node(20, '0x000000', x, y, key+" "+depth);
+        let myNewParent = new Node(30, '0x000000', x, y, key+" "+depth);
+
+        // point.interactive = true;
+        myNewParent.eventMode = 'static';
+        myNewParent.buttonMode = true;
+
+
+        //* value info[key]
+        myNewParent.on("pointertap", () => {
+            openModal(info[key]);
+        });
+
 
         //* structure orgenisation
         storageLocation[key] = {object: myNewParent, childs: {}}
@@ -121,10 +137,6 @@ function createChilds(info, parent, depth, storageLocation){
 }
 
 
-
-
-
-
 try {
     const response = await fetch("/categorized-subset.json");
     const json = await response.json();
@@ -132,10 +144,10 @@ try {
 
     createApp();
     objects = {music : {
-        object: new Node(40, '0x000000', (viewport.screenWidth / 2), (viewport.screenHeight / 1.5), "Music"),
+        object: new Node(135, '0x000000', (viewport.worldWidth / 2), (viewport.worldHeight / 1.5), "Music"),
         childs: {}
     }};
-    createObjects();
+    await createObjects();
 
 
   } catch (error) {
@@ -145,4 +157,88 @@ try {
 
 
 
+//* -------------------------CODE MODAL-------------------------
+//* -------------------------CODE MODAL-------------------------
+//* -------------------------CODE MODAL-------------------------
 
+
+
+let isDragging = false;
+let modalOffsetX, modalOffsetY;
+
+const modal = document.getElementById('modal');
+
+modal.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    const rect = modal.getBoundingClientRect();
+    modalOffsetX = e.clientX - rect.left;
+    modalOffsetY = e.clientY - rect.top;
+});
+
+document.addEventListener('mousemove', (e) => {
+    if (isDragging) {
+        var newX = e.clientX - modalOffsetX;
+        var newY = e.clientY - modalOffsetY;
+
+        newY < 1 ? newY = 0 : "";
+        newX < 1 ? newX = 0 : "";
+
+        newX > window.innerWidth/2 ? newX = window.innerWidth/2 : "";
+        newY > window.innerWidth/2 ? newY = window.innerWidth/2 : "";
+
+        modal.style.left = newX + 'px';
+        modal.style.top = newY + 'px';
+    }
+});
+
+[document, modal].forEach((element) => {
+    element.addEventListener('mouseup', () => {
+        isDragging = false;
+    });
+});
+
+
+function openModal(entry) {
+    const modal = document.getElementById("modal");
+    modal.style.display = "block";
+
+    const genreName = document.getElementById("genre-name");
+    const genreExtraitNom = document.getElementById("genre-extrait-nom");
+    const genreDesc = document.getElementById("genre-description");
+    const music = document.getElementById("music-video");
+    const audio = document.getElementById("audio");
+
+    genreName.textContent = entry.genre;
+    genreExtraitNom.textContent = entry["extrait-nom"];
+    genreDesc.textContent = entry.description;
+    music.src = `/music/${entry["extrait"]}.mp3`;
+    audio.load();
+
+}
+
+
+
+const closeButton = document.getElementById("close-modal");
+
+closeButton.addEventListener("click", () => {
+    const modal = document.getElementById("modal");
+    modal.style.display = "none";
+
+    const music = document.getElementById("music-video");
+    const audio = document.getElementById("audio");
+    music.src = "";
+    audio.load();
+});
+
+
+const reduceButton = document.getElementById("reduce-modal");
+
+reduceButton.addEventListener("click", () => {
+    const modal = document.getElementById("modal");
+    modal.classList.toggle('transition');
+    const genreDesc = document.getElementById("genre-description");
+    const extraitInto = document.getElementById("extrait-into");
+    genreDesc.classList.toggle("hide");
+    extraitInto.classList.toggle("hide");
+    modal.classList.toggle("bottomleft");
+});
