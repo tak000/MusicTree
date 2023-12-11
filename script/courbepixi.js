@@ -23,7 +23,7 @@ const viewport = new Viewport({
     screenWidth: window.innerWidth,
     screenHeight: window.innerHeight,
     // Taille du monde
-    worldWidth: 9400, 
+    worldWidth: 11000, 
     worldHeight: 3000, 
     // Si Interraction
     // events: app.renderer.plugins.interaction, 
@@ -44,7 +44,7 @@ viewport.drag({
 viewport.clampZoom({
     minWidth: 500, // Minimum zoom width
     minHeight: 500, // Minimum zoom height
-    maxWidth: 9400, // Maximum zoom width
+    maxWidth: 11000, // Maximum zoom width
     maxHeight: 3000, // Maximum zoom height
     minScale: 0.2, // Minimum scale
     maxScale: 3, // Maximum scale
@@ -101,7 +101,6 @@ let fixedX = 1000;
 // Tableau des genres disponible
 const availableGenres = [];
 
-
 //Récupère le Json
 fetch('Json/music.json')
     .then(response => response.json())
@@ -127,9 +126,66 @@ fetch('Json/music.json')
         // Défini la posY à 0
         // let xPosition = -7250;
         let yPosition = 0;
+        let xPosition = 0;
 
         let date = 1;
 
+        const styleDate = new PIXI.TextStyle({
+            fontFamily: 'Oswald, Roboto, sans-serif', // Use the font names you specified
+            fontSize: 55,
+            fill: 0x000000
+        });
+
+         // Inside your loop how do i make the line have more opacity ?
+            for (let year = 1880; year <= 2023; year += 10) {
+                const x1Position = (year - 1900) * 50;
+                let line = new PIXI.Graphics();
+                line.lineStyle(2, 0x000000, 0.2);
+                line.moveTo(x1Position, 0);
+                line.lineTo(x1Position, 5000);
+                timelineContainer.addChild(line);
+                let dateText = new PIXI.Text(year,styleDate);
+                dateText.anchor.set(0.5, 0);
+                dateText.x = x1Position;
+                dateText.y = -80;
+                line.addChild(dateText);
+                console.log(x1Position)
+            }
+            
+            for (let year = 1825; year <= 1865; year += 10) {
+                const x2Position = (year - 1900) * 50;
+                let line = new PIXI.Graphics();
+                line.lineStyle(2, 0x000000, 0.2);
+                line.moveTo(x2Position, 0);
+                line.lineTo(x2Position, 5000);
+                timelineContainer.addChild(line);
+                let dateText = new PIXI.Text((year-65), styleDate);
+                dateText.anchor.set(0.5, 0);
+                dateText.x = x2Position;
+                dateText.y = -80;
+                line.addChild(dateText);
+                console.log(x2Position)
+            }
+
+
+            const xPosition1 = -1000;
+            const xPosition2 = -1750;
+
+            const hatchTexture = PIXI.Texture.from('style/hatch.png');
+    
+            const hatchPatternWidth = xPosition2 - xPosition1;
+
+
+            const hatchPattern = new PIXI.TilingSprite(hatchTexture, hatchPatternWidth, 5000);
+            hatchPattern.alpha = 0.2;
+
+            hatchPattern.x = xPosition1;
+            hatchPattern.y = -1000;
+
+            timelineContainer.addChild(hatchPattern);
+
+            
+            
         // Pour Chaque entrées
         for (let index = 0; index < allEntries.length; index++) {
 
@@ -173,11 +229,11 @@ fetch('Json/music.json')
             // Créer une ligne avec une lenght
             let myGraph = new PIXI.Graphics();
             timelineContainer.addChild(myGraph);
-            const lineLength = 5300;
+            const lineLength = 6300;
 
             // Défini le placement des points
             if (subgenreEntries[0] != undefined) {
-                fixedX = (subgenreEntries[0].date - 1915) * 50;
+                fixedX = (subgenreEntries[0].date - 1900) * 50;
             }
 
             // Défini le style de la ligne et la déplace au bonne endroit
@@ -186,26 +242,29 @@ fetch('Json/music.json')
             myGraph.lineTo(50 + lineLength, yPosition);
 
 
-            // const line = new PIXI.Graphics();
-            // line.lineStyle(2, 0x000000);
-            // line.moveTo(xPosition, 0);
-            // line.lineTo(xPosition, theheight);
-            // timelineContainer.addChild(line);
-            // // Inside your loop
-            // for (let year = 1915; year <= 2023; year += 10) {
-            //     const xPosition = (year - 1915) * 50;
-            //     drawVerticalLine(xPosition);
-            // }
-
             // Défini les couleurs pour chaque genre
             const genreColor = genreColors[allEntries[index].genre] || 0x000000;
 
-            let pointSize = 20;
+            // let pointSize = 20;
 
 
             for (const entry of subgenreEntries) {
 
                 const x = parseInt(entry.date);
+
+                let pointSize;
+                let dateText;
+                let dateTitreText;
+                if (entry === subgenreEntries[0]) {
+                    // Check if it's the main genre
+                    dateText = new PIXI.Text(entry.date, {fontSize: 33,fill: 0x000000,fontFamily: 'Oswald'});
+                    dateTitreText = new PIXI.Text(entry.genre, {fontSize: 38,fill: 0x000000,fontFamily: 'Oswald'}); 
+                    pointSize = 40; // Set the size for the main genre
+                } else {
+                    dateText = new PIXI.Text(entry.date, {fontSize: 13,fill: 0x000000,fontFamily: 'Next, sans-serif'});
+                    dateTitreText = new PIXI.Text(entry.genre, {fontSize: 16,fill: 0x000000});
+                    pointSize = 20; // Default size for other genres
+                }
 
                 const point = new PIXI.Graphics();
                 point.beginFill(genreColor);
@@ -219,47 +278,41 @@ fetch('Json/music.json')
                     openModal(entry);
                 });
 
-                const dateTitreText = new PIXI.Text(entry.genre, {
-                    fontSize: 16,
-                    fill: 0x000000
-                });
+                // Place the text in the right x and y
                 dateTitreText.anchor.set(0.5, 0);
                 dateTitreText.x = 0;
-                dateTitreText.y = -80;
+                dateTitreText.y = (2.5*pointSize) * -1;
                 point.addChild(dateTitreText);
 
                 // Si la date avant 1710
                 if (entry.date <= 1740) {
-                    console.log('test 1710')
-                    point.x = (entry.date - 2000) * 12;
+                    point.x = (entry.date - 2000) * 15;
                 } 
                 // Sinion si la date < 1880 et > 1710
                 else if (entry.date < 1880 && entry.date > 1740) {
-                    point.x = (entry.date - 2000) * 10;
+                    let moveXP = parseInt(entry.date) + 65;
+                    point.x = (moveXP - 1900) * 50;
+                    console.log(point.x, moveXP)
                 } 
                 // Sinion si la date > 1880        // How can i add vertical line for every 10 year
                 else if (entry.date > 1880) {
-                    point.x = (entry.date - 1915) * 50;
+                    point.x = (entry.date - 1900) * 50;
                 } 
                 else {
-                    point.x = (entry.date - 1915) * 50;
+                    point.x = (entry.date - 1900) * 50;
                 }
                 
                 point.y = yPosition
 
-                if (entry.date < 1740) {
+                if (entry.date <= 1740) {
                     entry.date = "Date inconnu"
                 }
 
-                const dateText = new PIXI.Text(entry.date, {
-                    fontSize: 16,
-                    fill: 0x000000,
-                    fontFamily: 'Next, sans-serif'
-                });
                 
+            
                 dateText.anchor.set(0.5, 0);
                 dateText.x = 0;
-                dateText.y = -50;
+                dateText.y = pointSize*1.5;
                 point.addChild(dateText);
 
                 const entryData = [entry.genre, point.x + timelineContainer.x, point.y + timelineContainer.y];
@@ -315,15 +368,15 @@ function searchvalue() {
             // Zoom out animation
             viewport.animate({
                 time: zoomOutDuration,
-                scale: 0.3, // Zoom out to 80% of the original scale
-                ease: "easeOutSine",
+                scale: 0.4, // Zoom out to 80% of the original scale
+                ease: "easeInOutSine",
                 callbackOnComplete: () => {
                     // After zoom-out animation completes, perform zoom-in animation
                     viewport.animate({
                         time: zoomInDuration,
                         scale: 1, // Zoom back to the original scale
                         position: new PIXI.Point(x, y), // Move to the new center
-                        ease: "easeOutSine",
+                        ease: "easeInOutSine",
                         callbackOnComplete: () => {
                             // Zoom-in animation completed callback
                         },
@@ -430,5 +483,33 @@ reduceButton.addEventListener("click", () => {
     modal.classList.toggle("bottomleft");
 });
 
+function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
 
- 
+document.addEventListener("DOMContentLoaded", function () {
+    const searchBar = document.getElementById("genre-search-dropdown");
+    const searchIcon = document.getElementById("search-icon");
+    const searchContent = document.getElementById("search-content");
+  
+    let timeoutId;
+  
+    const hideSearchBar = () => {
+        searchContent.classList.add("active");
+    };
+  
+    searchIcon.addEventListener("click", function () {
+        searchContent.classList.toggle("active");
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(hideSearchBar, 15000);
+    });
+  
+    searchBar.addEventListener("click", function () {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(hideSearchBar, 15000); // Set the timeout value (5 seconds in this example)
+    });
+    timeoutId = setTimeout(hideSearchBar, 15000);
+});
+  
