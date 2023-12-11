@@ -118,7 +118,9 @@ function createChilds(info, parent, depth, storageLocation){
 
         //* value info[key]
         myNewParent.on("pointertap", () => {
-            openModal(info[key]);
+            let tempInfo = info[key];
+            tempInfo.genre = key;
+            openModal(tempInfo);
         });
 
 
