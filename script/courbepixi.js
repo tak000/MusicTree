@@ -93,11 +93,6 @@ let infoText = null;
 let infoImage = null;
 let fixedX = 1000;
 
-// PIXI.Assets.addBundle('fonts', {
-//     'Next': "/style/Next\ Bro.ttf",
-// });
-// await PIXI.Assets.loadBundle('fonts');  
-
 // Tableau des genres disponible
 const availableGenres = [];
 
@@ -362,18 +357,17 @@ function searchvalue() {
             const y = genreEntry[2];
 
             // Animation durations
-            const zoomOutDuration = 1500; // Zoom-out duration in milliseconds
-            const zoomInDuration = 1500; // Zoom-in duration in milliseconds
+            const zoomDuration = 1500; // Zoom-out duration in milliseconds
 
             // Zoom out animation
             viewport.animate({
-                time: zoomOutDuration,
+                time: zoomDuration,
                 scale: 0.4, // Zoom out to 80% of the original scale
                 ease: "easeInOutSine",
                 callbackOnComplete: () => {
                     // After zoom-out animation completes, perform zoom-in animation
                     viewport.animate({
-                        time: zoomInDuration,
+                        time: zoomDuration,
                         scale: 1, // Zoom back to the original scale
                         position: new PIXI.Point(x, y), // Move to the new center
                         ease: "easeInOutSine",
@@ -447,12 +441,14 @@ function openModal(entry) {
     const genreName = document.getElementById("genre-name");
     const genreExtraitNom = document.getElementById("genre-extrait-nom");
     const genreDesc = document.getElementById("genre-description");
+    const genreImage = document.getElementById("genre-image");
     const music = document.getElementById("music-video");
     const audio = document.getElementById("audio");
 
     genreName.textContent = entry.genre;
     genreExtraitNom.textContent = entry["extrait-nom"];
     genreDesc.textContent = entry.description;
+    genreImage.src = entry.image;
     music.src = `/music/${entry["extrait"]}.mp3`;
     audio.load();
 
@@ -465,7 +461,8 @@ closeButton.addEventListener("click", () => {
     modal.style.display = "none";
 
     const music = document.getElementById("music-video");
-    const audio = document.getElementById("audio");
+    const audio = document.getElementById("audio")
+
     music.src = "";
     audio.load();
 });
@@ -476,9 +473,11 @@ const reduceButton = document.getElementById("reduce-modal");
 reduceButton.addEventListener("click", () => {
     const modal = document.getElementById("modal");
     modal.classList.toggle('transition');
+    const genreImage = document.getElementById("genre-image");
     const genreDesc = document.getElementById("genre-description");
     const extraitInto = document.getElementById("extrait-into");
     genreDesc.classList.toggle("hide");
+    genreImage.classList.toggle("hide");
     extraitInto.classList.toggle("hide");
     modal.classList.toggle("bottomleft");
 });

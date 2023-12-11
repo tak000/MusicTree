@@ -1,75 +1,113 @@
 /* Style de la modal */
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 50vw;
-    min-height: 50vh;
-    overflow: hidden;
-    user-select: none;
-    box-shadow: 0 0 20px #0000002e;
-    background-color: rgba(255, 255, 255);
-  }
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 50vw;
+  min-height: 50vh;
+  overflow: hidden;
+  user-select: none;
+  box-shadow: 0 0 20px #0000002e;
+  background-color: rgba(255, 255, 255);
+}
 
 /*  */
 .transition {
-    
-    transition: transform 0.3s ease;
+
+  transition: transform 0.3s ease;
 }
 
-#genre-name, #close-modal, #reduce-moda {
+#genre-name,
+#close-modal,
+#reduce-moda {
   font-family: 'Oswald', sans-serif;
 }
 
+#genre-image {
+  width: 10vw;
+  height: 100%;
+  min-height: 50vh;
+  object-fit: cover;
+  user-select: none;
+  pointer-events:none;
+}
+#genre-description {
+  text-align: justify;
+}
+#audio-song {
+  /* background-color: #dfdfdf; */
+  border: rgba(0, 0, 0, 0.192) solid 1px;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 5px;
+  /* box-shadow: 0 0 20px #0000002e; */
+  margin-bottom: 10px;
+}
+#genre-extrait-nom {
+  margin: 0;
+  padding: 0;
+}
 .draggable {
   cursor: move;
 }
 
 .modal-content {
   background-color: #fff;
-  padding: 20px;
+  /* min-height: 50vh; */
 }
-  
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  .close:hover {
-    color: red;
-  }
-  
 
-  .reduce {
-    color: #aaa;
-    float: right;
-    margin-right: 20px;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-  }
+.modal-ok {
+  display: flex;
+}
 
-  .reduce:hover {
-    color: cornflowerblue;
-  }
+#contentF {
+  margin-left: 20px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.close:hover {
+  color: red;
+}
+
+
+.reduce {
+  color: #aaa;
+  float: right;
+  margin: 10px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.reduce:hover {
+  color: cornflowerblue;
+}
+
 #support {
-    width: 100%;
-    height: 100vh;
+  width: 100%;
+  height: 100vh;
 }
 
 body {
-    overflow: hidden;
-    padding: 0;
-    margin: 0;
-    font-family: sans-serif;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
 }
 
-.hide{
+.hide {
   display: none;
 }
 
@@ -85,8 +123,8 @@ body {
 
 .material-symbols-outlined {
   font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
+    'FILL'0,
+    'wght'400,
+    'GRAD'0,
+    'opsz'24
 }
