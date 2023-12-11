@@ -3,6 +3,7 @@ import {
     Viewport
 } from 'pixi-viewport';
 
+
 const support = document.getElementById('support');
 let theheight = window.innerHeight;
 let thewidth = window.innerWidth;
@@ -16,45 +17,60 @@ let app = new PIXI.Application({
 
 support.appendChild(app.view);
 
-
+// Défini le viewport
 const viewport = new Viewport({
+    // Taille de l'écran
     screenWidth: window.innerWidth,
     screenHeight: window.innerHeight,
-    worldWidth: 5900, // Change this to your desired world width
-    worldHeight: 3000, // Change this to your desired world height
-    // events: app.renderer.plugins.interaction, // Use the interaction plugin
-    events: app.renderer.events, // Use the interaction plugin
+    // Taille du monde
+    worldWidth: 9400, 
+    worldHeight: 3000, 
+    // Si Interraction
+    // events: app.renderer.plugins.interaction, 
+    // Render les events
+    events: app.renderer.events, 
 });
 
+// Met le viewport en front
 app.stage.addChild(viewport);
 
 viewport.drag({
-    clampWheel: true, // Prevent over-zooming with the wheel
+    // Empêche over-zooming 
+    clampWheel: true, 
     wheel: true,
 });
 
+// Défini les valeurs de zoom
 viewport.clampZoom({
     minWidth: 500, // Minimum zoom width
     minHeight: 500, // Minimum zoom height
-    maxWidth: 5900, // Maximum zoom width
+    maxWidth: 9400, // Maximum zoom width
     maxHeight: 3000, // Maximum zoom height
     minScale: 0.2, // Minimum scale
     maxScale: 3, // Maximum scale
 });
 
+// Clamp le viewport
 viewport.clamp({
-    left: true, // clamp to the left
-    right: true, // clamp to the right
-    top: viewport.worldHeight - 1750, // clamp to 1200 pixels above the center
-    bottom: viewport.worldHeight + 1150, // clamp to 1200 pixels below the center
-    underflow: 'center', // where to place the world if too small for the screen (centered)
+    // Clamp à gauche
+    left: true, 
+    // Clamp à droite
+    right: true, 
+    // Clamp à 1200 pixels au dessus du centre
+    top: viewport.worldHeight - 1750, 
+    // Clamp à 1200 pixels en dessous du centre
+    bottom: viewport.worldHeight + 1150, 
+    // Centre le viewport
+    underflow: 'center', 
 });
 
 
 viewport.wheel({
-    percent: 0.1, // Smooth the zooming
+    // Adoucir le zoom
+    percent: 0.1, 
 });
 
+// Couleurs des genre de musique
 const genreColors = {
     "War songs": 0x6C853E,
     "Punk": 0xF39C12,
@@ -69,82 +85,119 @@ const genreColors = {
     "Country": 0x96754b,
     "Rock": 0xC0392B,
 };
-//
+
+
+// Défini des avriables
 let infoVideo = null
-let infoText = null; // Variable to hold info text
+let infoText = null;
 let infoImage = null;
 let fixedX = 1000;
 
-PIXI.Assets.addBundle('fonts', {
-    'Next': "/style/Next\ Bro.ttf",
-});
-await PIXI.Assets.loadBundle('fonts');
+// PIXI.Assets.addBundle('fonts', {
+//     'Next': "/style/Next\ Bro.ttf",
+// });
+// await PIXI.Assets.loadBundle('fonts');  
 
+// Tableau des genres disponible
 const availableGenres = [];
 
+
+//Récupère le Json
 fetch('Json/music.json')
     .then(response => response.json())
     .then(timelineData => {
+        // Console log tout les infos
         console.log(timelineData);
 
+        // Défini tout les entries 
         const allEntries = Object.entries(timelineData).map(([genre, data]) => ({
             genre,
             ...data
         }));
 
+        // Défini la hauteur et la largeur
         const totalHeight = 100;
         const totalWidth = allEntries.length * 100;
 
+        // Créer un timelineContainer et défini avec la largeur et hauteur
         const timelineContainer = new PIXI.Container();
         timelineContainer.width = totalWidth;
         timelineContainer.height = totalHeight;
 
+        // Défini la posY à 0
         // let xPosition = -7250;
         let yPosition = 0;
 
         let date = 1;
 
+        // Pour Chaque entrées
         for (let index = 0; index < allEntries.length; index++) {
 
 
+            // Tabkeau des sous-genres 
             let subgenreEntries = []
 
-
+            // Remplie le tableau des sous-genres 
             subgenreEntries.push(allEntries[index])
-
-
-            console.log()
+            
+            // Met la position X à 0
             let xPosition = 0;
+
+            // Si il y a un sous-genre
             if (allEntries[index].subgenre) {
+
+                // Boucle pour chaque sous-genre d'un même genre
                 for (const subgenre in allEntries[index].subgenre) {
+
+                    // Défini les infos du sous-genre 
                     const subgenreData = allEntries[index].subgenre[subgenre];
                     const subgenreEntry = {
                         genre: subgenre,
                         ...subgenreData
                     };
 
+                    // Remplie le tableau des sous-genre
                     subgenreEntries.push(subgenreEntry);
-
                 }
-
             }
+
+            // Tri par date
             subgenreEntries.sort((a, b) => a.date - b.date);
+
+            // Concole log des sous-genres
             console.log(subgenreEntries)
 
+            // Augement la positionY de la ligne de 200
             yPosition += 200;
 
+            // Créer une ligne avec une lenght
             let myGraph = new PIXI.Graphics();
             timelineContainer.addChild(myGraph);
-            const lineLength = 4300;
+            const lineLength = 5300;
 
+            // Défini le placement des points
             if (subgenreEntries[0] != undefined) {
-                fixedX = (subgenreEntries[0].date - 1950) * 50;
+                fixedX = (subgenreEntries[0].date - 1915) * 50;
             }
 
+            // Défini le style de la ligne et la déplace au bonne endroit
             myGraph.lineStyle(2, 0x000000);
             myGraph.moveTo(fixedX, yPosition);
             myGraph.lineTo(50 + lineLength, yPosition);
 
+
+            // const line = new PIXI.Graphics();
+            // line.lineStyle(2, 0x000000);
+            // line.moveTo(xPosition, 0);
+            // line.lineTo(xPosition, theheight);
+            // timelineContainer.addChild(line);
+            // // Inside your loop
+            // for (let year = 1915; year <= 2023; year += 10) {
+            //     const xPosition = (year - 1915) * 50;
+            //     drawVerticalLine(xPosition);
+            // }
+
+            // Défini les couleurs pour chaque genre
             const genreColor = genreColors[allEntries[index].genre] || 0x000000;
 
             let pointSize = 20;
@@ -175,21 +228,27 @@ fetch('Json/music.json')
                 dateTitreText.y = -80;
                 point.addChild(dateTitreText);
 
-                if (entry.date < 1720) {
-                    entry.date = 1730
-                    point.x = (entry.date - 1950) * 10;
-                } else if (entry.date == 1730) {
-                    entry.date = 1750
-                    point.x = (entry.date - 2000) * 8;
-                } else if (entry.date < 1920 && entry.date > 1740) {
-                    point.x = (entry.date - 2000) * 8;
-                } else {
-                    point.x = (entry.date - 1950) * 50;
+                // Si la date avant 1710
+                if (entry.date <= 1740) {
+                    console.log('test 1710')
+                    point.x = (entry.date - 2000) * 12;
+                } 
+                // Sinion si la date < 1880 et > 1710
+                else if (entry.date < 1880 && entry.date > 1740) {
+                    point.x = (entry.date - 2000) * 10;
+                } 
+                // Sinion si la date > 1880        // How can i add vertical line for every 10 year
+                else if (entry.date > 1880) {
+                    point.x = (entry.date - 1915) * 50;
+                } 
+                else {
+                    point.x = (entry.date - 1915) * 50;
                 }
+                
                 point.y = yPosition
 
-                if (entry.date < 1760) {
-                    entry.date = "Antérieur à 1700"
+                if (entry.date < 1740) {
+                    entry.date = "Date inconnu"
                 }
 
                 const dateText = new PIXI.Text(entry.date, {
@@ -197,6 +256,7 @@ fetch('Json/music.json')
                     fill: 0x000000,
                     fontFamily: 'Next, sans-serif'
                 });
+                
                 dateText.anchor.set(0.5, 0);
                 dateText.x = 0;
                 dateText.y = -50;
@@ -205,11 +265,9 @@ fetch('Json/music.json')
                 const entryData = [entry.genre, point.x + timelineContainer.x, point.y + timelineContainer.y];
                 availableGenres.push(entryData);
 
-
                 xPosition += 200;
 
                 timelineContainer.addChild(point);
-
             }
             viewport.addChild(timelineContainer);
             timelineContainer.y = (viewport.worldHeight - totalHeight) / 2;
@@ -217,7 +275,7 @@ fetch('Json/music.json')
 
         }
         const searchDropdown = document.getElementById('genre-search-dropdown');
-        availableGenres.sort(); // If availableGenres is an array of arrays, sort it by the genre name.
+        availableGenres.sort(); 
 
         for (const entry of availableGenres) {
             const genreName = entry[0]; // The genre name is the first element in the entry array
@@ -345,7 +403,6 @@ function openModal(entry) {
     music.src = `/music/${entry["extrait"]}.mp3`;
     audio.load();
 
-
 }
 
 const closeButton = document.getElementById("close-modal");
@@ -372,3 +429,6 @@ reduceButton.addEventListener("click", () => {
     extraitInto.classList.toggle("hide");
     modal.classList.toggle("bottomleft");
 });
+
+
+ 

@@ -1,8 +1,4 @@
-@font-face {
-  font-family: 'NextBro';
-  src: url('/style/Next\ Bro.ttf');
-}
-
+/* Style de la modal */
 .modal {
     display: none;
     position: fixed;
@@ -17,13 +13,14 @@
     background-color: rgba(255, 255, 255);
   }
 
-  .transition {
-    /* Apply transition only when the "transition" class is present */
+/*  */
+.transition {
+    
     transition: transform 0.3s ease;
 }
 
   #genre-name, #close-modal, #reduce-moda {
-    font-family: NextBro, sans-serif;
+    font-family: 'Oswald', sans-serif;
   }
   #search-bar {
     position: fixed;
@@ -96,4 +93,12 @@ body {
   top: auto !important;
   min-height: auto !important;
   width: auto !important;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
 }
