@@ -77,6 +77,12 @@ function textScaling(list){
     for (let key in list) {
         const item = list[key].object;
 
+        if(viewport.scale.x < item.label.visibleOnZoom){
+            item.label.alpha = 0;
+        }else{
+            item.label.alpha = 1;
+        }
+
 
         item.label.y = -item.radius - 15 / viewport.scale.y;
         let newScale = Math.min((1 / viewport.scale.x), item.label.maxScale);
@@ -91,7 +97,7 @@ function textScaling(list){
 function createChilds(info, parent, depth, storageLocation){
     //* coordinates management
     Object.keys(info).forEach((key, i) => {
-        let xSpacing, ySpacing, maxScale;
+        let xSpacing, ySpacing, maxScale, visibleOnZoom;
         let length = Object.keys(info).length;
 
 
@@ -101,14 +107,17 @@ function createChilds(info, parent, depth, storageLocation){
             xSpacing = 1450;
             ySpacing = 1000;
             maxScale = 5;
+            visibleOnZoom = 0;
         }else if(depth == 2){
             xSpacing = 250;
             ySpacing = 650;
             maxScale = 4;
+            visibleOnZoom = 0.218;
         }else{
             xSpacing = 250;
             ySpacing = 650;
             maxScale = 3.6;
+            visibleOnZoom = 0.318;
         }
 
 
@@ -134,7 +143,7 @@ function createChilds(info, parent, depth, storageLocation){
 
 
         //* node creation
-        let myNewParent = new Node(30, '0x000000', x, y, key+depth, maxScale);
+        let myNewParent = new Node(30, '0x000000', x, y, key, maxScale, visibleOnZoom);
 
         // point.interactive = true;
         myNewParent.eventMode = 'static';
@@ -146,10 +155,15 @@ function createChilds(info, parent, depth, storageLocation){
         //* value info[key]
         myNewParent.on("pointertap", () => {
 
-            // myNewParent.label.alpha = 0;
-            // console.log(x+" "+y);
-            console.log(myNewParent.label.maxScale);
-
+            viewport.animate({
+                time: 1000,
+                scale: 0.65, // Zoom back to the original scale
+                position: new PIXI.Point(x, y - 700), // Move to the new center
+                ease: "easeInOutSine",
+                callbackOnComplete: () => {
+                    // Zoom-in animation completed callback
+                },
+            });
 
             let tempInfo = info[key];
             tempInfo.genre = key;
