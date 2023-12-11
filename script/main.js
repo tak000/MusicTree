@@ -33,17 +33,16 @@ function createApp(){
     
     app.stage.addChild(viewport);
     viewport.drag()
+    .moveCenter(viewport.worldWidth / 2, (viewport.worldHeight / 1.5 - 2000))
     .pinch()
     .wheel()
     .decelerate()
-    .clampZoom({maxWidth: 16000});
-    // .clamp({
-    //     left: true,
-    //     right: true,
-    //     top: true,
-    //     bottom: true
-    // })
+    .clampZoom({maxWidth: 17900})
+    .setZoom(0.1072, true);
 }
+
+
+
 
 async function createObjects(){
     await PIXI.Assets.loadBundle('fonts');
@@ -52,6 +51,9 @@ async function createObjects(){
     createChilds(data, objects.music.object, 1, objects.music.childs);
     render(objects);
 }
+
+
+
 
 function render(list){
     //*rendering
@@ -65,40 +67,60 @@ function render(list){
         }
     }
 
-    //* scaling
-    viewport.on('zoomed', (event) => {
-        for (let key in list) {
-            const value = list[key].object;
-    
-            value.label.y = -value.radius - 15 / event.viewport.scale.y;
-            let newScale = Math.min((1 / event.viewport.scale.x), 3.6);
-            value.label.scale.set(newScale);
-        }
-    });
+    //* text scaling
+    viewport.on('zoomed', () => textScaling(list));
+    textScaling(list);
 }
+
+
+function textScaling(list){
+    for (let key in list) {
+        const item = list[key].object;
+
+
+        item.label.y = -item.radius - 15 / viewport.scale.y;
+        let newScale = Math.min((1 / viewport.scale.x), item.label.maxScale);
+        item.label.scale.set(newScale);
+    }
+}
+
+
 
 
 
 function createChilds(info, parent, depth, storageLocation){
     //* coordinates management
     Object.keys(info).forEach((key, i) => {
-        let xSpacing, ySpacing;
+        let xSpacing, ySpacing, maxScale;
         let length = Object.keys(info).length;
+
+
 
         //* depth 1 specific case
         if(depth == 1){
-            xSpacing = 1300;
+            xSpacing = 1450;
             ySpacing = 1000;
+            maxScale = 5;
+        }else if(depth == 2){
+            xSpacing = 250;
+            ySpacing = 650;
+            maxScale = 4;
         }else{
             xSpacing = 250;
             ySpacing = 650;
+            maxScale = 3.6;
         }
+
+
 
         //* coordinates
         let x = parent.x;
         x -= (xSpacing * (length-1)) / 2;
         x += i * xSpacing;
         let y = parent.y - randomBetween(ySpacing, ySpacing*2);
+
+
+
 
         //* first depth specific case (^from)
         if(depth == 1){
@@ -108,28 +130,44 @@ function createChilds(info, parent, depth, storageLocation){
             y -= heightModifier;
         }
 
+
+
+
         //* node creation
-        let myNewParent = new Node(30, '0x000000', x, y, key+" "+depth);
+        let myNewParent = new Node(30, '0x000000', x, y, key+depth, maxScale);
 
         // point.interactive = true;
         myNewParent.eventMode = 'static';
         myNewParent.buttonMode = true;
 
 
+
+        
         //* value info[key]
         myNewParent.on("pointertap", () => {
+
+            // myNewParent.label.alpha = 0;
+            // console.log(x+" "+y);
+            console.log(myNewParent.label.maxScale);
+
+
             let tempInfo = info[key];
             tempInfo.genre = key;
             openModal(tempInfo);
         });
 
 
+
         //* structure orgenisation
         storageLocation[key] = {object: myNewParent, childs: {}}
+
+
 
         //* lines between parent and child
         let curve = new BezierCurve(parent, myNewParent, {x: 0.73, y: 0.73}, {x: 1, y: 0.55});
         viewport.addChild(curve);
+
+
 
         //* recursive call
         if(info[key].subgenre != undefined){
@@ -139,6 +177,11 @@ function createChilds(info, parent, depth, storageLocation){
 }
 
 
+
+
+
+
+
 try {
     const response = await fetch("/categorized-subset.json");
     const json = await response.json();
@@ -146,7 +189,7 @@ try {
 
     createApp();
     objects = {music : {
-        object: new Node(135, '0x000000', (viewport.worldWidth / 2), (viewport.worldHeight / 1.5), "Music"),
+        object: new Node(135, '0x000000', (viewport.worldWidth / 2), (viewport.worldHeight / 1.5), "Music", 8),
         childs: {}
     }};
     await createObjects();
@@ -159,9 +202,9 @@ try {
 
 
 
-//* -------------------------CODE MODAL-------------------------
-//* -------------------------CODE MODAL-------------------------
-//* -------------------------CODE MODAL-------------------------
+//* ----------------------------------------------------------------CODE MODAL----------------------------------------------------------------
+//* ----------------------------------------------------------------CODE MODAL----------------------------------------------------------------
+//* ----------------------------------------------------------------CODE MODAL----------------------------------------------------------------
 
 
 

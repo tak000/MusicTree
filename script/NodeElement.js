@@ -1,7 +1,7 @@
 import * as PIXI from 'pixi.js';
 
 class Node extends PIXI.Graphics {
-    constructor(radius, color, x, y, text){
+    constructor(radius, color, x, y, text, maxScale){
         super(); // invoque des méthodes de la super class
 
         this.radius = radius;
@@ -19,12 +19,14 @@ class Node extends PIXI.Graphics {
         // crée notre object enfant texte
         this.label = new PIXI.Text(this.text,  new PIXI.TextStyle({ fontFamily: 'Roboto Light', fontSize: 25 }));
 
+        this.label.maxScale = maxScale;
+
         // position du texte par rapport au parent
         this.label.y = -this.radius - 15;
 
         // centre le texte
         this.label.anchor.set(0.5);
-        // this.addChild(this.label);
+        this.addChild(this.label);
 
     }
 }
