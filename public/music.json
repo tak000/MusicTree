@@ -1,418 +1,458 @@
 {
   "War songs" : {
+    "name": "War songs",
     "main-artist": ["Dmitri Shostakovich", "Samuel Barber", "Vera Lynn", "John Williams", "Hans Zimmer"],
     "description": "La musique de guerre englobe un large éventail de compositions associées aux thèmes de la guerre, des conflits, du patriotisme et de l'héroïsme. Ces compositions peuvent être instrumentales ou comporter des éléments vocaux, et visent souvent à transmettre les aspects émotionnels et dramatiques des expériences de guerre. La musique de guerre a été utilisée historiquement pour inspirer les troupes, commémorer les soldats tombés au combat ou refléter les sentiments sociaux et politiques d'une période particulière. Son style et son ton peuvent varier considérablement, du martial et triomphant au sombre et réfléchi",
-    "extrait": "https://www.youtube.com/watch?v=sfuLrny00t4",
+    "extrait": "War-songs",
     "extrait-id": "sfuLrny00t4",
     "extrait-nom": "The Battle Hymn of the Republic",
     "image": "https://upload.wikimedia.org/wikipedia/commons/7/7c/OkinawaSprintingMarine.jpg",
-    "date": "1950"
+    "date": "1700"
   },
   "Punk" : {
+    "name": "Punk",
     "subgenre" : {
       "Anarcho Punk": {
+        "name": "Anarcho Punk",
         "main-artist": ["Crass", "Dead Kennedys", "Discharge", "Conflict", "Subhumans"],
         "description": "Anarcho Punk est un sous-genre du punk rock qui promeut l'anarchisme et les idées politiques radicales. Il est caractérisé par ses paroles engagées, son attitude DIY (do it yourself) et son rejet des structures autoritaires.",
-        "extrait": "https://www.youtube.com/watch?v=-KTsXHXMkJA",
+        "extrait": "Anarcho-Punk",
         "extrait-id": "-KTsXHXMkJA",
         "extrait-nom": "'Holiday in Cambodia' by Dead Kennedys",
         "image": "https://upload.wikimedia.org/wikipedia/commons/3/3d/2019_Dead_Kennedys_-_by_2eight_-_ZSC5095.jpg",
-        "date": "1953"
+        "date": "1978"
       },
       "Gothic Punk": {
         "main-artist": ["Bauhaus", "Siouxsie and the Banshees", "The Sisters of Mercy", "The Damned", "The Cure"],
         "description": "Gothic Punk est un sous-genre qui combine des éléments du punk rock avec une esthétique sombre et gothique. Il est caractérisé par ses mélodies mélancoliques et ses paroles introspectives.",
-        "extrait": "https://www.youtube.com/watch?v=OKRJfIPiJGY",
+        "extrait": "Gothic-Punk",
         "extrait-id": "OKRJfIPiJGY",
         "extrait-nom": "'Bela Lugosi's Dead' by Bauhaus",
         "image": "https://upload.wikimedia.org/wikipedia/commons/7/79/Bauhaus_2006.jpg",
-        "date": "1860"
+        "date": "1980"
       },
       "Melodic Hardcore": {
         "main-artist": ["Bad Religion", "Pennywise", "Rise Against", "NOFX", "Millencolin"],
         "description": "Le Melodic Hardcore est un sous-genre du punk rock qui combine l'intensité du hardcore punk avec des mélodies et des harmonies vocales. Il est caractérisé par ses paroles engagées et sa musique énergique.",
-        "extrait": "https://www.youtube.com/watch?v=rAX_RHxncMo",
+        "extrait": "Melodic-Hardcore",
         "extrait-id": "rAX_RHxncMo",
         "extrait-nom": "'21st Century (Digital Boy)' by Bad Religion",
         "image": "https://upload.wikimedia.org/wikipedia/commons/2/28/Bad_Religion_-_Southside_Festival_2022_-_IMG_5384.jpg",
-        "date": "1966"
+        "date": "1990"
       },
       "Ska Punk": {
         "main-artist": ["Less Than Jake", "The Mighty Mighty Bosstones", "Rancid", "Reel Big Fish", "Operation Ivy"],
         "description": "Le Ska Punk fusionne le ska jamaïcain avec l'énergie du punk rock. Il est caractérisé par ses rythmes entraînants, ses cuivres et ses paroles souvent festives. Il incite à la danse et à la fête.",
-        "extrait": "https://www.youtube.com/watch?v=EZpcUK6Kxo8",
+        "extrait": "Ska-Punk",
         "extrait-id": "EZpcUK6Kxo8",
         "extrait-nom": "'The Impression That I Get' by The Mighty Mighty Bosstones",
         "image": "https://upload.wikimedia.org/wikipedia/commons/b/be/Mighty_Mighty_Bosstones_fenway01_%286131838436%29.jpg",
-        "date": "2000"
+        "date": "1973"
       }                        
     },
     "main-artist": ["The Ramones", "Sex Pistols", "The Clash", "Dead Kennedys", "The Misfits"],
     "description": "La musique punk est un genre caractérisé par sa philosophie brute et DIY (do-it-yourself). Il est apparu au milieu des années 1970 en réaction aux excès et aux complexités perçus de la musique rock traditionnelle. Le punk est connu pour ses chansons courtes et rapides avec des structures simples et souvent à trois accords. Les paroles véhiculent souvent des thèmes de rébellion, de sentiment anti-establishment et de critique sociale. La mode punk, notamment les vestes en cuir, les vêtements déchirés et les coiffures distinctives, fait également partie intégrante de la sous-culture. La musique punk a eu une influence sur divers sous-genres, notamment le punk hardcore, le pop punk et le punk rock",
-    "extrait": "https://www.youtube.com/watch?v=YJRnwaEUNkM",
+    "extrait": "Punk",
     "extrait-id": "YJRnwaEUNkM",
     "extrait-nom": "'Anarchy in the U.K.' by the Sex Pistols",
     "image": "https://upload.wikimedia.org/wikipedia/commons/7/72/The_Sex_Pistols_Experience_%E2%80%93_Hafen_Rock_2016_02.jpg",
-    "date": "1978"
+    "date": "1970"
   },
   "Metal" : {
     "subgenre" : {
       "Alternative Metal": {
         "main-artist": ["Tool", "Deftones", "System of a Down", "Alice in Chains", "Korn"],
         "description": "Alternative Metal est un genre qui fusionne le metal avec d'autres styles musicaux, comme le rock alternatif et le grunge. Il est caractérisé par une diversité musicale et des paroles souvent introspectives.",
-        "extrait": "https://www.youtube.com/watch?v=DhMv5WVOli4",
+        "extrait": "Alternative-Metal",
         "extrait-id": "DhMv5WVOli4",
         "extrait-nom": "'Sober' by Tool",
         "image": "https://upload.wikimedia.org/wikipedia/commons/b/b5/SOADJONESBEACH.jpg",
-        "date": "1899"
+        "date": "1978"
       },
       "Doom Metal": {
         "main-artist": ["Black Sabbath", "Candlemass", "Electric Wizard", "My Dying Bride", "Pentagram"],
         "description": "Le Doom Metal est un genre qui se caractérise par ses tempos lents, ses riffs lourds et sa tonalité sombre. Il explore des thèmes tels que le désespoir, la mort et la mélancolie.",
-        "extrait": "https://www.youtube.com/watch?v=b_EcPEuHvag",
+        "extrait": "Doom-Metal",
         "extrait-id": "b_EcPEuHvag",
         "extrait-nom": "'Black Sabbath' by Black Sabbath",
         "image": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Black_Sabbath_farewell_collage_%28Cropped%29.jpg",
-        "date": "1933"
+        "date": "1974"
       },
       "Symphonic Metal": {
         "main-artist": ["Nightwish", "Within Temptation", "Epica", "Xandria", "Kamelot"],
         "description": "Le Symphonic Metal combine des éléments du metal avec des orchestrations symphoniques. Il est caractérisé par des arrangements grandioses, des voix féminines puissantes et des thèmes fantastiques.",
-        "extrait": "https://www.youtube.com/watch?v=kIBdpFJyFkc",
+        "extrait": "Symphonic-Metal",
         "extrait-id": "kIBdpFJyFkc",
         "extrait-nom": "'Nemo' by Nightwish",
         "image": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Nightwish-_palais.jpg",
-        "date": "1853"
+        "date": "1991"
       },
       "Thrash Metal": {
         "main-artist": ["Metallica", "Megadeth", "Slayer", "Anthrax", "Testament"],
         "description": "Le Thrash Metal est un genre qui se distingue par ses tempos rapides, ses riffs agressifs et ses paroles souvent politiques ou sociales. Il est associé à l'énergie et à l'agressivité.",
-        "extrait": "https://www.youtube.com/watch?v=zbSjDVcZA2o",
+        "extrait": "Thrash-Metal",
         "extrait-id": "zbSjDVcZA2o",
         "extrait-nom": "'Master of Puppets' by Metallica",
         "image": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Megadeth_Live_at_The_O2_2018-06-16.jpg",
-        "date": "1878"
+        "date": "1980"
       }                        
     },
     "main-artist": ["Black Sabbath", "Metallica", "Iron Maiden", "Slayer", "Judas Priest"],
     "description": "La musique métal est un genre caractérisé par son son puissant et agressif, ses riffs de guitare lourds, ses solos complexes et ses thèmes souvent intenses et dramatiques. Il comprend divers sous-genres, tels que le heavy metal, le thrash metal, le death metal et le power metal, chacun avec ses caractéristiques distinctes. Le métal explore souvent des sujets sombres et complexes, et il est connu pour sa musicalité virtuose et ses styles vocaux qui vont du chant mélodique au grognement dur. Le genre a une base de fans passionnés et dévoués et a influencé d'innombrables autres styles de musique",
-    "extrait": "https://www.youtube.com/watch?v=CHIWNDAwTqQ",
+    "extrait": "Metal",
     "extrait-id": "CHIWNDAwTqQ",
     "extrait-nom": "'Enter Sandman' by Metallica",
-    "image": "https://commons.wikimedia.org/wiki/File:Metallica_-_The_O2_-_Sunday_22nd_October_2017_MetallicaO2221017-7_(37187900564).jpg",
-    "date": "1344"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Metallica_-_The_O2_-_Sunday_22nd_October_2017_MetallicaO2221017-7_%2837187900564%29.jpg",
+    "date": "1968"
   },
   "Pop" : {
     "subgenre" : {
       "Indie Pop": {
         "main-artist": ["The Postal Service", "Vampire Weekend", "Belle and Sebastian", "Phoenix", "Fleet Foxes"],
         "description": "Indie Pop est un sous-genre de la musique pop qui met l'accent sur la créativité et l'expression personnelle. Il est généralement associé à des artistes indépendants et se caractérise par son approche non conventionnelle de la pop.",
-        "extrait": "https://www.youtube.com/watch?v=9klEsdUxNvY",
+        "extrait": "Indie-Pop",
         "extrait-id": "9klEsdUxNvY",
         "extrait-nom": "'Such Great Heights' by The Postal Service",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/0/04/The_Postal_Service_---_Red_Rocks_---_05.30.13_-_8898904448.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/0/04/The_Postal_Service_---_Red_Rocks_---_05.30.13_-_8898904448.jpg",
+        "date": " 1978"
       },
       "Dance-Pop": {
         "main-artist": ["Madonna", "Kylie Minogue", "Lady Gaga", "Britney Spears", "Calvin Harris"],
         "description": "Le Dance-Pop est un genre populaire dans les discothèques et les stations de radio. Il est caractérisé par des rythmes entraînants, des synthétiseurs, et des paroles orientées vers la danse et la fête.",
-        "extrait": "https://www.youtube.com/watch?v=20OGm_-RebE",
+        "extrait": "Dance-Pop",
         "extrait-id": "20OGm_-RebE",
         "extrait-nom": "'Hung Up' by Madonna",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Taipei_madonna_concert-155_%2826457844341%29.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Taipei_madonna_concert-155_%2826457844341%29.jpg",
+        "date": "1980"
       },
       "K-Pop": {
         "main-artist": ["BTS", "BLACKPINK", "EXO", "TWICE", "Red Velvet"],
         "description": "La K-pop, ou musique pop coréenne, est un genre musical sud-coréen qui combine une grande variété de styles, y compris la pop, la hip-hop, la R&B, et l'électronique. Elle est caractérisée par des productions haut de gamme, des chorégraphies élaborées et des groupes d'idoles talentueux.",
-        "extrait": "https://www.youtube.com/watch?v=9bZkp7q19f0",
+        "extrait": "K-Pop",
         "extrait-id": "9bZkp7q19f0",
         "extrait-nom": "'Gangnam Style' by Psy",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/d/d5/%EC%8B%A4%EC%9A%A9%EC%9D%8C%EC%95%85%ED%95%99%EA%B3%BC_K-POP_%EC%8B%A0%ED%95%9C%EB%A5%98_%EB%AE%A4%EC%A7%81%ED%8E%98%EC%8A%A4%ED%8B%B0%EB%B2%8C_%EA%B2%B0%EC%84%A0_%ED%98%84%EC%9E%A5%21_%2811%29.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/d/d5/%EC%8B%A4%EC%9A%A9%EC%9D%8C%EC%95%85%ED%95%99%EA%B3%BC_K-POP_%EC%8B%A0%ED%95%9C%EB%A5%98_%EB%AE%A4%EC%A7%81%ED%8E%98%EC%8A%A4%ED%8B%B0%EB%B2%8C_%EA%B2%B0%EC%84%A0_%ED%98%84%EC%9E%A5%21_%2811%29.jpg",
+        "date": " 1994"
       },
       "Synth-Pop": {
         "main-artist": ["Depeche Mode", "Pet Shop Boys", "New Order", "Human League", "Eurythmics"],
         "description": "Le Synth-Pop est un genre musical qui utilise des synthétiseurs électroniques pour créer des mélodies et des rythmes. Il est caractérisé par sa modernité et son influence sur la musique électronique.",
-        "extrait": "https://www.youtube.com/watch?v=ojvldIzbaMo",
+        "extrait": "Synth-Pop",
         "extrait-id": "ojvldIzbaMo",
         "extrait-nom": "'Enjoy the Silence' by Depeche Mode",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Depeche_Mode_au_Festival_des_Vieilles_Charrues_en_2018..jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Depeche_Mode_au_Festival_des_Vieilles_Charrues_en_2018..jpg",
+        "date": " 1970"
       }                        
     },
     "main-artist": ["Michael Jackson", "Madonna", "The Beatles", "Whitney Houston", "Beyoncé "],
     "description": "La musique pop, abréviation de « musique populaire », est un genre connu pour ses mélodies accrocheuses, ses paroles pertinentes et son large attrait. Il présente souvent un mélange de styles et d'influences musicales variées, le rendant accessible à un large public. La musique pop donne la priorité aux accroches mémorables, aux structures de chansons simples et à l'accent mis sur la performance vocale. Son son large et évolutif s'adapte aux tendances et influences culturelles actuelles, ce qui en fait l'un des genres les plus répandus et les plus influents de l'industrie musicale",
-    "extrait": "https://www.youtube.com/watch?v=Hw3iZCtmxG0",
+    "extrait": "Pop",
     "extrait-id": "Hw3iZCtmxG0",
     "extrait-nom": "'Billie Jean' by Michael Jackson",
-    "image": "https://commons.wikimedia.org/wiki/File:Whitney_Houston_Milano_3.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Whitney_Houston_Milano_3.jpg",
+    "date": "1950"
   },
   "Jazz" : {
     "subgenre" : {
       "Cool Jazz" : {
         "main-artist": ["Miles Davis", "Chet Baker", "Dave Brubeck", "Gerry Mulligan", "Stan Getz"],
         "description": "Le Cool Jazz est un sous-genre du jazz apparu à la fin des années 40 et au début des années 50 en réponse au style bebop rapide et frénétique. Cool Jazz se caractérise par son approche détendue et sobre, axée sur des sons doux et moelleux. Il présente souvent des tempos plus lents, des arrangements plus légers et une utilisation plus restreinte de l'improvisation. Les musiciens de Cool Jazz visaient un son « cool » et sophistiqué, s'inspirant souvent des influences de la musique classique et adoptant une approche plus cérébrale et introspective de leur jeu. Le genre est connu pour son utilisation de signatures rythmiques inhabituelles et d'arrangements innovants",
-        "extrait": "https://www.youtube.com/watch?v=nzpnWuk3RjU",
+        "extrait": "Cool-Jazz",
         "extrait-id": "nzpnWuk3RjU",
         "extrait-nom": "'Take Five' by the Dave Brubeck Quartet",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Hot_Jazz_Band_2022.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Hot_Jazz_Band_2022.jpg",
+        "date": "1940"
       },
       "Boogie-Woogie": {
         "main-artist": ["Albert Ammons", "Meade 'Lux' Lewis", "Pete Johnson", "Jimmy Yancey", "Pinetop Smith"],
         "description": "Le Boogie-Woogie est un style de piano jazz né dans les années 1920 et 1930, caractérisé par un rythme entraînant, des basses puissantes et des mélodies syncopées. Il est souvent joué en solo ou en trio de piano, basse et batterie, et est reconnu pour son énergie contagieuse et son influence sur le développement du rock 'n' roll.",
-        "extrait": "https://www.youtube.com/watch?v=GBYDzsTdT30",
+        "extrait": "Boogie-Woogie",
         "extrait-id": "GBYDzsTdT30",
         "extrait-nom": "'Boogie Woogie Stomp' by Albert Ammons",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/5/53/The_ABC_%26_D_of_Boogie_Woogie_1.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/5/53/The_ABC_%26_D_of_Boogie_Woogie_1.jpg",
+        "date": "1920"
       },
       "Acid Jazz": {
         "main-artist": ["Jamiroquai", "Incognito", "Brand New Heavies", "Galliano", "Corduroy"],
         "description": "Acid Jazz est un sous-genre du jazz qui incorpore des éléments de funk, de soul et de musique électronique. Il est caractérisé par des grooves entraînants, des cuivres éclatants et des rythmes influencés par la danse.",
-        "extrait": "https://www.youtube.com/watch?v=GieQq3eWSnE",
+        "extrait": "Acid-Jazz",
         "extrait-id": "GieQq3eWSnE",
         "extrait-nom": "'Virtual Insanity' by Jamiroquai",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Jamiroquai_2018_Coachella18W1-121_%2827188172187%29.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Jamiroquai_2018_Coachella18W1-121_%2827188172187%29.jpg",
+        "date": "1980"
       },
       "Bossa Nova": {
         "main-artist": ["Antônio Carlos Jobim", "João Gilberto", "Astrud Gilberto", "Stan Getz", "Gilberto Gil"],
         "description": "La Bossa Nova est un genre musical brésilien qui mélange samba et jazz. Elle est caractérisée par son rythme syncopé, ses mélodies légères et ses paroles romantiques. Elle a connu une grande popularité dans les années 1960.",
-        "extrait": "https://www.youtube.com/watch?v=N-TKOh0zsvU",
+        "extrait": "Bossa-Nova",
         "extrait-id": "N-TKOh0zsvU",
         "extrait-nom": "'The Girl from Ipanema' by Stan Gez, Antônio Carlos Jobim and Astrud Gilberto",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Hotel_Bossa_Nova.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Hotel_Bossa_Nova.jpg",
+        "date": "1950"
       },
       "Soul Jazz": {
         "main-artist": ["Cannonball Adderley", "Jimmy Smith", "Grant Green", "Lou Donaldson", "Charles Earland"],
         "description": "Le Soul Jazz est un sous-genre du jazz influencé par la musique soul et le gospel. Il est caractérisé par des grooves entraînants, des cuivres expressifs et des mélodies marquantes. Il incarne l'âme et le groove.",
-        "extrait": "https://www.youtube.com/watch?v=y7FFLYXEOqA",
+        "extrait": "Soul-Jazz",
         "extrait-id": "y7FFLYXEOqA",
         "extrait-nom": "'Mercy, Mercy, Mercy' by Cannonball Adderley",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Cannonball1961_%28crop%29.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Cannonball1961_%28crop%29.jpg",
+        "date": "1955"
       },
       "Jazz Fusion": {
         "main-artist": ["Weather Report", "Return to Forever", "Mahavishnu Orchestra", "Herbie Hancock", "Chick Corea"],
         "description": "Le Jazz Fusion est un genre qui fusionne le jazz avec d'autres styles musicaux, notamment le rock, la funk et le R&B. Il est caractérisé par des solos virtuoses, des compositions complexes et des expérimentations sonores",
-        "extrait": "https://www.youtube.com/watch?v=SvhmaNlLgRM",
+        "extrait": "Jazz-Fusion",
         "extrait-id": "SvhmaNlLgRM",
         "extrait-nom": "'Birdland' by Weather Report",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Wr_19810611_shinuku_fn23.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Wr_19810611_shinuku_fn23.jpg",
+        "date": "1973"
       }                        
     },
     "main-artist": ["Louis Armstrong", "Duke Ellington", "Ella Fitzgerald", "Miles Davis", "John Coltrane"],
     "description": "Le jazz est un genre musical né aux États-Unis à la fin du 19ème et au début du 20ème siècle. Il se caractérise par sa nature improvisée, ses rythmes syncopés et l'accent mis sur l'expression individuelle. Le jazz comporte souvent des instruments tels que des trompettes, des saxophones, des pianos et des contrebasses, et englobe divers styles, notamment le swing, le bebop, le cool jazz et la fusion. Le jazz a une riche histoire d’innovation et a influencé d’innombrables autres genres musicaux. Il est célèbre pour sa capacité à capturer un large éventail d'émotions et d'humeurs.",
-    "extrait": "https://www.youtube.com/watch?v=nzpnWuk3RjU",
+    "extrait": "Jazz",
     "extrait-id": "nzpnWuk3RjU",
     "extrait-nom": "'Take Five' by the Dave Brubeck Quarte",
-    "image": "https://commons.wikimedia.org/wiki/File:Jazzing_orchestra_1921.png"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Jazzing_orchestra_1921.png",
+    "date": "1886"
   },
   "Hip Hop" : {
     "subgenre" : {
       "Trap" : {
         "main-artist": ["T.I.", "Young Jeezy", "Gucci Mane", "Future", "Migos"],
         "description": "La musique trap est un sous-genre du hip-hop originaire du sud des États-Unis, notamment à Atlanta. Il se caractérise par son utilisation de grosses caisses de basse 808, de charley et de caisse claire, créant un rythme distinctif et percutant. Le terme « piège » fait référence aux endroits où se déroulent les trafics de drogue, et les paroles se concentrent souvent sur la vie dans la rue, la bousculade et les défis rencontrés en milieu urbain. La musique trap intègre souvent des voix autoréglées, des refrains accrocheurs et une combinaison de rap et de chant. Il a évolué au fil des années, se ramifiant en divers sous-styles, notamment le « trap mélodique » et le « trap soul »",
-        "extrait": "https://www.youtube.com/watch?v=d-JBBNg8YKs",
+        "extrait": "Trap",
         "extrait-id": "y7FFLYXEOqA",
         "extrait-nom": "'Sicko Mode' by Travis Scott featuring Drake",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/f/f7/2_Chainz_Pretty_Girls_Like_Trap_Music_Tour_%2836936139611%29.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/f/f7/2_Chainz_Pretty_Girls_Like_Trap_Music_Tour_%2836936139611%29.jpg",
+        "date": "2000"
       },
       "Alternative Hip Hop": {
         "main-artist": ["OutKast", "A Tribe Called Quest", "De La Soul", "The Roots", "Gorillaz"],
         "description": "L'Alternative Hip Hop est un sous-genre qui repousse les limites du hip-hop traditionnel en incorporant des éléments de jazz, de rock, d'électronique, et d'autres genres. Il se caractérise par son expérimentation sonore, ses paroles réfléchies et sa diversité musicale.",
-        "extrait": "https://www.youtube.com/watch?v=CSD2J8yaMmM",
+        "extrait": "Alternative-Hip-Hop",
         "extrait-id": "CSD2J8yaMmM",
         "extrait-nom": "'Ms. Jackson' by OutKast",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/7/78/OutKast_in_New_York_2014_by_Shankbone.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/7/78/OutKast_in_New_York_2014_by_Shankbone.jpg",
+        "date": "1984"
       },
       "Boom Bap": {
         "main-artist": ["A Tribe Called Quest", "Gang Starr", "Nas", "Eric B. & Rakim", "Mobb Deep"],
         "description": "Le Boom Bap est un style de production hip-hop qui met l'accent sur les percussions et les samples de batterie, créant un groove distinctif. Il est souvent associé à des paroles percutantes et à des rythmes entraînants.",
-        "extrait": "https://www.youtube.com/watch?v=izhKFB0_2w0",
+        "extrait": "Boom-Bap",
         "extrait-id": "izhKFB0_2w0",
         "extrait-nom": "'NY State of Mind' by Nas",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/5/52/Nas_and_Damian_Marley_performing_in_Wellington_Photo_By_Brady_Dyer.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/5/52/Nas_and_Damian_Marley_performing_in_Wellington_Photo_By_Brady_Dyer.jpg",
+        "date": "1990"
       },
       "Gangsta Rap": {
         "main-artist": ["N.W.A", "Dr. Dre", "2Pac", "The Notorious B.I.G.", "Ice-T"],
         "description": "Le Gangsta Rap est un sous-genre du hip-hop qui se concentre sur des thèmes liés à la criminalité, à la vie des rues et aux réalités de la vie urbaine. Il est caractérisé par des paroles crues et directes.",
-        "extrait": "https://www.youtube.com/watch?v=9OJStAZz1bc",
+        "extrait": "Gangsta-Rap",
         "extrait-id": "9OJStAZz1bc",
         "extrait-nom": "'Straight Outta Compton' by N.W.A",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/0/03/Snoop_Dogg_and_Dr._Dre_3.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/0/03/Snoop_Dogg_and_Dr._Dre_3.jpg",
+        "date": "1981"
       },
       "Latin Trap": {
         "main-artist": ["Bad Bunny", "Anuel AA", "Ozuna", "Karol G", "Daddy Yankee"],
         "description": "Le Latin Trap est une fusion de la Trap américaine avec des éléments de la musique latine. Il est caractérisé par des rythmes urbains, des paroles en espagnol et un mélange de styles musicaux tels que le reggaeton et la musique caribéenne.",
-        "extrait": "https://www.youtube.com/watch?v=iB_dfHQhKKc",
+        "extrait": "Latin-Trap",
         "extrait-id": "iB_dfHQhKKc",
         "extrait-nom": "'Vete' by Bad Bunny",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Daddy_Yankee_-_THE_KINGDOM_Parte_3_%28Live%29_%280%2C47_min%29.png"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Daddy_Yankee_-_THE_KINGDOM_Parte_3_%28Live%29_%280%2C47_min%29.png",
+        "date": "2010"
       }              
     },
     "main-artist": ["Tupac Shakur (2Pac)", "The Notorious B.I.G. (Biggie Smalls)", "Jay-Z ", "Missy Elliott", "Kendrick Lamar"],
     "description": "Le hip-hop est un genre musical originaire des communautés afro-américaines et latino-américaines du Bronx, à New York, dans les années 1970. Il englobe un large éventail d'éléments, notamment le rap (livraison vocale), le DJing (platinisme et création de rythmes), le break (danse) et l'art du graffiti. La musique hip-hop comporte souvent des rythmes rythmiques, de la musique échantillonnée et des paroles qui abordent une variété de sujets, notamment les problèmes sociaux, les expériences personnelles et la vie urbaine. Il est devenu un mouvement culturel mondial qui inclut non seulement la musique mais aussi la mode, la danse et les arts visuels",
-    "extrait": "https://www.youtube.com/watch?v=zlJ0Aj9y67c",
+    "extrait": "Hip-Hop",
     "extrait-id": "zlJ0Aj9y67c",
     "extrait-nom": "'Lose Yourself' by Eminem",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Twizm_Whyte_Piece_hip-hop_music_artist.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Twizm_Whyte_Piece_hip-hop_music_artist.jpg",
+    "date": "1973"
   },
   "Folk" : {
     "subgenre" : {
       "Celtique" : {
         "main-artist": ["The Chieftains", "Enya", "Altan", "Clannad", "The Corrs"],
         "description": "La musique celtique englobe la musique folklorique traditionnelle des peuples celtiques, originaires de régions telles que l'Irlande, l'Écosse, le Pays de Galles, la Bretagne (en France) et certaines parties de l'Espagne. Il se caractérise par ses mélodies distinctives, l'utilisation d'instruments traditionnels comme les violons, les flûtes, les harpes et la cornemuse, ainsi que par ses paroles narratives. La musique celtique explore souvent les thèmes de l'amour, de la nature, de la mythologie et des événements historiques. Au fil du temps, il a évolué pour incorporer des éléments modernes tout en préservant ses racines dans la culture celtique. La musique celtique est célébrée pour sa profondeur émotionnelle et sa capacité à transmettre un sentiment de nostalgie et de lien avec le passé",
-        "extrait": "https://www.youtube.com/watch?v=Dn1IFddzAJA",
+        "extrait": "Celtique",
         "extrait-id": "Dn1IFddzAJA",
         "extrait-nom": "'Danny Boy' written by Frederic Weatherly",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Live_Celtic_Maze_Cortes%2C_Madrid%2C_Spain_2011.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Live_Celtic_Maze_Cortes%2C_Madrid%2C_Spain_2011.jpg",
+        "date": "1730"
       },
       "American Folk Revival": {
         "main-artist": ["Woody Guthrie", "Pete Seeger", "Joan Baez", "Bob Dylan", "The Weavers"],
         "description": "L'American Folk Revival est un mouvement musical des années 1940 à 1960 qui a ravivé l'intérêt pour la musique folk américaine traditionnelle. Il est caractérisé par des chansons engagées socialement et des artistes qui ont contribué à la conscience politique.",
-        "extrait": "https://www.youtube.com/watch?v=AePCvFrggZM",
+        "extrait": "American-Folk-Revival",
         "extrait-id": "AePCvFrggZM",
         "extrait-nom": "'This Land Is Your Land' by Woody Guthrie",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/8/83/Larry_Long%2C_Alan_Munde%2C_Fiddlin%27_Pete_Watercott_01.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/8/83/Larry_Long%2C_Alan_Munde%2C_Fiddlin%27_Pete_Watercott_01.jpg",
+        "date": "1920"
       },
       "Americana": {
         "main-artist": ["Johnny Cash", "Bob Dylan", "Neil Young", "Emmylou Harris", "Lucinda Williams"],
         "description": "L'Americana est un genre musical qui puise ses racines dans la musique folk, country, blues et rock américains. Il est caractérisé par des récits lyriques et une diversité de styles, embrassant l'héritage musical américain.",
-        "extrait": "https://www.youtube.com/watch?v=1WaV2x8GXj0",
+        "extrait": "Americana",
         "extrait-id": "1WaV2x8GXj0",
         "extrait-nom": "'Ring of Fire' by Johnny Cash",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Johnny_Cash_and_The_Tennessee_Three_1963.JPG"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Johnny_Cash_and_The_Tennessee_Three_1963.JPG",
+        "date": "1989"
       },
       "Celtic Rock": {
         "main-artist": ["The Pogues", "Dropkick Murphys", "Flogging Molly", "The Waterboys", "The Saw Doctors"],
         "description": "Le Celtic Rock est un genre qui fusionne la musique rock avec des éléments de musique celtique, notamment des instruments comme la cornemuse, la flûte et le violon. Il est énergique et festif, souvent associé à la musique irlandaise.",
-        "extrait": "https://www.youtube.com/watch?v=s11BuatTuXk",
+        "extrait": "Celtic-Rock",
         "extrait-id": "s11BuatTuXk",
         "extrait-nom": "'Dirty Old Town' by The Pogues",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/6/69/The_Pogues_1.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/6/69/The_Pogues_1.jpg",
+        "date": "1970"
       }                  
     },
     "main-artist": ["Bob Dylan", "Joan Baez", "Woody Guthrie", "Joni Mitchell", "Pete Seeger"],
     "description": "La musique folklorique est un genre profondément enraciné dans les traditions culturelles et les histoires orales de diverses communautés et régions. Il comporte généralement des instruments acoustiques comme des guitares, des banjos, des violons et des harmonicas. La musique folklorique raconte souvent des histoires, transmet le patrimoine culturel et aborde des problèmes sociaux et politiques. Il met fortement l'accent sur les paroles et les harmonies vocales et a été une source d'inspiration pour de nombreux autres genres musicaux, notamment le rock, la country et l'Americana. La musique folklorique varie considérablement selon les cultures et peut inclure des ballades traditionnelles, des chansons de travail, des chansons de protestation, etc.",
-    "extrait": "https://www.youtube.com/watch?v=AePCvFrggZM",
+    "extrait": "Folk",
     "extrait-id": "AePCvFrggZM",
     "extrait-nom": "'This Land Is Your Land' by Woody Guthrie",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/1/19/Folk_traditional_costume.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/19/Folk_traditional_costume.jpg",
+    "date": "1695"
   },
   "Electronique" : {
     "subgenre" : {
       "Disco" : {
         "main-artist": ["Donna Summer", "Bee Gees", "Gloria Gaynor", "KC and the Sunshine Band", "Chic"],
         "description": "La musique disco est un genre apparu dans les années 1970 et qui est rapidement devenu un phénomène mondial. Il se caractérise par ses rythmes optimistes et dansants, ses rythmes à quatre sur le sol, son orchestration luxuriante et l'utilisation d'instruments électroniques et orientés vers la danse. La musique disco présente souvent des mélodies entraînantes, des paroles répétitives et met l'accent sur la danse et le fait de passer un bon moment. Il a joué un rôle important dans la vie nocturne et la culture des clubs de l'époque, avec sa mode, ses mouvements de danse et ses discothèques distinctifs. La musique disco est connue pour son ambiance positive et festive, et elle a influencé les genres de danse et de musique électronique ultérieurs",
-        "extrait": "https://www.youtube.com/watch?v=WGU_4-5RaxU",
+        "extrait": "Disco",
         "extrait-id": "WGU_4-5RaxU",
         "extrait-nom": "'Heart of Glass' by Blondie",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/d/d0/The_Bee_Gees.png"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/d/d0/The_Bee_Gees.png",
+        "date": "1970"
       },
       "Hardstyle" : {
         "main-artist": ["Headhunterz", "Wildstylez", "Coone", "Brennan Heart", "Frontliner"],
         "description": "Le Hardstyle est un genre de musique dance électronique connu pour son son distinctif et énergique. Il est né au début des années 2000 aux Pays-Bas et se caractérise par ses grosses caisses percutantes, ses rythmes rapides et une fusion d'éléments de transe et de techno dure. Le Hardstyle présente souvent des montées en puissance dramatiques et des mélodies euphoriques qui mènent à des chutes intenses et culminantes. Le genre a une base de fans dévoués et est connu pour ses événements live énergiques et souvent immersifs, où les fans se réunissent pour danser et célébrer",
-        "extrait": "https://www.youtube.com/watch?v=FeaVoPv6bGk",
+        "extrait": "Hardstyle",
         "extrait-id": "FeaVoPv6bGk",
         "extrait-nom": "'Tonight' by Headhunterz & Wildstylez vs Noisecontrollers",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Electric_Love_2022_-_Stefan_Steinmetz.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Electric_Love_2022_-_Stefan_Steinmetz.jpg",
+        "date": "1998"
       },
       "Drum and bass" : {
         "main-artist": ["Andy C", "Noisia", "LTJ Bukem", "Goldie", "Pendulum"],
         "description": "La Drum and Bass (souvent abrégé en D&B ou DnB) est un genre de musique électronique caractérisé par son tempo rapide, ses rythmes syncopés et l'accent mis sur les éléments percussifs, en particulier les motifs de batterie et les lignes de basse. Il présente généralement des breakbeats complexes, des lignes de basse roulantes et une fusion de divers styles de musique électronique, notamment la jungle, le dub et le dancehall. La musique Drum and Bass propose un large éventail de sous-genres et de styles, du funk liquide avec des éléments mélodiques aux morceaux plus sombres et plus agressifs. Il est connu pour sa nature énergique et dansante",
-        "extrait": "https://www.youtube.com/watch?v=NWsKQOJeL9o",
+        "extrait": "Drum-and-bass",
         "extrait-id": "NWsKQOJeL9o",
         "extrait-nom": "'Tarantula' by Pendulum featuring DJ Fresh, Spyda, and Tenor Fly",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/7/77/John_B_on_stage_at_Hard_Rock_in_Las_Vegas_%28January_2012%29.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/7/77/John_B_on_stage_at_Hard_Rock_in_Las_Vegas_%28January_2012%29.jpg",
+        "date": "1989"
       },
-      "Trance Music": {
+      "Trance": {
         "main-artist": ["Armin van Buuren", "Paul van Dyk", "Tiësto", "Aly & Fila", "Above & Beyond"],
-        "description": "La Trance Music est un genre électronique caractérisé par ses mélodies entraînantes, ses montées émotionnelles et ses rythmes hypnotiques. Elle vise à créer une expérience de transe ou d'extase.",
-        "extrait": "https://www.youtube.com/watch?v=71xik3vIsFE",
+        "description": "La Trance est un genre électronique caractérisé par ses mélodies entraînantes, ses montées émotionnelles et ses rythmes hypnotiques. Elle vise à créer une expérience de transe ou d'extase.",
+        "extrait": "Trance",
         "extrait-id": "71xik3vIsFE",
         "extrait-nom": "'Adagio for Strings' by Tiësto",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/4/41/Armin_van_Buuren_2014.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/4/41/Armin_van_Buuren_2014.jpg",
+        "date": "1987"
       },
       "Techno": {
         "main-artist": ["Jeff Mills", "Carl Cox", "Richie Hawtin", "Nina Kraviz", "Paul Kalkbrenner"],
         "description": "La Techno est un genre de musique électronique qui met l'accent sur des rythmes mécaniques et des sons synthétiques. Elle est souvent associée à la scène rave et à la danse énergique.",
-        "extrait": "https://www.youtube.com/watch?v=vuhV22cHXGE",
+        "extrait": "Techno",
         "extrait-id": "vuhV22cHXGE",
         "extrait-nom": "'The Bells' by Jeff Mills",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/4/43/Underground_Resistance_-_2010_-_10_Critics_in_Detroit_DSC_3797_%284720073098%29.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/4/43/Underground_Resistance_-_2010_-_10_Critics_in_Detroit_DSC_3797_%284720073098%29.jpg",
+        "date": "1984"
       },
-      "House Music": {
+      "House": {
         "main-artist": ["Frankie Knuckles", "Larry Levan", "Marshall Jefferson", "Inner City", "Daft Punk"],
         "description": "La House Music est un genre de musique électronique qui a émergé dans les clubs de Chicago dans les années 1980. Elle est caractérisée par ses rythmes entraînants, ses basses profondes et ses mélodies joyeuses.",
-        "extrait": "https://www.youtube.com/watch?v=dwDns8x3Jb4",
+        "extrait": "House",
         "extrait-id": "dwDns8x3Jb4",
         "extrait-nom": "'Around the World' by Daft Punk",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Daft_Punk%2C_14-6-2007%2C_Bercy%2C_Paris.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Daft_Punk%2C_14-6-2007%2C_Bercy%2C_Paris.jpg",
+        "date": " 1980"
       },
       "Nightcore": {
         "main-artist": ["DJ S3RL", "NightcoreReality", "Maikel6311", "Nevaeh", "Zircon"],
         "description": "Nightcore est un genre musical électronique qui se caractérise par la vitesse accélérée des chansons par rapport à leur version d'origine. Il est souvent associé à des voix aiguës et des mélodies entraînantes. Le Nightcore est populaire pour sa capacité à rendre les chansons plus énergiques.",
-        "extrait": "https://www.youtube.com/watch?v=IMF1HRiBC7Q",
+        "extrait": "Nightcore",
         "extrait-id": "IMF1HRiBC7Q",
         "extrait-nom": "'Rockefeller Street' by Getter Jaani (Nightcore Mix)",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/e/ea/DJ_Will_Watt.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/e/ea/DJ_Will_Watt.jpg",
+        "date": "2002"
       }                     
     },
     "main-artist": ["Kraftwerk", "Daft Punk", "Avicii", "The Chemical Brothers", "Jean-Michel Jarre"],
     "description": "La musique électronique est un genre de musique qui s'appuie fortement sur les appareils et la technologie électroniques pour sa création et son interprétation. Il englobe un large éventail de styles et de sous-genres, de l'ambient à la techno en passant par la house et la transe. La musique électronique se caractérise par l'utilisation de synthétiseurs, de boîtes à rythmes et de stations de travail audio numériques pour générer des sons, des rythmes et des textures. Il met souvent l'accent sur les rythmes répétitifs et convient bien à la danse. La musique électronique a joué un rôle important dans la formation de la musique moderne et de la culture des clubs",
-    "extrait": "https://www.youtube.com/watch?v=_ovdm2yX4MA",
+    "extrait": "Electronique",
     "extrait-id": "y7FFLYXEOqA",
     "extrait-nom": "'Levels' by Avicii",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Rita_Ora_during_Avicii_Tribute_Concert.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Rita_Ora_during_Avicii_Tribute_Concert.jpg",
+    "date": "1960"
   },
   "Blues" : {
     "subgenre" : {
       "Phonk" : {
         "main-artist": ["DJ Smokey", "$uicideboy$", "Lil Ugly Mane", "Three 6 Mafia", "paceGhostPurrp"],
         "description": "La musique phonk est un sous-genre du Blues originaire du sud des États-Unis, notamment de Memphis, dans le Tennessee. Il mélange des éléments du hip-hop traditionnel avec des techniques hachées et vissées, une production lo-fi et une forte influence du hip-hop sudiste et du rap de Memphis. La musique phonk est connue pour son son sombre, maussade et nostalgique, contenant souvent des échantillons de vieux morceaux soul et R&B",
-        "extrait": "https://www.youtube.com/watch?v=vBjzAdpZzf0",
+        "extrait": "Phonk",
         "extrait-id": "vBjzAdpZzf0",
         "extrait-nom": "'Stay Fly' by Three 6 Mafia",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/8/82/Rap_allstars_%289%29.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/8/82/Rap_allstars_%289%29.jpg",
+        "date": "2010"
       },
       "R&B" : {
         "subgenre" : {
           "Soul" : {
             "main-artist": ["Aretha Franklin", "Sam Cooke", "Ray Charles", "Otis Redding", "Marvin Gaye"],
             "description": "La musique soul est un genre originaire des communautés afro-américaines des États-Unis dans les années 1950 et 1960. Il se caractérise par sa prestation vocale émotionnelle et expressive, souvent accompagnée d'une forte section rythmique, d'arrangements de cuivres et d'harmonies influencées par le gospel. La musique soul s'inspire du Gospel, du Rhythm and Blues (R&B) et du Jazz, et met l'accent sur la profondeur de l'émotion humaine, de l'amour, du chagrin et des problèmes sociaux",
-            "extrait": "https://www.youtube.com/watch?v=JzqGZjFnYnA",
+            "extrait": "Soul",
             "extrait-id": "JzqGZjFnYnA",
             "extrait-nom": "'Respect' by Aretha Franklin",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/7/79/Marvin_Gaye_in_concert_at_the_Forum%2C_1974.jpg"
+            "image": "https://upload.wikimedia.org/wikipedia/commons/7/79/Marvin_Gaye_in_concert_at_the_Forum%2C_1974.jpg",
+            "date": "1950"
           }
         },
         "main-artist": ["Aretha Franklin", "Stevie Wonder", "Whitney Houston", "Marvin Gaye", "Beyoncé"],
         "description": "Le R&B, abréviation de Rhythm and Blues, est un genre musical originaire des communautés afro-américaines des États-Unis dans les années 1940. Le R&B se caractérise par sa prestation vocale émouvante et émotive, son groove rythmique et traite souvent des thèmes de l'amour, des relations et des expériences personnelles. Au fil du temps, le R&B a évolué et incorporé des éléments de divers genres, notamment la pop, le funk, le hip-hop et la musique électronique. Il a eu une profonde influence sur la musique populaire et continue d'être un genre important et en évolution",
-        "extrait": "https://www.youtube.com/watch?v=kAPj9oP4q_w",
+        "extrait": "R&B",
         "extrait-id": "kAPj9oP4q_w",
         "extrait-nom": "'I Heard It Through the Grapevine' by Marvin Gaye",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Gordon_banks2.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Gordon_banks2.jpg",
+        "date": "1940"
       }
     },
     "main-artist": ["Robert Johnson", "B.B. King", "Muddy Waters", "Howlin' Wolf", "Etta James"],
     "description": "Le blues est un genre profondément enraciné dans la culture afro-américaine, caractérisé par son expression émouvante et émotionnelle. Elle possède des paroles qui tournent fréquemment autour des thèmes des difficultés, de l'amour, de la perte et des expériences personnelles. Le blues utilise généralement des instruments tels que la guitare, l'harmonica, le piano et le saxophone, avec un fort accent sur l'improvisation. Elle a eu une influence fondamentale sur de nombreux autres genres, notamment le rock'n'roll, le jazz et le R&B",
-    "extrait": "https://www.youtube.com/watch?v=kpC69qIe02E",
+    "extrait": "Blues",
     "extrait-id": "kpC69qIe02E",
     "extrait-nom": "'The Thrill Is Gone' by B.B. King",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/2/2c/B.B._King%2C_2009-07-17%2C_Vienna.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/2c/B.B._King%2C_2009-07-17%2C_Vienna.jpg",
+    "date": "1898"
   },
   "Classique" : {
     "subgenre" : {
       "Ancienne" : {
         "main-artist": ["Guillaume de Machaut", "Hildegard of Bingen", "Josquin des Prez", "John Dowland", "Claudio Monteverdi"],
         "description": "La musique ancienne fait référence à la musique composée et jouée en Europe depuis la période médiévale (environ 500-1400) jusqu'à la Renaissance (environ 1400-1600). Elle présente souvent des textures monophoniques (une seule ligne mélodique) et polyphoniques (plusieurs lignes mélodiques), en mettant l'accent sur les gammes modales plutôt que sur les gammes majeures et mineures utilisées dans les périodes ultérieures. Elle comprend un large éventail de genres, depuis les chants grégoriens et les madrigaux jusqu'aux danses de cour et aux premières œuvres d'opéra",
-        "extrait": "https://www.youtube.com/watch?v=BRfF7W4El60",
+        "extrait": "Ancienne",
         "extrait-id": "BRfF7W4El60",
         "extrait-nom": "'Missa Papae Marcelli' by Giovanni Pierluigi da Palestrina",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Stockholm_Early_Music_Festival_2016.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Stockholm_Early_Music_Festival_2016.jpg",
+        "date": "1720"
       }
     }, 
     "main-artist": ["Wolfgang Amadeus Mozart", "Ludwig van Beethoven", "Johann Sebastian Bach", "Pyotr Ilyich Tchaikovsky", "Antonio Vivaldi"],
     "description": "La musique classique est un genre de musique savante occidentale qui s'étend sur plusieurs siècles, caractérisé par son adhésion à la structure, à la forme et à l'harmonie. Il englobe un large éventail de styles et d'émotions, depuis les compositions délicates et raffinées de la période classique jusqu'aux œuvres dramatiques et expressives de l'époque romantique. La musique classique est généralement interprétée par des orchestres, des ensembles de chambre et des solistes, utilisant des instruments comme des violons, des pianos, des flûtes, etc. Il est connu pour ses compositions complexes, sa notation précise et l'accent mis sur l'équilibre, les proportions et le savoir-faire",
-    "extrait": "https://www.youtube.com/watch?v=vlSR8Wlmpac",
+    "extrait": "Classique",
     "extrait-id": "vlSR8Wlmpac",
     "extrait-nom": "'Symphony No. 9 in D minor, Op. 125' by Ludwig van Beethoven",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Concert_de_musique_de_chambre_avec_l%27orgue_Casavant_de_la_salle_Raoul-Jobin_du_Palais_Montcalm.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Concert_de_musique_de_chambre_avec_l%27orgue_Casavant_de_la_salle_Raoul-Jobin_du_Palais_Montcalm.jpg",
+    "date": "1690"
   },
   "Country" : {
     "subgenre" : {
@@ -421,83 +461,93 @@
         "Texas country" : {
           "main-artist": ["Willie Nelson", "George Strait", "Pat Green", "Robert Earl Keen", "Cody Johnson"],
           "description": "La musique country du Texas est un sous-genre de la musique country du Texas. La country texane est un style de musique occidentale et est souvent associée à d'autres styles voisins distincts. Il est connu pour fusionner le pays néotraditionnel avec les vues franches et insouciantes du pays hors-la-loi. Texas Country mélange ces sous-genres avec un thème « ouvrier commun » et des nuances pleines d'esprit, celles-ci se combinent souvent avec un son musical épuré",
-          "extrait": "https://www.youtube.com/watch?v=3EKHUA1aBLA",
+          "extrait": "Texas-country",
           "extrait-id": "3EKHUA1aBLA",
           "extrait-nom": "'Luckenbach, Texas (Back to the Basics of Love)' by Waylon Jennings and Willie Nelson",
-          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Willie_Nelson_and_Jamey_Johnson.jpg/800px-Willie_Nelson_and_Jamey_Johnson.jpg?20120725014731"
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Willie_Nelson_and_Jamey_Johnson.jpg/800px-Willie_Nelson_and_Jamey_Johnson.jpg?20120725014731",
+          "date": "1960"
         },
         "Cowboy pop" : {
           "main-artist": ["John Denver", "Glen Campbell", "Neil Diamond", "The Eagles"],
           "description": "Cowboy pop est un terme que le journaliste musical américain J. D. Considine a inventé pour la première fois dans sa critique de l'album Scenic Views de Rubber Rodeo en 1984. Bien que le terme ait été inventé dans les années 1980, son usage a depuis lors varié. À la fin des années 2010, le terme a commencé à être utilisé pour décrire un groupe de rock indépendant et de pop indie influencé par la country",
-          "extrait": "https://www.youtube.com/watch?v=1vrEljMfXYo",
+          "extrait": "Cowboy-pop",
           "extrait-id": "1vrEljMfXYo",
           "extrait-nom": "'Take Me Home, Country Roads' by John Denver",
-          "image": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Neil_Diamond_plays_Woburn_Abbey_in_1977.jpg"
+          "image": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Neil_Diamond_plays_Woburn_Abbey_in_1977.jpg",
+          "date": "1965"
         }
         },
         "main-artist": ["Gene Autry", "Roy Rogers", "Marty Robbins", "Johnny Western", "Sons of the San Joaquin"],
         "description": "La musique Western est une forme de musique country composée par et à propos des personnes qui se sont installées et ont travaillé dans l'ouest des États-Unis et dans l'ouest du Canada. La musique Western célèbre le style de vie des cowboys dans les pâturages ouverts, les montagnes Rocheuses et les prairies de l'ouest de l'Amérique du Nord. Directement liée musicalement aux vieilles ballades anglaises, irlandaises, écossaises et folkloriques, la musique folklorique mexicaine du nord du Mexique et du sud-ouest des États-Unis a également influencé le développement de ce genre, en particulier le corrido, la ranchera, le Nouveau-Mexique et le Tejano. La musique Western partage des racines similaires avec la musique des Appalaches, qui s'est développée à peu près à la même époque dans les Appalaches et les Appalaches",
-        "extrait": "https://www.youtube.com/watch?v=O1zrO3c6Y3o",
+        "extrait": "Western",
         "extrait-id": "O1zrO3c6Y3o",
         "extrait-nom": "Home on the Range" ,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Gene_Autry_Pinafores_radio_show_1948.JPG/795px-Gene_Autry_Pinafores_radio_show_1948.JPG?20120923171023"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Gene_Autry_Pinafores_radio_show_1948.JPG/795px-Gene_Autry_Pinafores_radio_show_1948.JPG?20120923171023",
+        "date": "1798"
       },
       "Cajun" : {
         "main-artist": ["Clifton Chenier", "Beausoleil", "The Balfa Brothers", "Zachary Richard"],
         "description": "La Musique cadienne, emblématique de la Louisiane jouée par les Cajuns, prend ses racines dans les ballades des Acadiens francophones du Canada. Bien qu'il s'agisse de deux genres distincts, la musique cajun est souvent mentionnée en tandem avec la musique créole zydeco. Tous deux sont originaires du sud-ouest de la Louisiane et partagent des origines françaises et africaines. Ces sons de la Louisiane française ont influencé la musique populaire américaine pendant de nombreuses décennies, en particulier la musique country, et ont influencé la culture pop à travers les médias de masse, comme les publicités télévisées",
-        "extrait": "https://www.youtube.com/watch?v=7-BQpRqmwM0",
+        "extrait": "Cajun",
         "extrait-id": "7-BQpRqmwM0",
         "extrait-nom": "'Jambalaya (On the Bayou)' by Hank Williams",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Cajun_Music_Performance_in_Eunice%2C_Louisiana%2C_2000.jpg/800px-Cajun_Music_Performance_in_Eunice%2C_Louisiana%2C_2000.jpg?20221024210536"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Cajun_Music_Performance_in_Eunice%2C_Louisiana%2C_2000.jpg/800px-Cajun_Music_Performance_in_Eunice%2C_Louisiana%2C_2000.jpg?20221024210536",
+        "date": "1775"
       },
       "Country Rap": {
         "main-artist": ["Lil Nas X", "Cowboy Troy", "Bubba Sparxxx", "Mikel Knight", "Upchurch"],
         "description": "Le Country Rap fusionne la musique country avec le rap. Il est caractérisé par des rythmes de rap modernes et des paroles qui reflètent souvent des thèmes de la vie rurale et de la culture country.",
-        "extrait": "https://www.youtube.com/watch?v=r7qovpFAGrQ",
+        "extrait": "Country-Rap",
         "extrait-id": "r7qovpFAGrQ",
         "extrait-nom": "'Old Town Road' by Lil Nas X",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/f/f7/The_Golden_Horseshoe_%2828804177705%29.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/f/f7/The_Golden_Horseshoe_%2828804177705%29.jpg",
+        "date": "2010"
       },
       "Bluegrass": {
         "main-artist": ["Bill Monroe", "Flatt and Scruggs", "The Stanley Brothers", "Ricky Skaggs", "Alison Krauss"],
         "description": "Le Bluegrass est un genre musical traditionnellement associé à la musique folk américaine. Il est caractérisé par son instrumentation acoustique, en particulier la mandoline, le banjo et la guitare, ainsi que par des harmonies vocales serrées.",
-        "extrait": "https://www.youtube.com/watch?v=z_Y3mnj-8lA",
+        "extrait": "Bluegrass",
         "extrait-id": "z_Y3mnj-8lA",
         "extrait-nom": "'Foggy Mountain Breakdown' by Flatt and Scruggs",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/3/38/Earl_Scruggs_and_Lester_Flatt.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/3/38/Earl_Scruggs_and_Lester_Flatt.jpg",
+        "date": "1943"
       },
       "Country Rock": {
         "main-artist": ["The Eagles", "Neil Young", "The Byrds", "Linda Ronstadt", "Gram Parsons"],
         "description": "Le Country Rock est un genre musical qui fusionne la musique country avec le rock. Il est caractérisé par l'utilisation de guitares électriques et d'instruments traditionnels de la musique country, créant ainsi un son hybride.",
-        "extrait": "https://www.youtube.com/watch?v=32Oc2d_3yEk",
+        "extrait": "Country-Rock",
         "extrait-id": "32Oc2d_3yEk",
         "extrait-nom": "'Take It Easy' by The Eagles",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/3/31/Eagles_in_concert_September_2014.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/3/31/Eagles_in_concert_September_2014.jpg",
+        "date": "1960"
       },
       "Outlaw Country": {
         "main-artist": ["Waylon Jennings", "Willie Nelson", "Merle Haggard", "Johnny Cash", "David Allan Coe"],
         "description": "L'Outlaw Country est un sous-genre de la musique country qui a émergé dans les années 1970. Il est caractérisé par ses paroles rebelles, sa rébellion contre l'establishment musical et son attitude anti-conformiste.",
-        "extrait": "https://www.youtube.com/watch?v=DNI74-_cWeE",
+        "extrait": "Outlaw-Country",
         "extrait-id": "DNI74-_cWeE",
         "extrait-nom": "'Good Hearted Woman' by Waylon Jennings",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Waylon_Jennings_Jessi_Colter_%26_Rosalynn_Carter.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Waylon_Jennings_Jessi_Colter_%26_Rosalynn_Carter.jpg",
+        "date": "1968"
       },
       "Zydeco": {
         "main-artist": ["Clifton Chenier", "Buckwheat Zydeco", "Beau Jocque", "Terrance Simien", "Queen Ida"],
         "description": "Le Zydeco est un genre musical originaire de la Louisiane qui combine des éléments de la musique cajun, du blues et du rhythm and blues. Il est caractérisé par son utilisation de l'accordéon et de la washboard (planche à laver).",
-        "extrait": "https://www.youtube.com/watch?v=SkelD5vgC5s",
+        "extrait": "Zydeco",
         "extrait-id": "SkelD5vgC5s",
         "extrait-nom": "'Zydeco Boogaloo' by Buckwheat Zydeco",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/d/db/Buckwheat_Zydeco_11_%2810061023615%29.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/d/db/Buckwheat_Zydeco_11_%2810061023615%29.jpg",
+        "date": "1761"
       }
                              
     }, 
     "main-artist": ["Johnny Cash", "Dolly Parton", "George Strait", "Patsy Cline", "Willie Nelson"],
     "description": "La country est un genre musical originaire du sud et du sud-ouest des États-Unis. Produite pour la première fois dans les années 1920, la musique country se concentre principalement sur la classe ouvrière américaine et la vie des cols bleus américains. Elle est connue pour ses ballades et ses airs de danse avec des formes simples, des paroles folkloriques et des harmonies généralement accompagnées d'instruments tels que des banjos, des violons, des harmonicas et de nombreux types de guitare",
-    "extrait": "https://www.youtube.com/watch?v=AM-b8P1yj9w",
+    "extrait": "Country",
     "extrait-id": "AM-b8P1yj9w",
     "extrait-nom": "'Stand by Your Man' by Tammy Wynette",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Kris_Kristofferson_and_Johnny_Cash_at_the_University_Concert_Hall%2C_Limerick_1993_%289420889695%29.jpg/800px-Kris_Kristofferson_and_Johnny_Cash_at_the_University_Concert_Hall%2C_Limerick_1993_%289420889695%29.jpg?20151004175505"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Kris_Kristofferson_and_Johnny_Cash_at_the_University_Concert_Hall%2C_Limerick_1993_%289420889695%29.jpg/800px-Kris_Kristofferson_and_Johnny_Cash_at_the_University_Concert_Hall%2C_Limerick_1993_%289420889695%29.jpg?20151004175505",
+    "date": "1710"
   },
   "Rock" : {
     "subgenre" : {
@@ -506,85 +556,96 @@
           "Jangle pop" : {
             "main-artist": ["The Byrds", "R.E.M", "The Smiths", "The Feelies", "Teenage Fanclub"],
             "description": "Jangle pop is a subgenre of pop and rock music known for its distinctive and bright sound, characterized by the use of chiming, jangly electric guitars. Emerging primarily in the 1960s and enjoying periodic resurgences in subsequent decades, jangle pop is characterized by its melodic and often upbeat songs, catchy hooks, and a focus on harmonies",
-            "extrait": "https://www.youtube.com/watch?v=Swqw5a8I4b4",
+            "extrait": "Jangle-pop",
             "extrait-id": "Swqw5a8I4b4",
             "extrait-nom": "'Mr. Tambourine Man' by The Byrds",
-            "image": "https://upload.wikimedia.org/wikipedia/en/c/c4/The_Byrds_in_1965.jpg"
+            "image": "https://upload.wikimedia.org/wikipedia/en/c/c4/The_Byrds_in_1965.jpg",
+            "date": "1981"
           },
           "Power pop" : {
             "main-artist": ["The Raspberries", "Big Star", "Cheap Trick", "The Knack", "Weezer"],
             "description": "La Power Pop est un sous-genre de la musique rock et une forme de pop rock basée sur la musique ancienne de groupes tels que les Who, les Beatles, les Beach Boys et les Byrds. Il intègre généralement des refrains mélodiques, des harmonies vocales, une performance énergique et une musique joyeuse soutenue par un sentiment de désir, de nostalgie, de désespoir ou d'autonomisation",
-            "extrait": "https://www.youtube.com/watch?v=bbr60I0u2Ng",
+            "extrait": "Power-pop",
             "extrait-id": "bbr60I0u2Ng",
             "extrait-nom": "'My Sharona' by The Knack",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Cheap_Trick_live_2007.jpg"
+            "image": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Cheap_Trick_live_2007.jpg",
+            "date": "1972"
           },
           "Soft rock" : {
             "subgenre" : {
               "Yacht rock" : {
                 "main-artist": ["Christopher Cross", "Kenny Loggins", "Michael McDonald", "Toto", "Hall & Oates"],
                 "description": "Yacht rock est un vaste style musical et esthétique communément associé au soft rock, l'un des styles les plus réussis commercialement. genres du milieu des années 1970 au milieu des années 1980. S'appuyant sur des sources telles que la smooth soul, le smooth jazz, le R&B et le disco, les traits stylistiques communs incluent une production de haute qualité, des voix claires et une concentration sur des mélodies légères et entraînantes. Son nom, inventé en 2005 par les créateurs de la série de vidéos en ligne Yacht Rock, est dérivé de son association avec l'activité de loisir populaire du sud de la Californie, la navigation de plaisance",
-                "extrait": "https://www.youtube.com/watch?v=IST-GfqUwDA",
+                "extrait": "Yacht-rock",
                 "extrait-id": "IST-GfqUwDA",
                 "extrait-nom": "'Sailing' by Christopher Cross",
-                "image": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Christopher_Cross_%2852289899209%29.jpg"
+                "image": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Christopher_Cross_%2852289899209%29.jpg",
+                "date": " 1985"
               }
             },
             "main-artist": ["Eagles", "Fleetwood Mac", "Elton John", "Billy Joel", "Bread"],
             "description": "Le soft rock (également connu sous le nom de light rock) est une forme de musique rock née à la fin des années 1960 en Californie du Sud et au Royaume-Uni, qui a adouci les frontières de l'auteur-compositeur-interprète et du pop rock, en s'appuyant sur des chansons simples et mélodiques. avec des productions grandes et luxuriantes",
-            "extrait": "https://www.youtube.com/watch?v=BciS5krYL80",
+            "extrait": "Soft-rock",
             "extrait-id": "BciS5krYL80",
             "extrait-nom": "'Hotel California' by Eagles",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/0/00/Eagles.jpg"
+            "image": "https://upload.wikimedia.org/wikipedia/commons/0/00/Eagles.jpg",
+            "date": "1976"
           }
         },
         "main-artist": ["U2","John Mayer","Maroon 5","Coldplay","OneRepublic"],
         "description": "Le pop rock est un genre qui combine les mélodies entraînantes et l'accessibilité de la musique pop avec l'instrumentation et la nervosité occasionnelle du rock. Il comporte souvent un mélange de guitares électriques, de claviers et de chants mélodiques, ce qui en fait un genre radiophonique et qui plaît au public",
-        "extrait": "https://www.youtube.com/watch?v=ujNeHIo7oTE",
+        "extrait": "Pop-rock",
         "extrait-id": "ujNeHIo7oTE",
         "extrait-nom": "'With or Without You' by U2",
-        "image": "https://www.parismatch.com/lmnr/var/pm/public/media/image/2022/08/18/13/livre-album-tournee-u2-sur-tous-les-fronts.jpg?VersionId=Y0B0k7y_r8rzF2VrgoFtjbfX6E7rIRnk"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/2/2b/U2_on_main_stage_Experience_and_Innocence_Tour_in_Berlin_8-31-18.jpg",
+        "date": "1960"
       },
       "Blues rock" : {
         "subgenre" : {
           "Boogie rock" : {
               "main-artist" : ["ZZ Top", "Foghat", "Status Quo", "George Thorogood and the Destroyers", "Canned Heat"],
               "description" : " Boogie rock is a lively and rhythm-driven subgenre of rock music that emerged primarily in the 1970s. It is characterized by its infectious and danceable grooves, often rooted in the boogie-woogie style, and combines elements of rock, blues, and rhythm and blues",
-              "extrait" : "https://www.youtube.com/watch?v=Vppbdf-qtGU",
+              "extrait" : "Boogie-rock",
               "extrait-id": "Vppbdf-qtGU",
               "extrait-nom" : "'La Grange' by ZZ Top",
-              "image" : "https://upload.wikimedia.org/wikipedia/commons/3/33/ZZ_Top_on_the_Pyramid_Stage_at_Glastonbury_2016_IMG_8527_%2827374417884%29.jpg"
+              "image" : "https://upload.wikimedia.org/wikipedia/commons/3/33/ZZ_Top_on_the_Pyramid_Stage_at_Glastonbury_2016_IMG_8527_%2827374417884%29.jpg",
+              "date": "1970" 
+            
           }
         },
         "main-artist" : ["Eric Clapton", "Stevie Ray Vaughan", "The Allman Brothers Band", "Joe Bonamassa", "Gary Moore"],
         "description" : "Le blues rock est un hybride musical qui allie la profondeur émotionnelle et l'expressivité brute du blues aux rythmes énergiques et à l'instrumentation électrifiée de la musique rock. À la base, le blues rock conserve la narration émouvante et le lyrisme sincère du blues tout en introduisant une palette sonore plus lourde et souvent plus agressive",
-        "extrait" : "https://www.youtube.com/watch?v=0vo23H9J8o8",
+        "extrait" : "Blues-rock",
         "extrait-id": "0vo23H9J8o8",
         "extrait-nom" : "'Pride and Joy' by Stevie Ray Vaughan",
-        "image" : "https://textes-blog-rock-n-roll.fr/wp-content/uploads/2020/08/Stevie-Ray-Vaughan.png" 
+        "image" : "https://textes-blog-rock-n-roll.fr/wp-content/uploads/2020/08/Stevie-Ray-Vaughan.png",
+        "date": "1965"
       },
       "Alternative Rock": {
         "main-artist": ["Nirvana", "Radiohead", "Pearl Jam", "R.E.M.", "The Smashing Pumpkins"],
         "description": "L'Alternative Rock est un genre musical qui se caractérise par sa diversité et son refus des conventions. Il englobe un large éventail de styles, de la mélancolie du grunge au son expérimental de Radiohead.",
-        "extrait": "https://www.youtube.com/watch?v=ljUtuoFt-8c",
+        "extrait": "Alternative-Rock",
         "extrait-id": "ljUtuoFt-8c",
         "extrait-nom": "'Smells Like Teen Spirit' by Nirvana",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Nirvana_Studios_Custom_Circus_078.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Nirvana_Studios_Custom_Circus_078.jpg",
+        "date": "1990"
       },
       "Rock 'n' Roll": {
         "main-artist": ["Elvis Presley", "Chuck Berry", "Little Richard", "Jerry Lee Lewis", "Buddy Holly"],
         "description": "Rock 'n' Roll est un genre musical qui a émergé dans les années 1950. Il est caractérisé par ses rythmes entraînants, ses guitares électriques et ses paroles souvent centrées sur l'amour et la jeunesse rebelle.",
-        "extrait": "https://www.youtube.com/watch?v=PpsUOOfb-vE",
+        "extrait": "Rock 'n' Roll",
         "extrait-id": "PpsUOOfb-vE",
         "extrait-nom": "'Jailhouse Rock' by Elvis Presley",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/1/10/Elvis_Presley_-_TV_Radio_Mirror%2C_January_1957_02.jpg"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/1/10/Elvis_Presley_-_TV_Radio_Mirror%2C_January_1957_02.jpg",
+        "date": "1950"
       }            
     },
     "main-artist" : ["The Beatles", "Led Zeppelin", "Queen", "Pink Floyd", "The Rolling Stones"],
     "description" : "Le rock est un vaste genre de musique populaire qui a vu le jour sous le nom de « rock and roll » aux États-Unis à la fin des années 1940 et au début des années 1950, et s'est développé vers une gamme de styles différents à partir du milieu des années 1960, en particulier aux États-Unis. On y retrouve la guitare électrique, généralement dans le cadre d'un groupe de rock avec aussi une basse électrique, une batterie et un ou plusieurs chanteurs",
-    "extrait" : "https://www.youtube.com/watch?v=QkF3oxziUI4",
+    "extrait" : "Rock",
     "extrait-id": "QkF3oxziUI4",
     "extrait-nom" : "'Stairway to Heaven' by Led Zeppelin",
-    "image" : "https://lifestyle.oblikon.net/wp-content/uploads/sites/3/2020/06/led-zeppelin-cover.jpg"
+    "image" : "https://lifestyle.oblikon.net/wp-content/uploads/sites/3/2020/06/led-zeppelin-cover.jpg",
+    "date": "1948"
   }
 }

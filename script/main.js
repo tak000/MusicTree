@@ -193,10 +193,8 @@ function createChilds(info, parent, depth, storageLocation){
 
 
 
-
-
 try {
-    const response = await fetch("/categorized-subset.json");
+    const response = await fetch("/music.json");
     const json = await response.json();
     data = json;
 
@@ -234,7 +232,6 @@ function openModal(entry) {
     audio.load();
 
 }
-
 
 
 const closeButton = document.getElementById("close-modal");
