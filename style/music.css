@@ -1,3 +1,8 @@
+:root{
+  --bg-color : rgba(255, 255, 255);
+  --shadow-color : #0000002e;
+}
+
 /* Style de la modal */
 .modal {
   display: none;
@@ -9,19 +14,11 @@
   min-height: 300px;
   overflow: hidden;
   user-select: none;
-  box-shadow: 0 0 20px #0000002e;
-  background-color: rgba(255, 255, 255);
+  box-shadow: 0 0 20px var(--shadow-color);
+  background-color: var(--bg-color);
 }
 
-/*  */
-.transition {
-
-  transition: transform 0.3s ease;
-}
-
-#genre-name,
-#close-modal,
-#reduce-moda {
+#genre-name, #close-modal, #reduce-moda {
   font-family: 'Oswald', sans-serif;
 }
 
@@ -39,8 +36,7 @@
 }
 
 .modal-content {
-  background-color: #fff;
-  /* min-height: 50vh; */
+  background-color: var(--bg-color);
 }
 
 .modal-ok {

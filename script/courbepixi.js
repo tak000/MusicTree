@@ -1,13 +1,15 @@
+// Import de pixi
 import * as PIXI from 'pixi.js';
 import {
     Viewport
 } from 'pixi-viewport';
 
-
+document.fonts.ready.then(function () {
 const support = document.getElementById('support');
 let theheight = window.innerHeight;
 let thewidth = window.innerWidth;
 
+// Définition de l'application
 let app = new PIXI.Application({
     backgroundColor: 0xEEEEEE,
     antialias: true,
@@ -17,7 +19,7 @@ let app = new PIXI.Application({
 
 support.appendChild(app.view);
 
-// Défini le viewport
+// Définition du viewport
 const viewport = new Viewport({
     // Taille de l'écran
     screenWidth: window.innerWidth,
@@ -25,13 +27,11 @@ const viewport = new Viewport({
     // Taille du monde
     worldWidth: 11000, 
     worldHeight: 3000, 
-    // Si Interraction
-    // events: app.renderer.plugins.interaction, 
-    // Render les events
+    // Définitions des events
     events: app.renderer.events, 
 });
 
-// Met le viewport en front
+// Ajouter le viewport sur l'app
 app.stage.addChild(viewport);
 
 viewport.drag({
@@ -54,11 +54,9 @@ viewport.clampZoom({
     maxScale: 3, // Maximum scale
 });
 
-// Clamp le viewport
+// Limite du viewport
 viewport.clamp({
-    // Clamp à gauche
     left: true, 
-    // Clamp à droite
     right: true, 
     // Clamp à 1200 pixels au dessus du centre
     top: viewport.worldHeight - 1750, 
@@ -67,12 +65,6 @@ viewport.clamp({
     // Centre le viewport
     underflow: 'center', 
 });
-
-
-// viewport.wheel({
-//     // Adoucir le zoom
-//     percent: 0.1, 
-// });
 
 // Couleurs des genre de musique
 const genreColors = {
@@ -91,7 +83,7 @@ const genreColors = {
 };
 
 
-// Défini des avriables
+// Définition de divers vavriables
 let infoVideo = null
 let infoText = null;
 let infoImage = null;
@@ -122,74 +114,78 @@ fetch('Json/music.json')
         timelineContainer.width = totalWidth;
         timelineContainer.height = totalHeight;
 
-        // Défini la posY à 0
-        // let xPosition = -7250;
+        // Défini la pos Y et X à 0
         let yPosition = 0;
         let xPosition = 0;
 
         let date = 1;
 
+        // Définition du style pour les dates
         const styleDate = new PIXI.TextStyle({
-            fontFamily: 'Oswald, Roboto, sans-serif', // Use the font names you specified
+            fontFamily: 'Oswald, Roboto, sans-serif',
             fontSize: 55,
             fill: 0x000000
         });
 
-         // Inside your loop how do i make the line have more opacity ?
-            for (let year = 1880; year <= 2023; year += 10) {
-                const x1Position = (year - 1900) * 50;
-                let line = new PIXI.Graphics();
-                line.lineStyle(2, 0x000000, 0.2);
-                line.moveTo(x1Position, 0);
-                line.lineTo(x1Position, 5000);
-                timelineContainer.addChild(line);
-                let dateText = new PIXI.Text(year,styleDate);
-                dateText.anchor.set(0.5, 0);
-                dateText.x = x1Position;
-                dateText.y = -80;
-                line.addChild(dateText);
-                console.log(x1Position)
-            }
+        // Lignes vertical pour les années 1880 à 2023
+        for (let year = 1880; year <= 2023; year += 10) {
+            const x1Position = (year - 1900) * 50;
+            let line = new PIXI.Graphics();
+            line.lineStyle(2, 0x000000, 0.2);
+            line.moveTo(x1Position, 0);
+            line.lineTo(x1Position, 5000);
+            timelineContainer.addChild(line);
+            let dateText = new PIXI.Text(year,styleDate);
+            dateText.anchor.set(0.5, 0);
+            dateText.x = x1Position;
+            dateText.y = -80;
+            line.addChild(dateText);
+        }
+        
+        // Lignes pour les dates de 1800 à 1760
+        for (let year = 1825; year <= 1865; year += 10) {
+            const x2Position = (year - 1900) * 50;
+            let line = new PIXI.Graphics();
+            line.lineStyle(2, 0x000000, 0.2);
+            line.moveTo(x2Position, 0);
+            line.lineTo(x2Position, 5000);
+            timelineContainer.addChild(line);
+            let dateText = new PIXI.Text((year-65), styleDate);
+            dateText.anchor.set(0.5, 0);
+            dateText.x = x2Position;
+            dateText.y = -80;
+            line.addChild(dateText);
+        }
+
+        // Position pour le hachurage
+        const xPosition1 = -1000;
+        const xPosition2 = -1750;
+
+        // Pattern pour le hachurage
+        const hatchTexture = PIXI.Texture.from('style/hatch.png');
             
-            for (let year = 1825; year <= 1865; year += 10) {
-                const x2Position = (year - 1900) * 50;
-                let line = new PIXI.Graphics();
-                line.lineStyle(2, 0x000000, 0.2);
-                line.moveTo(x2Position, 0);
-                line.lineTo(x2Position, 5000);
-                timelineContainer.addChild(line);
-                let dateText = new PIXI.Text((year-65), styleDate);
-                dateText.anchor.set(0.5, 0);
-                dateText.x = x2Position;
-                dateText.y = -80;
-                line.addChild(dateText);
-                console.log(x2Position)
-            }
+        // Taille de la pattern
+        const hatchPatternWidth = xPosition2 - xPosition1;
 
+        // Création d'un TilingSprite pour afficher la pattern
+        const hatchPattern = new PIXI.TilingSprite(hatchTexture, hatchPatternWidth, 5000);
 
-            const xPosition1 = -1000;
-            const xPosition2 = -1750;
+        // Transparence de la pattern
+        hatchPattern.alpha = 0.2;
 
-            const hatchTexture = PIXI.Texture.from('style/hatch.png');
-    
-            const hatchPatternWidth = xPosition2 - xPosition1;
+        // Position X de la pattern
+        hatchPattern.x = xPosition1;
 
+        // Poistion Y de la pattern
+        hatchPattern.y = -1000;
 
-            const hatchPattern = new PIXI.TilingSprite(hatchTexture, hatchPatternWidth, 5000);
-            hatchPattern.alpha = 0.2;
+        // Ajout de la pattern sur notre Timeline
+        timelineContainer.addChild(hatchPattern);
 
-            hatchPattern.x = xPosition1;
-            hatchPattern.y = -1000;
-
-            timelineContainer.addChild(hatchPattern);
-
-            
-            
-        // Pour Chaque entrées
+        // Boucle pour chaque entrées
         for (let index = 0; index < allEntries.length; index++) {
 
-
-            // Tabkeau des sous-genres 
+            // Définition du tableau des sous-genres 
             let subgenreEntries = []
 
             // Remplie le tableau des sous-genres 
@@ -219,23 +215,27 @@ fetch('Json/music.json')
             // Tri par date
             subgenreEntries.sort((a, b) => a.date - b.date);
 
-            // Concole log des sous-genres
-            console.log(subgenreEntries)
+            // Console log des sous-genres
+            // console.log(subgenreEntries)
 
-            // Augement la positionY de la ligne de 200
+            // Augementation la positionY de la ligne du genre de 200
             yPosition += 200;
 
-            // Créer une ligne avec une lenght
+            // Création d'une ligne
             let myGraph = new PIXI.Graphics();
+
+            // Ajout la ligne à la Timeline
             timelineContainer.addChild(myGraph);
+
+            // Définition une longeur de ligne
             const lineLength = 6300;
 
-            // Défini le placement des points
+            // Définition du placement de la ligne sur l'axe X pour qu'elle commence au premier point de la ligne
             if (subgenreEntries[0] != undefined) {
                 fixedX = (subgenreEntries[0].date - 1900) * 50;
             }
 
-            // Défini le style de la ligne et la déplace au bonne endroit
+            // Définition le style de la ligne et la déplace au bonne endroit
             myGraph.lineStyle(2, 0x000000);
             myGraph.moveTo(fixedX, yPosition);
             myGraph.lineTo(50 + lineLength, yPosition);
@@ -243,90 +243,123 @@ fetch('Json/music.json')
 
             // Défini les couleurs pour chaque genre
             const genreColor = genreColors[allEntries[index].genre] || 0x000000;
-
-            // let pointSize = 20;
-
-
+            
+            // Pour chaque genre et sous-genre
             for (const entry of subgenreEntries) {
 
+                // Définition de x avec la date du genre
                 const x = parseInt(entry.date);
 
+                // Définition des varibales pour la taille des points et tailles des textes 
                 let pointSize;
                 let dateText;
                 let dateTitreText;
+
+                // Si c'est un genre principale
                 if (entry === subgenreEntries[0]) {
-                    // Check if it's the main genre
+
+                    // Modificatiion la taille des textes et du point
                     dateText = new PIXI.Text(entry.date, {fontSize: 33,fill: 0x000000,fontFamily: 'Oswald'});
-                    dateTitreText = new PIXI.Text(entry.genre, {fontSize: 38,fill: 0x000000,fontFamily: 'Oswald'}); 
-                    pointSize = 40; // Set the size for the main genre
-                } else {
+                    dateTitreText = new PIXI.Text(entry.genre, {fontSize: 38,fill: 0x000000,fontFamily: 'Oswald'});
+                    pointSize = 40;
+                } 
+                // Si ce n'est pas un genre principale
+                else {
+                    // Modificatiion la taille des textes et du point
                     dateText = new PIXI.Text(entry.date, {fontSize: 13,fill: 0x000000,fontFamily: 'Next, sans-serif'});
                     dateTitreText = new PIXI.Text(entry.genre, {fontSize: 16,fill: 0x000000});
-                    pointSize = 20; // Default size for other genres
+                    pointSize = 20;
                 }
 
+                // Définition du point
                 const point = new PIXI.Graphics();
+
+                // Remplisage du point avec la bonne couleur
                 point.beginFill(genreColor);
+
+                // Création du point
                 point.drawCircle(0, 0, pointSize);
-                // point.interactive = true;
+
+                // Définition des paramètres du point
                 point.eventMode = 'static';
                 point.buttonMode = true;
 
-                // Open and close modal code
+                // Ecoute du click sur le point
                 point.on("pointertap", () => {
+                    // Ouverture de la modal avec le genre en paramètre
                     openModal(entry);
                 });
 
-                // Place the text in the right x and y
+                // Placement du titre du genre
                 dateTitreText.anchor.set(0.5, 0);
                 dateTitreText.x = 0;
                 dateTitreText.y = (2.5*pointSize) * -1;
+
+                // Ajout le titre du genre au point
                 point.addChild(dateTitreText);
 
-                // Si la date avant 1710
+                // Si la date du genre est avant 1710
                 if (entry.date <= 1740) {
+
+                    // Placement du point en X
                     point.x = (entry.date - 2000) * 15;
                     entry.date = "Date inconnu"
                 } 
-                // Sinion si la date < 1880 et > 1710
+                // Sinion si la date du genre est < 1880 et > 1710
                 else if (entry.date < 1880 && entry.date > 1740) {
-                    let moveXP = parseInt(entry.date) + 65;
-                    point.x = (moveXP - 1900) * 50;
-                    console.log(point.x, moveXP)
+
+                    // Placement du point en X
+                    point.x = ((x + 65) - 1900) * 50;
                 } 
-                // Sinion si la date > 1880        // How can i add vertical line for every 10 year
+                // Sinion si la date du genre est > 1880  
                 else if (entry.date > 1880) {
+
+                    // Placement du point en X
                     point.x = (entry.date - 1900) * 50;
                 } 
+                // Sinon
                 else {
+
+                    // Placement du point en X
                     point.x = (entry.date - 1900) * 50;
                 }
                 
+                // Placement du point en Y
                 point.y = yPosition
-            
+                
+                //  Placement du de la date du genre
                 dateText.anchor.set(0.5, 0);
                 dateText.x = 0;
                 dateText.y = pointSize*1.5;
+
+                // Ajout de la date du genre au point
                 point.addChild(dateText);
 
+                // Ajout du genre dans u tableau avec son nom et ses coordonées
                 const entryData = [entry.genre, point.x + timelineContainer.x, point.y + timelineContainer.y];
                 availableGenres.push(entryData);
 
+                // Augementation de la position X de 200
                 xPosition += 200;
 
+                // Ajout du point à la Timeline
                 timelineContainer.addChild(point);
             }
+
+            // Ajout de la Timeline au viewport
             viewport.addChild(timelineContainer);
             timelineContainer.y = (viewport.worldHeight - totalHeight) / 2;
             timelineContainer.x = (viewport.worldWidth - totalWidth) / 2;
 
         }
+
+        // Définition de la barre de recherche
         const searchDropdown = document.getElementById('genre-search-dropdown');
         availableGenres.sort(); 
 
+        // Boucle pour chaque genre
         for (const entry of availableGenres) {
-            const genreName = entry[0]; // The genre name is the first element in the entry array
-
+            const genreName = entry[0];
             const option = document.createElement('option');
             option.value = genreName;
             option.text = genreName;
@@ -336,40 +369,45 @@ fetch('Json/music.json')
     .catch(error => {
         console.error('Error fetching JSON data:', error);
     });
-
+// Obtention du bouton de recherche par son ID
 const searchButton = document.getElementById("search");
 
+// Ajout d'un écouteur d'événement pour le clic sur le bouton de recherche
 searchButton.addEventListener("click", () => {
     searchvalue();
 });
 
+// Fonction de recherche
 function searchvalue() {
+    // Obtention du genre sélectionné dans la barre de recherche
     const selectedGenre = document.getElementById("genre-search-dropdown").value;
 
+    // Parcours des genres disponibles pour trouver celui sélectionné
     for (let i = 0; i < availableGenres.length; i++) {
         const genreEntry = availableGenres[i];
 
+        // Vérification si le genre actuel correspond au genre sélectionné
         if (genreEntry[0] === selectedGenre) {
             const x = genreEntry[1];
             const y = genreEntry[2];
 
-            // Animation durations
-            const zoomDuration = 1500; // Zoom-out duration in milliseconds
+            // Durée des animations de zoom
+            const zoomDuration = 1500; // Durée du zoom-out en millisecondes
 
-            // Zoom out animation
+            // Animation de zoom-out
             viewport.animate({
                 time: zoomDuration,
-                scale: 0.4, // Zoom out to 80% of the original scale
+                scale: 0.4, // Zoom-out à 80% de l'échelle d'origine
                 ease: "easeInOutSine",
                 callbackOnComplete: () => {
-                    // After zoom-out animation completes, perform zoom-in animation
+                    // Après l'animation de zoom-out, effectuer l'animation de zoom-in
                     viewport.animate({
                         time: zoomDuration,
-                        scale: 1, // Zoom back to the original scale
-                        position: new PIXI.Point(x, y), // Move to the new center
+                        scale: 1, // Zoom de retour à l'échelle d'origine
+                        position: new PIXI.Point(x, y), // Déplacement vers le nouveau centre
                         ease: "easeInOutSine",
                         callbackOnComplete: () => {
-                            // Zoom-in animation completed callback
+                            // Callback après l'animation de zoom-in
                         },
                     });
                 },
@@ -379,15 +417,18 @@ function searchvalue() {
         }
     }
 
-    alert("Genre not found: " + selectedGenre);
+    // Alerte si le genre n'est pas trouvé
+    alert("Genre introuvable : " + selectedGenre);
 }
 
-
+// Déclaration de variables pour le glisser-déposer de la modal
 let isDragging = false;
 let modalOffsetX, modalOffsetY;
 
+// Récupération de l'élément modal par son ID
 const modal = document.getElementById('modal');
 
+// Écouteur d'événement pour le clic sur la modal
 modal.addEventListener('mousedown', (e) => {
     isDragging = true;
     const rect = modal.getBoundingClientRect();
@@ -395,35 +436,41 @@ modal.addEventListener('mousedown', (e) => {
     modalOffsetY = e.clientY - rect.top;
 });
 
+// Écouteur d'événement pour le mouvement de la souris
 document.addEventListener('mousemove', (e) => {
     if (isDragging) {
         const rect = modal.getBoundingClientRect();
 
-        // Calculate new modal position
+        // Calcul de la nouvelle position de la modal
         var newX = e.clientX - modalOffsetX;
         var newY = e.clientY - modalOffsetY;
 
-        // Ensure the modal stays within the viewport
+        // Assurer que la modal reste dans le viewport
         newX = Math.max(0, Math.min(newX, window.innerWidth - rect.width));
         newY = Math.max(0, Math.min(newY, window.innerHeight - rect.height));
 
+        // Mise à jour de la position de la modal
         modal.style.left = newX + 'px';
         modal.style.top = newY + 'px';
     }
 });
 
+// Écouteur d'événement pour le relâchement de la souris
 document.addEventListener('mouseup', () => {
     isDragging = false;
 });
 
+// Écouteur d'événement pour le relâchement de la souris sur la modal
 modal.addEventListener('mouseup', () => {
     isDragging = false;
 });
 
+// Fonction pour ouvrir la modal avec les informations de l'entrée
 function openModal(entry) {
     const modal = document.getElementById("modal");
     modal.style.display = "block";
 
+    // Obtention des éléments de la modal par leurs IDs
     const genreName = document.getElementById("genre-name");
     const genreExtraitNom = document.getElementById("genre-extrait-nom");
     const genreDesc = document.getElementById("genre-description");
@@ -431,17 +478,17 @@ function openModal(entry) {
     const music = document.getElementById("music-video");
     const audio = document.getElementById("audio");
 
+    // Mise à jour du contenu de la modal avec les informations de l'entrée
     genreName.textContent = entry.genre;
     genreExtraitNom.textContent = entry["extrait-nom"];
     genreDesc.textContent = entry.description;
     genreImage.src = entry.image;
     music.src = `/music/${entry["extrait"]}.mp3`;
     audio.load();
-
 }
 
 const closeButton = document.getElementById("close-modal");
-
+// Écouteur d'événement pour fermer la modal
 closeButton.addEventListener("click", () => {
     const modal = document.getElementById("modal");
     modal.style.display = "none";
@@ -455,7 +502,7 @@ closeButton.addEventListener("click", () => {
 
 
 const reduceButton = document.getElementById("reduce-modal");
-
+// Écouteur d'événement pour réduire la modal
 reduceButton.addEventListener("click", () => {
     const modal = document.getElementById("modal");
     modal.classList.toggle('transition');
@@ -468,10 +515,4 @@ reduceButton.addEventListener("click", () => {
     extraitInto.classList.toggle("hide");
     
 });
-
-function getRandomIntInclusive(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-
+})
