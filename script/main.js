@@ -11,6 +11,7 @@ PIXI.Assets.addBundle('fonts', {
 let data;
 let app, viewport;
 let objects;
+let coordinates = {};
 
 
 function createApp(){
@@ -147,6 +148,9 @@ function createChilds(info, parent, depth, storageLocation){
         myNewParent.buttonMode = true;
 
         
+        //* variable temporaire pour modal
+        let tempInfo = info[key];
+        tempInfo.genre = key;
         //* value info[key]
         myNewParent.on("pointertap", () => {
 
@@ -159,9 +163,6 @@ function createChilds(info, parent, depth, storageLocation){
                     // Zoom-in animation completed callback
                 },
             });
-
-            let tempInfo = info[key];
-            tempInfo.genre = key;
             openModal(tempInfo);
         });
 
@@ -175,7 +176,11 @@ function createChilds(info, parent, depth, storageLocation){
         option.text = genreName;
         searchDropdown.appendChild(option);
 
-
+        coordinates[key] = {
+            x:x,
+            y:y,
+            info:tempInfo
+        };
 
 
 
@@ -218,6 +223,7 @@ try {
 //* -------------MODALE-------------------
 
 const modal = document.getElementById('modal');
+const search = document.getElementById("search-bar");
 
 function openModal(entry) {
     const modal = document.getElementById("modal");
@@ -228,13 +234,13 @@ function openModal(entry) {
     // pour éviter que l'ancienne image reste lors du chargement de la nouvelle categ selectionné
     genreImage.src = "";
 
+    modal.classList.contains('bottomleft') ? search.classList.remove("spaced") : search.classList.add("spaced");
+
 
     const genreExtraitNom = document.getElementById("genre-extrait-nom");
     const genreDesc = document.getElementById("genre-description");
     const music = document.getElementById("music-video");
     const audio = document.getElementById("audio");
-
-    console.log(entry.image);
 
     genreName.textContent = entry.genre;
     genreImage.src = entry.image;
@@ -252,6 +258,8 @@ const closeButton = document.getElementById("close-modal");
 closeButton.addEventListener("click", () => {
     const modal = document.getElementById("modal");
     modal.style.display = "none";
+
+    search.classList.remove("spaced");
 
     const music = document.getElementById("music-video");
     const audio = document.getElementById("audio");
@@ -271,6 +279,8 @@ reduceButton.addEventListener("click", () => {
     genreDesc.classList.toggle("hide");
     extraitInto.classList.toggle("hide");
     modal.classList.toggle("bottomleft");
+
+    modal.classList.contains('bottomleft') ? search.classList.remove("spaced") : search.classList.add("spaced");
 });
 
 
@@ -297,3 +307,20 @@ searchBar.addEventListener("click", function () {
   timeoutId = setTimeout(hideSearchBar, 15000); // Set the timeout value (5 seconds in this example)
 });
 timeoutId = setTimeout(hideSearchBar, 15000);
+
+document.getElementById("search").addEventListener("click", () => {
+    const searchedElement = coordinates[searchBar.value];
+
+    openModal(searchedElement.info);
+
+    viewport.animate({
+        time: 1000,
+        scale: 0.65, // Zoom back to the original scale
+        position: new PIXI.Point(searchedElement.x, searchedElement.y - 700), // Move to the new center
+        ease: "easeInOutSine",
+        callbackOnComplete: () => {
+            // Zoom-in animation completed callback
+        },
+    });
+
+})

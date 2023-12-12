@@ -143,6 +143,7 @@ a{
 #search {
   border: none;
   background-color: rgba(255, 255, 255);
+  cursor: pointer;
 }
 
 #search-icon {
@@ -172,4 +173,9 @@ a{
 
 #genre-search-dropdown:focus {
   outline: none;
+}
+
+
+#search-bar.spaced{
+  left: 25%;
 }
