@@ -260,14 +260,14 @@ fetch('Json/music.json')
                 if (entry === subgenreEntries[0]) {
 
                     // Modificatiion la taille des textes et du point
-                    dateText = new PIXI.Text(entry.date, {fontSize: 33,fill: 0x000000,fontFamily: 'Oswald'});
+               
                     dateTitreText = new PIXI.Text(entry.genre, {fontSize: 38,fill: 0x000000,fontFamily: 'Oswald'});
                     pointSize = 40;
                 } 
                 // Si ce n'est pas un genre principale
                 else {
                     // Modificatiion la taille des textes et du point
-                    dateText = new PIXI.Text(entry.date, {fontSize: 13,fill: 0x000000,fontFamily: 'Next, sans-serif'});
+                   
                     dateTitreText = new PIXI.Text(entry.genre, {fontSize: 16,fill: 0x000000});
                     pointSize = 20;
                 }
@@ -327,7 +327,11 @@ fetch('Json/music.json')
                 
                 // Placement du point en Y
                 point.y = yPosition
-                
+                if (entry === subgenreEntries[0]) {
+                    dateText = new PIXI.Text(entry.date, {fontSize: 33,fill: 0x000000,fontFamily: 'Oswald'});
+                } else {
+                    dateText = new PIXI.Text(entry.date, {fontSize: 13,fill: 0x000000,fontFamily: 'Next, sans-serif'});
+                }
                 //  Placement du de la date du genre
                 dateText.anchor.set(0.5, 0);
                 dateText.x = 0;
@@ -421,13 +425,50 @@ function searchvalue() {
     // Alerte si le genre n'est pas trouvé
     alert("Genre introuvable : " + selectedGenre);
 }
-
 // Déclaration de variables pour le glisser-déposer de la modal
 let isDragging = false;
 let modalOffsetX, modalOffsetY;
 
 // Récupération de l'élément modal par son ID
 const modal = document.getElementById('modal');
+
+// Écouteur d'événement pour le début du toucher sur la modal
+modal.addEventListener('touchstart', (e) => {
+    isDragging = true;
+    const rect = modal.getBoundingClientRect();
+    modalOffsetX = e.touches[0].clientX - rect.left;
+    modalOffsetY = e.touches[0].clientY - rect.top;
+    e.preventDefault(); // Prevent default behavior to avoid issues with touch events
+});
+
+// Écouteur d'événement pour le mouvement du doigt sur l'écran
+document.addEventListener('touchmove', (e) => {
+    if (isDragging) {
+        const rect = modal.getBoundingClientRect();
+
+        // Calcul de la nouvelle position de la modal
+        var newX = e.touches[0].clientX - modalOffsetX;
+        var newY = e.touches[0].clientY - modalOffsetY;
+
+        // Assurer que la modal reste dans le viewport
+        newX = Math.max(0, Math.min(newX, window.innerWidth - rect.width));
+        newY = Math.max(0, Math.min(newY, window.innerHeight - rect.height));
+
+        // Mise à jour de la position de la modal
+        modal.style.left = newX + 'px';
+        modal.style.top = newY + 'px';
+    }
+});
+
+// Écouteur d'événement pour le relâchement du doigt sur l'écran
+document.addEventListener('touchend', () => {
+    isDragging = false;
+});
+
+// Écouteur d'événement pour le relâchement du doigt sur la modal
+modal.addEventListener('touchend', () => {
+    isDragging = false;
+});
 
 // Écouteur d'événement pour le clic sur la modal
 modal.addEventListener('mousedown', (e) => {

@@ -1,6 +1,34 @@
 {
   "War songs" : {
-    "name": "War songs",
+    "subgenre" : {
+      "Napoleonic Wars": {
+        "main-artist": ["Luigi Boccherini", "André Grétry", "Ludwig van Beethoven", "John Field", "Gioachino Rossini"],
+        "description": "Les compositions musicales de l'époque napoléonienne étaient des échos sonores des émotions et des réalités de cette période. Créées par divers compositeurs, ces mélodies ont souvent servi à inspirer le moral des troupes sur le champ de bataille et à susciter le sentiment de fierté nationale. Qu'elles soient martiales, évocatrices de la grandeur militaire, ou exprimant la nostalgie des soldats loin de chez eux, ces musiques ont transcendé les frontières, devenant des éléments culturels partagés. Des fanfares triomphantes aux airs mélancoliques, ces compositions sonores représentent aujourd'hui des témoignages vivants de l'atmosphère complexe de l'époque napoléonienne",
+        "extrait": "Napoleonic-wars",
+        "extrait-id": "njw-g09XPmM",
+        "extrait-nom": "'La victoire est à nous' By André Ernest Modeste Grétry",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Napoleon_%28cropped%29.jpg",
+        "date": "1720"
+      },
+      "World War 1": {
+        "main-artist": ["Irving Berlin", "George M. Cohan", "Ivor Novello", "Eric Bogle", "John McCormack"],
+        "description": "Les chansons de la Première Guerre mondiale étaient des témoignages musicaux des émotions et des expériences de l'époque. Créées par divers compositeurs, ces mélodies ont servi de réconfort aux soldats et ont renforcé le sentiment de solidarité à l'arrière. Qu'elles soient patriotiques, nostalgiques ou reflétant les défis de la guerre, ces chansons ont transcédé les frontières, devenant des expressions culturelles partagées",
+        "extrait": "WW1",
+        "extrait-id": "4TyvVzNdmp8",
+        "extrait-nom": "'Here We Are, Here We Are Again!' By Frederick Wheeler",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/c/ca/WW1_-_Soldiers_from_New_Zealand_going_to_the_front_%2814820744153%29.jpg",
+        "date": "1914"
+      },
+      "World War 2": {
+        "main-artist": ["Johnny Mercer", "Dame Vera Lynn", "Sammy Cahn and Jule Styne", "Herms Niel", "Dmitri Shostakovich"],
+        "description": "Les chansons de la Seconde Guerre mondiale exprimaient puissamment les émotions et la solidarité de l'époque. Composées par divers artistes, elles étaient des hymnes de réconfort pour les soldats et de l'unité pour ceux à l'arrière. Des ballades émouvantes aux rythmes entraînants du swing, ces chansons restent des témoins poignants de la résilience humaine au cœur du tumulte de la guerre",
+        "extrait": "WW2",
+        "extrait-id": "9klEsdUxNvY",
+        "extrait-nom": "'Erika' by Herms Niel",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/d/df/Danny_Kaye_ww2_45.jpg",
+        "date": "1939"
+      }
+    },
     "main-artist": ["Dmitri Shostakovich", "Samuel Barber", "Vera Lynn", "John Williams", "Hans Zimmer"],
     "description": "La musique de guerre englobe un large éventail de compositions associées aux thèmes de la guerre, des conflits, du patriotisme et de l'héroïsme. Ces compositions peuvent être instrumentales ou comporter des éléments vocaux, et visent souvent à transmettre les aspects émotionnels et dramatiques des expériences de guerre. La musique de guerre a été utilisée historiquement pour inspirer les troupes, commémorer les soldats tombés au combat ou refléter les sentiments sociaux et politiques d'une période particulière. Son style et son ton peuvent varier considérablement, du martial et triomphant au sombre et réfléchi",
     "extrait": "War-songs",
@@ -339,6 +367,15 @@
         "extrait-nom": "'Tonight' by Headhunterz & Wildstylez vs Noisecontrollers",
         "image": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Electric_Love_2022_-_Stefan_Steinmetz.jpg",
         "date": "1998"
+      },
+      "Hardcore" : {
+        "main-artist": ["Angerfist", "Miss K8", "Mad Dog", "Nosferatu", "Paul Elstak"],
+        "description": "La musique hardcore est une fusion sonore intense, caractérisée par des beats puissants et des sonorités électroniques abrasives. Créée par une variété d'artistes, cette musique offre une expérience immersive, transportant les auditeurs dans un monde sonique dynamique. Avec ses basses profondes et ses rythmes frénétiques, l'électro hardcore transcende les frontières musicales, devenant une expression culturelle partagée. Des mélodies percutantes aux éléments électroniques agressifs, cette forme de musique électronique demeure une manifestation vibrante de l'audace artistique au sein de la scène électro",
+        "extrait": "Hardcore",
+        "extrait-id": "tuWDN7w2eJc",
+        "extrait-nom": "'On The Edge' by Tha Playah",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Angerfist_%284%29.JPG",
+        "date": "1992"
       },
       "Drum and bass" : {
         "main-artist": ["Andy C", "Noisia", "LTJ Bukem", "Goldie", "Pendulum"],
