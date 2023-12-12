@@ -38,7 +38,11 @@ viewport.drag({
     // Empêche over-zooming 
     clampWheel: true, 
     wheel: true,
-});
+})
+.moveCenter(viewport.worldWidth / 2, -5000)
+.pinch()
+.wheel()
+.decelerate();
 
 // Défini les valeurs de zoom
 viewport.clampZoom({
@@ -65,10 +69,10 @@ viewport.clamp({
 });
 
 
-viewport.wheel({
-    // Adoucir le zoom
-    percent: 0.1, 
-});
+// viewport.wheel({
+//     // Adoucir le zoom
+//     percent: 0.1, 
+// });
 
 // Couleurs des genre de musique
 const genreColors = {
@@ -282,6 +286,7 @@ fetch('Json/music.json')
                 // Si la date avant 1710
                 if (entry.date <= 1740) {
                     point.x = (entry.date - 2000) * 15;
+                    entry.date = "Date inconnu"
                 } 
                 // Sinion si la date < 1880 et > 1710
                 else if (entry.date < 1880 && entry.date > 1740) {
@@ -298,12 +303,6 @@ fetch('Json/music.json')
                 }
                 
                 point.y = yPosition
-
-                if (entry.date <= 1740) {
-                    entry.date = "Date inconnu"
-                }
-
-                
             
                 dateText.anchor.set(0.5, 0);
                 dateText.x = 0;
@@ -337,8 +336,6 @@ fetch('Json/music.json')
     .catch(error => {
         console.error('Error fetching JSON data:', error);
     });
-//const searchButton = document.getElementById("search");
-
 
 const searchButton = document.getElementById("search");
 
@@ -386,12 +383,6 @@ function searchvalue() {
 }
 
 
-
-
-
-
-
-
 let isDragging = false;
 let modalOffsetX, modalOffsetY;
 
@@ -406,23 +397,18 @@ modal.addEventListener('mousedown', (e) => {
 
 document.addEventListener('mousemove', (e) => {
     if (isDragging) {
+        const rect = modal.getBoundingClientRect();
+
+        // Calculate new modal position
         var newX = e.clientX - modalOffsetX;
         var newY = e.clientY - modalOffsetY;
-        if (newY < 1) {
-            newY = 0;
-        }
-        if (newX < 1) {
-            newX = 0;
-        }
-        if (newX > thewidth / 2) {
-            newX = thewidth / 2;
-        }
-        if (newY > theheight / 2) {
-            newY = theheight / 2;
-        }
+
+        // Ensure the modal stays within the viewport
+        newX = Math.max(0, Math.min(newX, window.innerWidth - rect.width));
+        newY = Math.max(0, Math.min(newY, window.innerHeight - rect.height));
+
         modal.style.left = newX + 'px';
         modal.style.top = newY + 'px';
-        console.log(thewidth)
     }
 });
 
@@ -473,13 +459,14 @@ const reduceButton = document.getElementById("reduce-modal");
 reduceButton.addEventListener("click", () => {
     const modal = document.getElementById("modal");
     modal.classList.toggle('transition');
+    modal.classList.toggle("bottomleft");
     const genreImage = document.getElementById("genre-image");
     const genreDesc = document.getElementById("genre-description");
     const extraitInto = document.getElementById("extrait-into");
     genreDesc.classList.toggle("hide");
     genreImage.classList.toggle("hide");
     extraitInto.classList.toggle("hide");
-    modal.classList.toggle("bottomleft");
+    
 });
 
 function getRandomIntInclusive(min, max) {

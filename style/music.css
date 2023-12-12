@@ -5,8 +5,8 @@
   z-index: 1;
   left: 0;
   top: 0;
-  width: 50vw;
-  min-height: 50vh;
+  width: 700px;
+  min-height: 300px;
   overflow: hidden;
   user-select: none;
   box-shadow: 0 0 20px #0000002e;
@@ -28,30 +28,12 @@
 #genre-image {
   width: 10vw;
   height: 100%;
-  min-height: 50vh;
+  min-height: 300px;
   object-fit: cover;
   user-select: none;
   pointer-events:none;
 }
-#genre-description {
-  text-align: justify;
-}
-#audio-song {
-  /* background-color: #dfdfdf; */
-  border: rgba(0, 0, 0, 0.192) solid 1px;
-  width: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 5px;
-  /* box-shadow: 0 0 20px #0000002e; */
-  margin-bottom: 10px;
-}
-#genre-extrait-nom {
-  margin: 0;
-  padding: 0;
-}
+
 .draggable {
   cursor: move;
 }
