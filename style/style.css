@@ -28,53 +28,37 @@ a{
    color: inherit;
 }
 
+#support {
+    width: 100%;
+    height: 100vh;
+}
   
+
+
+
 .modal {
     display: none;
     position: fixed;
     z-index: 1;
-    left: 0;
-    top: 0;
+    left: 0; top: 0;
     width: 50vw;
-    min-height: 50vh;
     overflow: hidden;
     user-select: none;
+
+    width: 25%;
+    height: 100vh;
+    padding: 40px 35px;
     box-shadow: 0 0 20px #0000002e;
-    background-color: rgba(255, 255, 255);
-}
-  
-.transition {
-  /* Apply transition only when the "transition" class is present */
-  transition: transform 0.3s ease;
+    background-color: white;
 }
   
 #genre-name, #close-modal, #reduce-moda {
     font-family: NextBro, sans-serif;
 }
 
-#search-bar {
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    margin: 20px;
-    padding: 20px;
-    overflow: hidden;
-    box-shadow: 0 0 10px #0000002e;
-    background-color: rgba(255, 255, 255);
-    display: block;
-}
-    
-.draggable {
-  cursor: move;
-}
 
-.modal-content {
-    background-color: #fff;
-    padding: 20px;
-}
-
-.close {
+/* close button */
+#close-modal {
     color: #aaa;
     float: right;
     font-size: 28px;
@@ -82,12 +66,8 @@ a{
     cursor: pointer;
 }
 
-.close:hover {
-    color: red;
-}
-
-
-.reduce {
+/* reduce button */
+#reduce-modal {
     color: #aaa;
     float: right;
     margin-right: 20px;
@@ -96,27 +76,33 @@ a{
     cursor: pointer;
 }
 
-.reduce:hover {
-    color: cornflowerblue;
+#close-modal:hover {color: red;}
+#reduce-modal:hover {color: cornflowerblue;}
+
+.modal h2{
+    padding-top: 35px;
+    margin-bottom: 20px;
 }
 
-#support {
-    width: 100%;
-    height: 100vh;
-}
-  
+#genre-description{margin-bottom: 20px;}
+#extrait-into{margin-bottom: 5px;}
 
-  
-.hide{
-    display: none;
+#genre-extrait-nom{
+    font-weight: bold;
+    margin-bottom: 10px;
 }
+
+
+.hide{display: none;}
 
 .bottomleft {
+    position: absolute;
     bottom: 0;
     right: 0;
-    position: absolute;
-    left: auto !important;
-    top: auto !important;
-    min-height: auto !important;
-    width: auto !important;
+    left: auto;
+    top: auto;
+
+    height: auto;
+    width: auto;
+    padding: 10px 30px;
 }

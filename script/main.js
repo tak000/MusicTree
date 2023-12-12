@@ -195,7 +195,6 @@ function createChilds(info, parent, depth, storageLocation){
 
 
 
-
 try {
     const response = await fetch("/categorized-subset.json");
     const json = await response.json();
@@ -216,46 +215,7 @@ try {
 
 
 
-//* ----------------------------------------------------------------CODE MODAL----------------------------------------------------------------
-//* ----------------------------------------------------------------CODE MODAL----------------------------------------------------------------
-//* ----------------------------------------------------------------CODE MODAL----------------------------------------------------------------
-
-
-
-let isDragging = false;
-let modalOffsetX, modalOffsetY;
-
 const modal = document.getElementById('modal');
-
-modal.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    const rect = modal.getBoundingClientRect();
-    modalOffsetX = e.clientX - rect.left;
-    modalOffsetY = e.clientY - rect.top;
-});
-
-document.addEventListener('mousemove', (e) => {
-    if (isDragging) {
-        var newX = e.clientX - modalOffsetX;
-        var newY = e.clientY - modalOffsetY;
-
-        newY < 1 ? newY = 0 : "";
-        newX < 1 ? newX = 0 : "";
-
-        newX > window.innerWidth/2 ? newX = window.innerWidth/2 : "";
-        newY > window.innerWidth/2 ? newY = window.innerWidth/2 : "";
-
-        modal.style.left = newX + 'px';
-        modal.style.top = newY + 'px';
-    }
-});
-
-[document, modal].forEach((element) => {
-    element.addEventListener('mouseup', () => {
-        isDragging = false;
-    });
-});
-
 
 function openModal(entry) {
     const modal = document.getElementById("modal");
@@ -278,7 +238,6 @@ function openModal(entry) {
 
 
 const closeButton = document.getElementById("close-modal");
-
 closeButton.addEventListener("click", () => {
     const modal = document.getElementById("modal");
     modal.style.display = "none";
@@ -291,10 +250,8 @@ closeButton.addEventListener("click", () => {
 
 
 const reduceButton = document.getElementById("reduce-modal");
-
 reduceButton.addEventListener("click", () => {
     const modal = document.getElementById("modal");
-    modal.classList.toggle('transition');
     const genreDesc = document.getElementById("genre-description");
     const extraitInto = document.getElementById("extrait-into");
     genreDesc.classList.toggle("hide");
