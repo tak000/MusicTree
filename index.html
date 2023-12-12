@@ -12,9 +12,17 @@
     <div id="support"></div>
 
     <div id="modal" class="modal draggable">
-      <span span id="close-modal">&times;</span>
-      <span id="reduce-modal">&Omega;</span>
+      <span span id="close-modal">
+        <span class="material-symbols-outlined">close</span>
+      </span>
+
+      <span id="reduce-modal">
+        <span class="material-symbols-outlined">pip</span>
+      </span>
+
       <h2 id="genre-name"></h2>
+
+      <img src="" alt="">
       
       <p id="genre-description"></p>
       <p id="extrait-into">L'extrait de musique : </p>
@@ -22,6 +30,19 @@
       <audio controls id="audio">
         <source src="" type="audio/mp3" id="music-video">
       </audio>
+    </div>
+
+    <div id="search-bar">
+      <div id="search-icon">
+        <span  class="material-symbols-outlined">expand_content</span>
+      </div>
+      <div id="search-content">
+        <label for="genre-search">Rechercher un genre : </label>
+        <!-- Menu dropdown to display music genres -->
+        <select id="genre-search-dropdown"></select>
+        <!-- Button for search bar -->
+        <input type="submit" value="Search" id="search" name="search" class="material-symbols-outlined">
+      </div>
     </div>
     
 

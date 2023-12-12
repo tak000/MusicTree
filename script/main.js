@@ -139,17 +139,12 @@ function createChilds(info, parent, depth, storageLocation){
             y -= heightModifier;
         }
 
-
-
-
         //* node creation
         let myNewParent = new Node(30, '0x000000', x, y, key, maxScale, visibleOnZoom);
 
         // point.interactive = true;
         myNewParent.eventMode = 'static';
         myNewParent.buttonMode = true;
-
-
 
         
         //* value info[key]
@@ -172,16 +167,24 @@ function createChilds(info, parent, depth, storageLocation){
 
 
 
+        // Définition de la barre de recherche
+        const searchDropdown = document.getElementById('genre-search-dropdown');
+        const genreName = key;
+        const option = document.createElement('option');
+        option.value = genreName;
+        option.text = genreName;
+        searchDropdown.appendChild(option);
+
+
+
+
+
         //* structure orgenisation
         storageLocation[key] = {object: myNewParent, childs: {}}
-
-
 
         //* lines between parent and child
         let curve = new BezierCurve(parent, myNewParent, {x: 0.73, y: 0.73}, {x: 1, y: 0.55});
         viewport.addChild(curve);
-
-
 
         //* recursive call
         if(info[key].subgenre != undefined){
@@ -212,6 +215,7 @@ try {
 
 
 
+//* -------------MODALE-------------------
 
 const modal = document.getElementById('modal');
 
@@ -220,12 +224,22 @@ function openModal(entry) {
     modal.style.display = "block";
 
     const genreName = document.getElementById("genre-name");
+    const genreImage = document.querySelector(".modal>img");
+    // pour éviter que l'ancienne image reste lors du chargement de la nouvelle categ selectionné
+    genreImage.src = "";
+
+
     const genreExtraitNom = document.getElementById("genre-extrait-nom");
     const genreDesc = document.getElementById("genre-description");
     const music = document.getElementById("music-video");
     const audio = document.getElementById("audio");
 
+    console.log(entry.image);
+
     genreName.textContent = entry.genre;
+    genreImage.src = entry.image;
+    genreImage.alt = "Illustration: "+entry.genre
+
     genreExtraitNom.textContent = entry["extrait-nom"];
     genreDesc.textContent = entry.description;
     music.src = `/music/${entry["extrait"]}.mp3`;
@@ -250,8 +264,36 @@ const reduceButton = document.getElementById("reduce-modal");
 reduceButton.addEventListener("click", () => {
     const modal = document.getElementById("modal");
     const genreDesc = document.getElementById("genre-description");
+    const genreImage = document.querySelector(".modal>img")
     const extraitInto = document.getElementById("extrait-into");
+
+    genreImage.classList.toggle("hide");
     genreDesc.classList.toggle("hide");
     extraitInto.classList.toggle("hide");
     modal.classList.toggle("bottomleft");
 });
+
+
+//* --------------------SEARCH-------------------------------
+
+const searchBar = document.getElementById("genre-search-dropdown");
+const searchIcon = document.getElementById("search-icon");
+const searchContent = document.getElementById("search-content");
+
+let timeoutId;
+
+const hideSearchBar = () => {
+    searchContent.classList.add("active");
+};
+
+searchIcon.addEventListener("click", function () {
+    searchContent.classList.toggle("active");
+  clearTimeout(timeoutId);
+  timeoutId = setTimeout(hideSearchBar, 15000);
+});
+
+searchBar.addEventListener("click", function () {
+  clearTimeout(timeoutId);
+  timeoutId = setTimeout(hideSearchBar, 15000); // Set the timeout value (5 seconds in this example)
+});
+timeoutId = setTimeout(hideSearchBar, 15000);
