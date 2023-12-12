@@ -3,13 +3,14 @@ import * as PIXI from 'pixi.js';
 import {
     Viewport
 } from 'pixi-viewport';
+import gsap from 'gsap';
 
 document.fonts.ready.then(function () {
 const support = document.getElementById('support');
 let theheight = window.innerHeight;
 let thewidth = window.innerWidth;
 
-// Définition de l'application
+// Définition de l'application  
 let app = new PIXI.Application({
     backgroundColor: 0xEEEEEE,
     antialias: true,
@@ -156,7 +157,7 @@ fetch('Json/music.json')
             dateText.y = -80;
             line.addChild(dateText);
         }
-
+        
         // Position pour le hachurage
         const xPosition1 = -1000;
         const xPosition2 = -1750;
@@ -516,3 +517,4 @@ reduceButton.addEventListener("click", () => {
     
 });
 })
+

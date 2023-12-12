@@ -1,5 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const searchBar = document.getElementById("genre-search-dropdown");
+  const searchBar = document.getElementById("genre-search-dropdown");
     const searchIcon = document.getElementById("search-icon");
     const searchContent = document.getElementById("search-content");
   
@@ -20,5 +19,3 @@ document.addEventListener("DOMContentLoaded", function () {
       timeoutId = setTimeout(hideSearchBar, 15000); // Set the timeout value (5 seconds in this example)
     });
     timeoutId = setTimeout(hideSearchBar, 15000);
-});
-  
