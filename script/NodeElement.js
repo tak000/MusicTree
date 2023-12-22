@@ -32,6 +32,8 @@ class Node extends PIXI.Graphics {
         this.label.anchor.set(0.5);
         this.addChild(this.label);
 
+
+
     }
 }
 

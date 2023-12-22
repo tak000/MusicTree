@@ -8,6 +8,7 @@ PIXI.Assets.addBundle('fonts', {
 });
 // ! 3840 2560
 
+
 let data;
 let app, viewport;
 let objects;
@@ -15,12 +16,14 @@ let coordinates = {};
 
 
 function createApp(){
+  
     app = new PIXI.Application({
         backgroundColor:0xDDDDDD,
         antialias:true,
         width: window.innerWidth,
         height: window.innerHeight
     });
+
     document.getElementById('support').appendChild(app.view);
 
     viewport = new Viewport({ 
@@ -305,7 +308,6 @@ reduceButton.addEventListener("click", () => {
     modal.classList.contains('bottomleft') ? search.classList.remove("spaced") : search.classList.add("spaced");
 });
 
-
 //* --------------------SEARCH-------------------------------
 
 const searchBar = document.getElementById("genre-search-dropdown");
@@ -335,6 +337,7 @@ document.getElementById("search").addEventListener("click", () => {
 
     openModal(searchedElement.info);
 
+
     viewport.animate({
         time: 1000,
         scale: 0.65, // Zoom back to the original scale
@@ -344,5 +347,4 @@ document.getElementById("search").addEventListener("click", () => {
             // Zoom-in animation completed callback
         },
     });
-
 })
