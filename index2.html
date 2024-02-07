@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang='fr'>
+<head>
+    <meta charset='UTF-8'>
+    <link rel='stylesheet' href='style/style.css'>
+    <script src='script/main.js' type="module"></script>
+    <title></title>
+</head>
+<body>
+
+  <a href="index.html" id="swap-icon">
+    <span class="material-symbols-outlined">
+      swap_horiz
+    </span>
+  </a>
+    
+    <div id="support"></div>
+
+    <div id="modal" class="modal draggable">
+      <span span id="close-modal">
+        <span class="material-symbols-outlined">close</span>
+      </span>
+
+      <span id="reduce-modal">
+        <span class="material-symbols-outlined">pip</span>
+      </span>
+
+      <h2 id="genre-name"></h2>
+
+      <img src="" alt="">
+      
+      <p id="genre-description"></p>
+      <p id="genre-extrait-nom"></p>
+      <audio controls id="audio">
+        <source src="" type="audio/mp3" id="music-video">
+      </audio>
+    </div>
+
+    <div id="search-bar">
+      <div id="search-icon">
+        <span  class="material-symbols-outlined">search</span>
+      </div>
+      <div id="search-content">
+        <label for="genre-search">Rechercher un genre : </label>
+        <!-- Menu dropdown to display music genres -->
+        <select id="genre-search-dropdown"></select>
+        <!-- Button for search bar -->
+        <input type="submit" value="Search" id="search" name="search" class="material-symbols-outlined">
+      </div>
+    </div>
+    
+
+    
+</body>
+</html>
